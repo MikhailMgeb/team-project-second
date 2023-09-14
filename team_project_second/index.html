@@ -5,19 +5,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Камень, ножницы, бумага</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="page">
   <div class="app"></div>
   <script>
+    const app = document.querySelector('.app')
+
     window.application = {
       blocks: {},
       screens: {},
       renderScreen: function (screenName) { },
-      renderBlock: function (blockName, container) { },
+      renderBlock: function (blockName, container) {
+        container.appendChild(blockName);
+        app.appendChild(container);
+      },
       timers: []
     }
+    console.log(window.application)
   </script>
+  <script src="/team_project_second/js/blocks.js"></script>
+  <script src="/team_project_second/js/renderBlock.js"></script>
+  <script src="/team_project_second/js/renderScreen.js"></script>
+  <script src="/team_project_second/js/screens.js"></script>
+  <script src="/team_project_second/js/timers.js"></script>
 </body>
 
 </html>
