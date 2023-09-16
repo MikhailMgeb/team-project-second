@@ -8,30 +8,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body class="page">
+<body class="main">
   <div class="app"></div>
   <script>
-    const app = document.querySelector('.app')
-
     window.application = {
       blocks: {},
       screens: {},
       renderScreen: function (screenName) { },
-      renderBlock: function (blockName, container) {
-        container.appendChild(blockName);
-        app.appendChild(container);
-      },
+      renderBlock: function (blockName, container) {},
       timers: []
     }
     console.log(window.application)
   </script>
-  <script src="/team_project_second/js/blocks.js"></script>
-  <script src="/team_project_second/js/renderBlock.js"></script>
-  <script src="/team_project_second/js/renderScreen.js"></script>
-  <script src="/team_project_second/js/screens.js"></script>
-  <script src="/team_project_second/js/timers.js"></script>
+  <script src="/js/blocks.js"></script>
+  <script src="/js/renderBlock.js"></script>
+  <script src="/js/screens.js"></script>
+  <script src="/js/renderScreen.js"></script>
 </body>
 
 </html>
