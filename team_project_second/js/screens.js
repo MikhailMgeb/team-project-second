@@ -31,6 +31,15 @@ window.application.screens['autorizationScreen'] = renderAutorizationScreen;
 
 
 function renderLobbyScreen() {
+  fetch(`https://skypro-rock-scissors-paper.herokuapp.com/player-status?token=${window.application.token}`)
+    .then((response) => response.json())
+    .then((data) => { console.log(data) })
+
+  fetch(`https://skypro-rock-scissors-paper.herokuapp.com/start?token=${window.application.token}`)
+    .then((response) => response.json())
+    .then((data) => { console.log(data) })
+
+
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
@@ -42,6 +51,9 @@ function renderLobbyScreen() {
   const content = document.createElement('div');
   content.classList.add('wrapper');
 
+  const blockListPlayer = document.createElement('div');
+  blockListPlayer.classList.add('blockListPlayer');
+
   app.appendChild(titleLobby);
   app.appendChild(content);
 
@@ -49,9 +61,21 @@ function renderLobbyScreen() {
     'mainImage',
     document.querySelector('.wrapper')
   );
-  window.application.renderBlock('input', document.querySelector('.wrapper'));
-  window.application.renderBlock('input', document.querySelector('.wrapper'));
-  window.application.renderBlock('input', document.querySelector('.wrapper'));
+
+  fetch(`https://skypro-rock-scissors-paper.herokuapp.com/player-list`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.list);
+      for (data of data.list) {
+        window.application.renderBlock('player-list', document.querySelector('.wrapper'));
+        document.querySelector('.input-User').textContent = date.login
+      }
+    })
+    
+  // window.application.renderBlock('input', document.querySelector('.wrapper'));
+  // window.application.renderBlock('input', document.querySelector('.wrapper'));
+  // window.application.renderBlock('input', document.querySelector('.wrapper'));
+
   window.application.renderBlock(
     'playLobbyButton',
     document.querySelector('.wrapper')

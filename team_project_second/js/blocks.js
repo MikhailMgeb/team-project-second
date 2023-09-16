@@ -9,23 +9,30 @@ function renderMainButton(container) {
 
     mainButton.addEventListener('click', () => {
         mainButton.disabled = true;
-        //loader.classList.remove('hidden');
         //errors.textContent = '';
         //results.textContent = '';
         const loginUser = inputUser.value;
 
 
-        fetch(`https://skypro-rock-scissors-paper.herokuapp.com/ping`)
+        fetch(`https://skypro-rock-scissors-paper.herokuapp.com/login?login=${inputUser.value}`)
             .then((response) => response.json())
-            .then((result) => {
-                console.log(result)
+            .then((results) => {
+                console.log(results);
+
+                if (results.token) {
+                    window.application.token = results.token;
+                    window.application.renderScreen('renderLobbyScreen');
+                }
+
+                // if(results.status === 'error'){
+                //     console.log(new Error("Ого, ошибка! o_O"))
+                // }
             })
             .catch((error) => {
-                // errors.textContent = 'Error, try again';
+                console.log(error);
             })
             .finally(() => {
                 mainButton.disabled = false;
-                //loader.classList.add('hidden');
             });
         console.log('click');
     });
@@ -76,6 +83,18 @@ function renderInput(container) {
 }
 
 window.application.blocks['input'] = renderInput;
+
+///// ----------------------------------
+function playerList(container) {
+    const button = document.createElement('button');
+    button.classList.add('input-User');
+
+    container.appendChild(button);
+}
+
+window.application.blocks['player-list'] = playerList;
+
+///// ----------------------------------
 
 function renderPlayHallButton(container) {
     const playHallButton = document.createElement('button');
