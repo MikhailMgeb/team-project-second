@@ -1,7 +1,6 @@
 function renderAutorizationScreen() {
   const app = document.querySelector('.app');
-  app.textContent = '';
-
+  app.innerHTML = '';
 
   const title = document.createElement('h1');
   title.classList.add('main-tittle');
@@ -33,7 +32,7 @@ window.application.screens['autorizationScreen'] = renderAutorizationScreen;
 
 function renderLobbyScreen() {
   const app = document.querySelector('.app');
-  app.textContent = '';
+  app.innerHTML = '';
 
 
   const titleLobby = document.createElement('h1');
@@ -62,10 +61,9 @@ function renderLobbyScreen() {
 window.application.screens['renderLobbyScreen'] = renderLobbyScreen;
 
 
-
 function renderWaitingScreen() {
   const app = document.querySelector('.app');
-  app.textContent = '';
+  app.innerHTML = '';
 
   const titleWaiting = document.createElement('h1');
   titleWaiting.classList.add('main-tittle');
@@ -85,10 +83,9 @@ function renderWaitingScreen() {
 window.application.screens['renderWaitingScreen'] = renderWaitingScreen;
 
 
-
 function renderPlayScreen() {
   const app = document.querySelector('.app');
-  app.textContent = '';
+  app.innerHTML = '';
 
   const titlePlay = document.createElement('h1');
   titlePlay.classList.add('main-tittle');
@@ -114,7 +111,7 @@ window.application.screens['renderPlayScreen'] = renderPlayScreen;
 
 function renderPlayLoserScreen() {
   const app = document.querySelector('.app');
-  app.textContent = '';
+  app.innerHTML = '';
 
   const titlePlayLoser = document.createElement('h1');
   titlePlayLoser.classList.add('main-tittle');
@@ -138,7 +135,7 @@ window.application.screens['renderPlayLoserScreen'] = renderPlayLoserScreen;
 
 function renderPlayWinScreen() {
   const app = document.querySelector('.app');
-  app.textContent = '';
+  app.innerHTML = '';
 
   const titlePlayWin = document.createElement('h1');
   titlePlayWin.classList.add('main-tittle');
