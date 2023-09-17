@@ -31,6 +31,9 @@ window.application.screens['autorizationScreen'] = renderAutorizationScreen;
 
 
 function renderLobbyScreen() {
+  const app = document.querySelector('.app');
+  app.innerHTML = '';
+
   fetch(`https://skypro-rock-scissors-paper.herokuapp.com/player-status?token=${window.application.token}`)
     .then((response) => response.json())
     .then((data) => { console.log(data) })
@@ -38,11 +41,6 @@ function renderLobbyScreen() {
   fetch(`https://skypro-rock-scissors-paper.herokuapp.com/start?token=${window.application.token}`)
     .then((response) => response.json())
     .then((data) => { console.log(data) })
-
-
-  const app = document.querySelector('.app');
-  app.innerHTML = '';
-
 
   const titleLobby = document.createElement('h1');
   titleLobby.classList.add('main-tittle');
@@ -65,23 +63,15 @@ function renderLobbyScreen() {
   fetch(`https://skypro-rock-scissors-paper.herokuapp.com/player-list`)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.list);
-      for (data of data.list) {
-        window.application.renderBlock('player-list', document.querySelector('.wrapper'));
-        document.querySelector('.input-User').textContent = date.login
+      console.log(data.list[0].login);
+      for (let i = 0; i < data.list.length; i++) {
+        window.application.renderBlock('player-list', document.querySelector('.wrapper'), data.list[i].login);
       }
+      window.application.renderBlock('playLobbyButton', document.querySelector('.wrapper'));
+      window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper'));
     })
-    
-  // window.application.renderBlock('input', document.querySelector('.wrapper'));
-  // window.application.renderBlock('input', document.querySelector('.wrapper'));
-  // window.application.renderBlock('input', document.querySelector('.wrapper'));
-
-  window.application.renderBlock(
-    'playLobbyButton',
-    document.querySelector('.wrapper')
-  );
-  window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper'));
 }
+
 window.application.screens['renderLobbyScreen'] = renderLobbyScreen;
 
 

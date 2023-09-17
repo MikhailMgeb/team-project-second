@@ -1,5 +1,6 @@
-function renderBlock(blockName, container) {
-  window.application.blocks[blockName](container);
+function renderBlock(blockName, container, textContent) {
+  window.application.blocks[blockName](container, textContent);
+
 }
 
 window.application.renderBlock = renderBlock;

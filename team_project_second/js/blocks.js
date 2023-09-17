@@ -1,18 +1,19 @@
+
+//--кнопка регистрация логина
 function renderMainButton(container) {
     const mainButton = document.createElement('button');
     mainButton.textContent = 'login';
-    mainButton.classList.add('main-Button');
+    mainButton.classList.add('wrapper__main-button');
     const inputUser = document.createElement('input');
     const labelInputUser = document.createElement('label');
     labelInputUser.textContent = 'Your Login.....';
-    inputUser.classList.add('input-User');
+    inputUser.classList.add('wrapper__input-user');
 
     mainButton.addEventListener('click', () => {
         mainButton.disabled = true;
         //errors.textContent = '';
         //results.textContent = '';
         const loginUser = inputUser.value;
-
 
         fetch(`https://skypro-rock-scissors-paper.herokuapp.com/login?login=${inputUser.value}`)
             .then((response) => response.json())
@@ -24,9 +25,6 @@ function renderMainButton(container) {
                     window.application.renderScreen('renderLobbyScreen');
                 }
 
-                // if(results.status === 'error'){
-                //     console.log(new Error("Ого, ошибка! o_O"))
-                // }
             })
             .catch((error) => {
                 console.log(error);
@@ -34,7 +32,6 @@ function renderMainButton(container) {
             .finally(() => {
                 mainButton.disabled = false;
             });
-        console.log('click');
     });
     container.appendChild(labelInputUser);
     container.appendChild(inputUser);
@@ -60,7 +57,7 @@ window.application.blocks['inputUser'] = renderInputUser;*/
 function renderPlayLobbyButton(container) {
     const playLobbyButton = document.createElement('button');
     playLobbyButton.textContent = 'Go Play!!!';
-    playLobbyButton.classList.add('main-Button');
+    playLobbyButton.classList.add('wrapper__main-button');
 
     playLobbyButton.addEventListener('click', () => {
         console.log('click');
@@ -73,7 +70,7 @@ window.application.blocks['playLobbyButton'] = renderPlayLobbyButton;
 
 function renderInput(container) {
     const input = document.createElement('input');
-    input.classList.add('input-User');
+    input.classList.add('wrapper__input-user');
 
     // mainButton.addEventListener('click', () => {
     // console.log('click');
@@ -84,11 +81,11 @@ function renderInput(container) {
 
 window.application.blocks['input'] = renderInput;
 
-///// ----------------------------------
-function playerList(container) {
+///// ----------------отрисовка блока с другими игроками------------------
+function playerList(container, textContent) {
     const button = document.createElement('button');
-    button.classList.add('input-User');
-
+    button.classList.add('wrapper__button-user');
+    button.textContent = textContent;
     container.appendChild(button);
 }
 
@@ -99,7 +96,7 @@ window.application.blocks['player-list'] = playerList;
 function renderPlayHallButton(container) {
     const playHallButton = document.createElement('button');
     playHallButton.textContent = 'Go Play!!!';
-    playHallButton.classList.add('main-Button');
+    playHallButton.classList.add('wrapper__main-button');
 
     playHallButton.addEventListener('click', () => {
         console.log('click');
@@ -163,7 +160,7 @@ window.application.blocks[
 function renderPlayLogotipButton(container) {
     const playLogotipButton = document.createElement('img');
     //playPersonagePaperButton.textContent = 'Go Play!!!';
-    playLogotipButton.classList.add('logotip-button');
+    playLogotipButton.classList.add('wrapper__logotip-button');
     playLogotipButton.src = '/image/logotip.jpeg';
 
     playLogotipButton.addEventListener('click', () => {
@@ -178,7 +175,7 @@ window.application.blocks['playLogotipButton'] = renderPlayLogotipButton;
 function renderMainImage(container) {
     const mainImage = document.createElement('img');
     //playPersonagePaperButton.textContent = 'Go Play!!!';
-    mainImage.classList.add('logotip-button');
+    mainImage.classList.add('wrapper__logotip-button');
     mainImage.src = '/image/mainPage.jpeg';
 
     mainImage.addEventListener('click', () => {
@@ -193,7 +190,7 @@ window.application.blocks['mainImage'] = renderMainImage;
 function renderLoserImage(container) {
     const loserImage = document.createElement('img');
     //playPersonagePaperButton.textContent = 'Go Play!!!';
-    loserImage.classList.add('logotip-button');
+    loserImage.classList.add('wrapper__logotip-button');
     loserImage.src = '/image/looser paper.jpeg';
 
     loserImage.addEventListener('click', () => {
@@ -208,7 +205,7 @@ window.application.blocks['loserImage'] = renderLoserImage;
 function renderContinueButton(container) {
     const continueButton = document.createElement('button');
     continueButton.textContent = 'ContinuE PlaY';
-    continueButton.classList.add('main-Button');
+    continueButton.classList.add('wrapper__main-button');
 
     continueButton.addEventListener('click', () => {
         console.log('click');
@@ -222,7 +219,7 @@ window.application.blocks['continueButton'] = renderContinueButton;
 function renderReturnLobbyButton(container) {
     const returnLobbyButton = document.createElement('button');
     returnLobbyButton.textContent = 'ReturN tO LobbY';
-    returnLobbyButton.classList.add('main-Button');
+    returnLobbyButton.classList.add('wrapper__main-button');
 
     returnLobbyButton.addEventListener('click', () => {
         console.log('click');
@@ -236,7 +233,7 @@ window.application.blocks['returnLobbyButton'] = renderReturnLobbyButton;
 function renderWinImage(container) {
     const winImage = document.createElement('img');
     //playPersonagePaperButton.textContent = 'Go Play!!!';
-    winImage.classList.add('logotip-button');
+    winImage.classList.add('wrapper__logotip-button');
     winImage.src = '/image/win.jpeg';
 
     winImage.addEventListener('click', () => {
