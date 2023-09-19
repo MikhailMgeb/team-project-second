@@ -3,7 +3,7 @@ function renderAutorizationScreen() {
   app.innerHTML = '';
 
   const title = document.createElement('h1');
-  title.classList.add('main-tittle');
+  title.classList.add('app__main-tittle');
   title.textContent = 'Rock Paper Scissors!!!!!!';
 
   const content = document.createElement('div');
@@ -43,7 +43,7 @@ function renderLobbyScreen() {
     .then((data) => { console.log(data) })
 
   const titleLobby = document.createElement('h1');
-  titleLobby.classList.add('main-tittle');
+  titleLobby.classList.add('app__main-tittle');
   titleLobby.textContent = 'LOBBY - Rock Paper Scissors!!!!!!';
 
   const content = document.createElement('div');
@@ -60,7 +60,9 @@ function renderLobbyScreen() {
     document.querySelector('.wrapper')
   );
 
-  fetch(`https://skypro-rock-scissors-paper.herokuapp.com/player-list`)
+  //-------Загрузка листа клиентов
+  const refreshPlayerList = setInterval(() => {
+    fetch(`https://skypro-rock-scissors-paper.herokuapp.com/player-list`)
     .then((response) => response.json())
     .then((data) => {
       console.log(data.list[0].login);
@@ -70,6 +72,7 @@ function renderLobbyScreen() {
       window.application.renderBlock('playLobbyButton', document.querySelector('.wrapper'));
       window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper'));
     })
+  }, 10000);
 }
 
 window.application.screens['renderLobbyScreen'] = renderLobbyScreen;
@@ -80,7 +83,7 @@ function renderWaitingScreen() {
   app.innerHTML = '';
 
   const titleWaiting = document.createElement('h1');
-  titleWaiting.classList.add('main-tittle');
+  titleWaiting.classList.add('app__main-tittle');
   titleWaiting.textContent = 'WaItInG PlAy!!!!!!';
 
   const content = document.createElement('div');
@@ -102,7 +105,7 @@ function renderPlayScreen() {
   app.innerHTML = '';
 
   const titlePlay = document.createElement('h1');
-  titlePlay.classList.add('main-tittle');
+  titlePlay.classList.add('app__main-tittle');
   titlePlay.textContent = 'LeTs gO PlAy!!!!!!';
 
   const content = document.createElement('div');
@@ -128,7 +131,7 @@ function renderPlayLoserScreen() {
   app.innerHTML = '';
 
   const titlePlayLoser = document.createElement('h1');
-  titlePlayLoser.classList.add('main-tittle');
+  titlePlayLoser.classList.add('app__main-tittle');
   titlePlayLoser.textContent = 'YoU LoSe:((((!!!!!!DoNt WoRrY)';
 
   const content = document.createElement('div');
@@ -152,7 +155,7 @@ function renderPlayWinScreen() {
   app.innerHTML = '';
 
   const titlePlayWin = document.createElement('h1');
-  titlePlayWin.classList.add('main-tittle');
+  titlePlayWin.classList.add('app__main-tittle');
   titlePlayWin.textContent = 'YoU WiN:))))))))';
 
   const content = document.createElement('div');
