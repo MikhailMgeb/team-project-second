@@ -1,13 +1,12 @@
 function setToken(result) {
-    console.log(result);
-
     let tokenUser = result.token;
     window.application.token = tokenUser;
-    console.log(tokenUser);
 
     const params = {
         token: window.application.token,
     };
+
+    console.log(params)
 
     request(
         `https://skypro-rock-scissors-paper.herokuapp.com/player-status`,
@@ -18,7 +17,7 @@ function setToken(result) {
 
 const playerStatus = function (result) {
     const valuesResult = Object.values(result);
-    console.log(result)
+    // console.log(result)
     const valuesStatus = valuesResult[1];
     const valuesGame = valuesResult[2];
 
@@ -33,14 +32,14 @@ const playerStatus = function (result) {
     window.application.status = statusLobby;
 };
 
-const setPlayerList = function (data) {
-    document.querySelector('.wrapper').innerHTML = ''
-    console.log(data.list[0].login);
+function setPlayerList(data) {
+    document.querySelector('.wrapper-list').innerHTML = ''
+    console.log('data');
     for (let i = 0; i < data.list.length; i++) {
         console.log(data.list[i].login);
-        window.application.renderBlock('player-list', document.querySelector('.wrapper'), data.list[i].login);
+        window.application.renderBlock('player-list', document.querySelector('.wrapper-list'), data.list[i].login);
     }
 
-    window.application.renderBlock('playLobbyButton', document.querySelector('.wrapper'));
-    window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper'));
+    // window.application.renderBlock('playLobbyButton', document.querySelector('.wrapper'));
+    // window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper'));
 }

@@ -2,8 +2,6 @@ function request(url, parameters, cb) {
     let paramsPair = '';
     let arrParams = [];
     const keys = Object.entries(parameters);
-    
-    console.log(keys);
 
     for (let key of keys) {
         paramsPair = `${key[0]}` + '=' + `${key[1]}`;

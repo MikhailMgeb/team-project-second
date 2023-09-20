@@ -1,4 +1,3 @@
-
 //--кнопка регистрация логина
 function renderMainButton(container) {
     const autorizationForm = document.querySelector('.autorization-form')
@@ -33,29 +32,7 @@ function renderMainButton(container) {
     container.appendChild(labelInputUser);
     container.appendChild(inputUser);
     container.appendChild(mainButton);
-    //     fetch(`https://skypro-rock-scissors-paper.herokuapp.com/login?login=${loginUser}`)
-    //         .then((response) => response.json())
-    //         .then((results) => {
-    //             console.log(results);
-
-    //             if (results.token) {
-    //                 window.application.token = results.token;
-    //                 window.application.renderScreen('renderLobbyScreen');
-    //             }
-
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         })
-    //         .finally(() => {
-    //             mainButton.disabled = false;
-    //         });
-    // });
-
 }
-
-// window.application.blocks['mainButton'] = renderMainButton;
-
 
 function renderPlayLobbyButton(container) {
     const playLobbyButton = document.createElement('button');
@@ -69,8 +46,6 @@ function renderPlayLobbyButton(container) {
     container.appendChild(playLobbyButton);
 }
 
-// window.application.blocks['playLobbyButton'] = renderPlayLobbyButton;
-
 function renderInput(container) {
     const input = document.createElement('input');
     input.classList.add('wrapper__input-user');
@@ -79,20 +54,12 @@ function renderInput(container) {
     container.appendChild(input);
 }
 
-// window.application.blocks['input'] = renderInput;
-
-///// ----------------отрисовка блока с другими игроками------------------
-
 function playerList(container, textContent) {
-    const button = document.createElement('button');
-    button.classList.add('wrapper__button-user');
-    button.textContent = textContent;
-    container.appendChild(button);
+    const isPlayerLobby = document.createElement('div');
+    isPlayerLobby.classList.add('wrapper__player-lobby');
+    isPlayerLobby.textContent = textContent;
+    container.appendChild(isPlayerLobby);
 }
-
-// window.application.blocks['player-list'] = playerList;
-
-///// ----------------------------------
 
 function renderPlayHallButton(container) {
     const playHallButton = document.createElement('button');
@@ -105,8 +72,6 @@ function renderPlayHallButton(container) {
 
     container.appendChild(playHallButton);
 }
-
-// window.application.blocks['playHallButton'] = renderPlayHallButton;
 
 function renderPlayPersonageRockButton(container) {
     const playPersonageRockButton = document.createElement('img');
@@ -121,10 +86,6 @@ function renderPlayPersonageRockButton(container) {
     container.appendChild(playPersonageRockButton);
 }
 
-// window.application.blocks[
-//     'playPersonageRockButton'
-// ] = renderPlayPersonageRockButton;
-
 function renderPlayPersonageScissorsButton(container) {
     const playPersonageScissorsButton = document.createElement('img');
 
@@ -136,10 +97,6 @@ function renderPlayPersonageScissorsButton(container) {
 
     container.appendChild(playPersonageScissorsButton);
 }
-
-// window.application.blocks[
-//     'playPersonageScissorsButton'
-// ] = renderPlayPersonageScissorsButton;
 
 function renderPlayPersonagePaperButton(container) {
     const playPersonagePaperButton = document.createElement('img');
@@ -154,34 +111,25 @@ function renderPlayPersonagePaperButton(container) {
     container.appendChild(playPersonagePaperButton);
 }
 
-// window.application.blocks[
-//     'playPersonagePaperButton'
-// ] = renderPlayPersonagePaperButton;
-
 function renderPlayLogotipButton(container) {
     const playLogotipButton = document.createElement('img');
-    playLogotipButton.classList.add('wrapper__logotip-button');
+    playLogotipButton.classList.add('wrapper__logotip-image');
     playLogotipButton.src = '/image/logotip.jpeg';
 
     container.appendChild(playLogotipButton);
 }
 
-// window.application.blocks['playLogotipButton'] = renderPlayLogotipButton;
-
 function renderMainImage(container) {
     const mainImage = document.createElement('img');
-    mainImage.classList.add('wrapper__logotip-button');
+    mainImage.classList.add('wrapper__logotip-image');
     mainImage.src = '/image/mainPage.jpeg';
 
     container.appendChild(mainImage);
 }
 
-// window.application.blocks['mainImage'] = renderMainImage;
-
 function renderLoserImage(container) {
     const loserImage = document.createElement('img');
-    //playPersonagePaperButton.textContent = 'Go Play!!!';
-    loserImage.classList.add('wrapper__logotip-button');
+    loserImage.classList.add('wrapper__logotip-image');
     loserImage.src = '/image/looser paper.jpeg';
 
     loserImage.addEventListener('click', () => {
@@ -190,8 +138,6 @@ function renderLoserImage(container) {
 
     container.appendChild(loserImage);
 }
-
-// window.application.blocks['loserImage'] = renderLoserImage;
 
 function renderContinueButton(container) {
     const continueButton = document.createElement('button');
@@ -205,8 +151,6 @@ function renderContinueButton(container) {
     container.appendChild(continueButton);
 }
 
-// window.application.blocks['continueButton'] = renderContinueButton;
-
 function renderReturnLobbyButton(container) {
     const returnLobbyButton = document.createElement('button');
     returnLobbyButton.textContent = 'ReturN tO LobbY';
@@ -219,12 +163,9 @@ function renderReturnLobbyButton(container) {
     container.appendChild(returnLobbyButton);
 }
 
-// window.application.blocks['returnLobbyButton'] = renderReturnLobbyButton;
-
 function renderWinImage(container) {
     const winImage = document.createElement('img');
-    //playPersonagePaperButton.textContent = 'Go Play!!!';
-    winImage.classList.add('wrapper__logotip-button');
+    winImage.classList.add('wrapper__logotip-image');
     winImage.src = '/image/win.jpeg';
 
     winImage.addEventListener('click', () => {
@@ -233,5 +174,3 @@ function renderWinImage(container) {
 
     container.appendChild(winImage);
 }
-
-// window.application.blocks['winImage'] = renderWinImage;

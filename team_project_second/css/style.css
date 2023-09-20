@@ -13,6 +13,31 @@
     text-align: center;
 }
 
+.wrapper_main-image{
+    text-align: center;
+}
+
+.wrapper__logotip-image {
+    text-align: center;
+}
+
+.wrapper-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.wrapper__footer {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .autorization-form {
     display: flex;
     flex-direction: column;
@@ -45,6 +70,16 @@
     border-radius: 16px;
     border: none;
     background-color: khaki;
+    padding: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Shrikhand', cursive;
+}
+
+.wrapper__player-lobby {
+    border-radius: 16px;
+    border: none;
+    background-color: rgb(100, 186, 75);
     padding: 12px;
     padding-left: 20px;
     padding-right: 20px;
