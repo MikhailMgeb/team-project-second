@@ -2,45 +2,50 @@ function renderAutorizationScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
+  const containerHeader = document.createElement('div');
+  containerHeader.classList.add('wrapper__header');
+  app.appendChild(containerHeader);
+
   const title = document.createElement('h1');
   title.classList.add('app__main-tittle');
   title.textContent = 'Rock Paper Scissors!!!!!!';
-
-  const content = document.createElement('div');
-  content.classList.add('wrapper');
-
-  app.appendChild(title);
-  app.appendChild(content);
+  containerHeader.appendChild(title);
 
   window.application.renderBlock(
     'mainImage',
-    document.querySelector('.wrapper')
+    document.querySelector('.wrapper__header')
   );
 
-  /*window.application.renderBlock(
-    'inputUser',
-    document.querySelector('.wrapper')
-  );*/
+  const autorizationForm = document.createElement('form');
+  autorizationForm.classList.add('autorization-form');
+  app.appendChild(autorizationForm);
+
   window.application.renderBlock(
     'mainButton',
-    document.querySelector('.wrapper')
+    document.querySelector('.autorization-form')
   );
-  window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper'));
+
+  const containerFooter = document.createElement('div');
+  containerFooter.classList.add('wrapper__footer');
+  app.appendChild(containerFooter);
+  window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper__footer'));
 }
-window.application.screens['autorizationScreen'] = renderAutorizationScreen;
+
+// window.application.screens['autorizationScreen'] = renderAutorizationScreen;
+
 
 
 function renderLobbyScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  fetch(`https://skypro-rock-scissors-paper.herokuapp.com/player-status?token=${window.application.token}`)
-    .then((response) => response.json())
-    .then((data) => { console.log(data) })
+  // fetch(`https://skypro-rock-scissors-paper.herokuapp.com/player-status?token=${window.application.token}`)
+  //   .then((response) => response.json())
+  //   .then((data) => { console.log(data) })
 
-  fetch(`https://skypro-rock-scissors-paper.herokuapp.com/start?token=${window.application.token}`)
-    .then((response) => response.json())
-    .then((data) => { console.log(data) })
+  // fetch(`https://skypro-rock-scissors-paper.herokuapp.com/start?token=${window.application.token}`)
+  //   .then((response) => response.json())
+  //   .then((data) => { console.log(data) })
 
   const titleLobby = document.createElement('h1');
   titleLobby.classList.add('app__main-tittle');
@@ -61,21 +66,22 @@ function renderLobbyScreen() {
   );
 
   //-------Загрузка листа клиентов
-  const refreshPlayerList = setInterval(() => {
+  const intervalId = setInterval(function () {
     fetch(`https://skypro-rock-scissors-paper.herokuapp.com/player-list`)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data.list[0].login);
-      for (let i = 0; i < data.list.length; i++) {
-        window.application.renderBlock('player-list', document.querySelector('.wrapper'), data.list[i].login);
-      }
-      window.application.renderBlock('playLobbyButton', document.querySelector('.wrapper'));
-      window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper'));
-    })
-  }, 10000);
+      .then((response) => response.json())
+      .then((data) => {
+        document.querySelector('.wrapper').innerHTML = '';
+
+        for (let i = 0; i < data.list.length; i++) {
+          window.application.renderBlock('player-list', document.querySelector('.wrapper'), data.list[i].login);
+        }
+        window.application.renderBlock('playLobbyButton', document.querySelector('.wrapper')); // кнопка входа в игру
+      })
+  }, 1000)
+  window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper')); // логотип футера 
 }
 
-window.application.screens['renderLobbyScreen'] = renderLobbyScreen;
+// window.application.screens['renderLobbyScreen'] = renderLobbyScreen;
 
 
 function renderWaitingScreen() {
@@ -97,7 +103,7 @@ function renderWaitingScreen() {
   );
   window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper'));
 }
-window.application.screens['renderWaitingScreen'] = renderWaitingScreen;
+// window.application.screens['renderWaitingScreen'] = renderWaitingScreen;
 
 
 function renderPlayScreen() {
@@ -123,7 +129,7 @@ function renderPlayScreen() {
   window.application.renderBlock('playPersonagePaperButton', document.querySelector('.wrapper'));
   window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper'));
 }
-window.application.screens['renderPlayScreen'] = renderPlayScreen;
+// window.application.screens['renderPlayScreen'] = renderPlayScreen;
 
 
 function renderPlayLoserScreen() {
@@ -147,7 +153,7 @@ function renderPlayLoserScreen() {
 
   window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper'));
 }
-window.application.screens['renderPlayLoserScreen'] = renderPlayLoserScreen;
+// window.application.screens['renderPlayLoserScreen'] = renderPlayLoserScreen;
 
 
 function renderPlayWinScreen() {
@@ -171,7 +177,7 @@ function renderPlayWinScreen() {
 
   window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper'));
 }
-window.application.screens['renderPlayWinScreen'] = renderPlayWinScreen;
+// window.application.screens['renderPlayWinScreen'] = renderPlayWinScreen;
 
 
 
