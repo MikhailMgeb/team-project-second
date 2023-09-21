@@ -2,7 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.application = {
     blocks: {},
     screens: {},
-    renderScreen: function(screenName) {
+    renderScreen: function (screenName) {
+      //понять как работает отмена таймера ---
+      if (!window.application.timers === 0) {
+        window.application.timers.map(value => clearInterval(value));
+      }
       window.application.screens[screenName]();
     },
     renderBlock: function (blockName, container, textContent) {
@@ -10,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     timers: []
   }
-  console.log(window.application)
+  console.log(window.application.timers)
   window.application.renderBlock = window.application.renderBlock;
   window.application.blocks['mainButton'] = renderMainButton;
   window.application.blocks['playLobbyButton'] = renderPlayLobbyButton;
@@ -29,10 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.application.screens['autorizationScreen'] = renderAutorizationScreen;
   window.application.screens['renderLobbyScreen'] = renderLobbyScreen;
-  window.application.screens['renderWaitingScreen'] = renderWaitingScreen;
   window.application.screens['renderPlayScreen'] = renderPlayScreen;
   window.application.screens['renderPlayLoserScreen'] = renderPlayLoserScreen;
   window.application.screens['renderPlayWinScreen'] = renderPlayWinScreen;
+  window.application.screens['renderWaitingScreen'] = renderWaitingScreen;
 
   window.application.renderScreen('autorizationScreen');
 })

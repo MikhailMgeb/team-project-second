@@ -22,11 +22,11 @@ function renderMainButton(container) {
             params,
             setToken
         );
-        setTimeout(() => {
+        window.application.timers.push(setTimeout(() => {
             if (window.application.status === "lobby") {
                 window.application.renderScreen('renderLobbyScreen');
             }
-        }, 1000);
+        }, 1000));
 
     });
     container.appendChild(labelInputUser);
@@ -40,9 +40,13 @@ function renderPlayLobbyButton(container) {
     playLobbyButton.classList.add('wrapper__main-button');
 
     playLobbyButton.addEventListener('click', () => {
-        console.log('click');
-    });
+        const params = {
+            token: window.application.token,
+        };
 
+        request(`/start`, params, setStart);
+        window.application.renderScreen('renderWaitingScreen')
+    });
     container.appendChild(playLobbyButton);
 }
 
@@ -65,10 +69,6 @@ function renderPlayHallButton(container) {
     const playHallButton = document.createElement('button');
     playHallButton.textContent = 'Go Play!!!';
     playHallButton.classList.add('wrapper__main-button');
-
-    playHallButton.addEventListener('click', () => {
-        console.log('click');
-    });
 
     container.appendChild(playHallButton);
 }
@@ -144,10 +144,6 @@ function renderContinueButton(container) {
     continueButton.textContent = 'ContinuE PlaY';
     continueButton.classList.add('wrapper__main-button');
 
-    continueButton.addEventListener('click', () => {
-        console.log('click');
-    });
-
     container.appendChild(continueButton);
 }
 
@@ -155,10 +151,6 @@ function renderReturnLobbyButton(container) {
     const returnLobbyButton = document.createElement('button');
     returnLobbyButton.textContent = 'ReturN tO LobbY';
     returnLobbyButton.classList.add('wrapper__main-button');
-
-    returnLobbyButton.addEventListener('click', () => {
-        console.log('click');
-    });
 
     container.appendChild(returnLobbyButton);
 }

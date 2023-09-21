@@ -32,23 +32,4 @@ function renderMainButton(container) {
     container.appendChild(labelInputUser);
     container.appendChild(inputUser);
     container.appendChild(mainButton);
-    //     fetch(`https://skypro-rock-scissors-paper.herokuapp.com/login?login=${loginUser}`)
-    //         .then((response) => response.json())
-    //         .then((results) => {
-    //             console.log(results);
-
-    //             if (results.token) {
-    //                 window.application.token = results.token;
-    //                 window.application.renderScreen('renderLobbyScreen');
-    //             }
-
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         })
-    //         .finally(() => {
-    //             mainButton.disabled = false;
-    //         });
-    // });
-
 }

@@ -6,8 +6,6 @@ function setToken(result) {
         token: window.application.token,
     };
 
-    console.log(params)
-
     request(
         `https://skypro-rock-scissors-paper.herokuapp.com/player-status`,
         params,
@@ -34,12 +32,24 @@ const playerStatus = function (result) {
 
 function setPlayerList(data) {
     document.querySelector('.wrapper-list').innerHTML = ''
-    console.log('data');
+
     for (let i = 0; i < data.list.length; i++) {
-        console.log(data.list[i].login);
         window.application.renderBlock('player-list', document.querySelector('.wrapper-list'), data.list[i].login);
     }
+}
 
-    // window.application.renderBlock('playLobbyButton', document.querySelector('.wrapper'));
-    // window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper'));
+function setStart(result) {
+    const valuesResult = Object.values(result);
+    const valuesGame = valuesResult[1];
+    const valuesId = valuesGame.game;
+    const gameId = valuesId.id;
+    window.application.id = gameId;
+}
+
+function SetgameStatus(result) {
+    const valuesResult = Object.values(result);
+    const valuesStatus = valuesResult[1];
+    const status = Object.values(valuesStatus);
+    const statusLobby = status.join();
+    window.application.status = statusLobby;
 }

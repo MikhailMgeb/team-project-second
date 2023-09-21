@@ -45,6 +45,8 @@ function renderLobbyScreen() {
 
   }, 1000);
 
+  window.application.timers.push(refreshPlayerList);
+
   window.application.renderBlock('playLobbyButton', document.querySelector('.wrapper__footer'));
   window.application.renderBlock(
     'playLogotipButton',
