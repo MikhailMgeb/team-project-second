@@ -36,13 +36,13 @@ function renderWaitingScreen() {
     );
 
     if (window.application.status !== 'waiting-for-start') {
+      window.application.timers.push(refreshGameStatus);
       clearInterval(refreshGameStatus)// РАЗОБРАТЬСЯ ПОЧЕМУ ТАК?
       window.application.renderScreen('renderPlayScreen');
     }
   }, 500);
 
-  console.log(refreshGameStatus)
-  window.application.timers.push(refreshGameStatus);
+  // window.application.timers.push(refreshGameStatus);
 
   /*loader*/
   window.application.renderBlock(
