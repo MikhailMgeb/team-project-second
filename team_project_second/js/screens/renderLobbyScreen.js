@@ -32,6 +32,7 @@ function renderLobbyScreen() {
   const blockListPlayer = document.createElement('div');
   blockListPlayer.classList.add('blockListPlayer');
 
+  ////Разобраться!!!!
   const refreshPlayerList = setInterval(() => {
     const params = {
       token: window.application.token,

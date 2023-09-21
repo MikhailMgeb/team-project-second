@@ -49,6 +49,11 @@
     gap: 30px;
 }
 
+.wrapper__label-user {
+    display: block;
+    text-align: center;
+}
+
 .main-tittle {
     text-align: center;
     margin-top: 12px;
@@ -67,6 +72,7 @@
 
 .wrapper__button-user,
 .wrapper__input-user {
+    display: block;
     border-radius: 16px;
     border: none;
     background-color: khaki;

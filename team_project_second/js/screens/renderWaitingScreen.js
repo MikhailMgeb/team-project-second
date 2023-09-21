@@ -30,7 +30,7 @@ function renderWaitingScreen() {
     };
 
     request(
-      `/game-status`,
+      `https://skypro-rock-scissors-paper.herokuapp.com/game-status`,
       params,
       SetgameStatus
     );

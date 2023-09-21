@@ -7,6 +7,7 @@ function renderMainButton(container) {
     const inputUser = document.createElement('input');
     const labelInputUser = document.createElement('label');
     labelInputUser.textContent = 'Your Login.....';
+    labelInputUser.classList.add('wrapper__label-user');
     inputUser.classList.add('wrapper__input-user');
 
     autorizationForm.addEventListener('submit', (event) => {
@@ -30,7 +31,7 @@ function renderMainButton(container) {
 
     });
     container.appendChild(labelInputUser);
-    container.appendChild(inputUser);
+    labelInputUser.appendChild(inputUser)
     container.appendChild(mainButton);
 }
 
@@ -44,7 +45,7 @@ function renderPlayLobbyButton(container) {
             token: window.application.token,
         };
 
-        request(`/start`, params, setStart);
+        request(`https://skypro-rock-scissors-paper.herokuapp.com/start`, params, setStart);
         window.application.renderScreen('renderWaitingScreen')
     });
     container.appendChild(playLobbyButton);
