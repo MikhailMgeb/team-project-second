@@ -5,8 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     renderScreen: function (screenName) {
       //понять как работает отмена таймера ---
       if (!window.application.timers === 0) {
-        window.application.timers.map(value => clearInterval(value));
+        const timers = window.application.timers
+        for(const timer of timers){
+          clearInterval(timer);
+        }
       }
+      
       window.application.screens[screenName]();
     },
     renderBlock: function (blockName, container, textContent) {

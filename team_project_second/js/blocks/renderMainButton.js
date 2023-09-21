@@ -22,11 +22,10 @@ function renderMainButton(container) {
             params,
             setToken
         );
-        setTimeout(() => {
-            if (window.application.status === "lobby") {
-                window.application.renderScreen('renderLobbyScreen');
-            }
-        }, 1000);
+        if (window.application.status === "lobby") {
+            window.application.renderScreen('renderLobbyScreen');
+        }
+
 
     });
     container.appendChild(labelInputUser);

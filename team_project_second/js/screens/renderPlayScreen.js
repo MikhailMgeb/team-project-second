@@ -13,16 +13,24 @@ function renderPlayScreen() {
     app.appendChild(containerHeader);
 
     const wrapperMainImage = document.createElement('div');
-    wrapperMainImage.classList.add('wrapper_main-image');
+    wrapperMainImage.classList.add('wrapper__main-image');
     app.appendChild(wrapperMainImage);
 
     window.application.renderBlock(
         'mainImage',
-        document.querySelector('.wrapper_main-image')
+        document.querySelector('.wrapper__main-image')
     );
 
-    window.application.renderBlock('playPersonageRockButton', document.querySelector('.wrapper'));
-    window.application.renderBlock('playPersonageScissorsButton', document.querySelector('.wrapper'));
-    window.application.renderBlock('playPersonagePaperButton', document.querySelector('.wrapper'));
-    window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper'));
+    const wrapperChoiceMove = document.createElement('div');
+    wrapperChoiceMove.classList.add('wrapper__choice-move')
+    app.appendChild(wrapperChoiceMove);
+
+    window.application.renderBlock('playPersonageRockButton', document.querySelector('.wrapper__choice-move'));
+    window.application.renderBlock('playPersonageScissorsButton', document.querySelector('.wrapper__choice-move'));
+    window.application.renderBlock('playPersonagePaperButton', document.querySelector('.wrapper__choice-move'));
+
+    const wrapperFooterImage = document.createElement('div');
+    wrapperFooterImage.classList.add('wrapper__footer-image');
+    app.appendChild(wrapperFooterImage);
+    window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper__footer-image'));
 }

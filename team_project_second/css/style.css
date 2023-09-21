@@ -13,11 +13,11 @@
     text-align: center;
 }
 
-.wrapper_main-image{
+.wrapper__main-image{
     text-align: center;
 }
 
-.wrapper__logotip-image {
+.wrapper__footer-image {
     text-align: center;
 }
 
@@ -105,3 +105,12 @@
 .logotip-button {
     width: 250px;
 }
+
+.wrapper__choice-move{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    align-items: center;
+}
+
+.wrapper-footer-image

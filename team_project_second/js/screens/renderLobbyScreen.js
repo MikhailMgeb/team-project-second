@@ -12,12 +12,12 @@ function renderLobbyScreen() {
   app.appendChild(containerHeader);
 
   const wrapperMainImage = document.createElement('div');
-  wrapperMainImage.classList.add('wrapper_main-image');
+  wrapperMainImage.classList.add('wrapper__main-image');
   app.appendChild(wrapperMainImage);
 
   window.application.renderBlock(
     'mainImage',
-    document.querySelector('.wrapper_main-image')
+    document.querySelector('.wrapper__main-image')
   );
 
 
