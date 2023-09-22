@@ -6,11 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
       //понять как работает отмена таймера ---
       if (!window.application.timers === 0) {
         const timers = window.application.timers
-        for(const timer of timers){
+        
+        for (const timer of timers) {
           clearInterval(timer);
         }
       }
-      
+
       window.application.screens[screenName]();
     },
     renderBlock: function (blockName, container, textContent) {
@@ -41,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.application.screens['renderPlayLoserScreen'] = renderPlayLoserScreen;
   window.application.screens['renderPlayWinScreen'] = renderPlayWinScreen;
   window.application.screens['renderWaitingScreen'] = renderWaitingScreen;
+  window.application.screens['renderWaitingMoveScreen'] = renderWaitingMoveScreen;
 
   window.application.renderScreen('autorizationScreen');
 })

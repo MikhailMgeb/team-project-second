@@ -46,10 +46,43 @@ function setStart(result) {
     window.application.id = gameId;
 }
 
+
 function SetgameStatus(result) {
     const valuesResult = Object.values(result);
+    console.log(result)
+    
     const valuesStatus = valuesResult[1];
-    const status = Object.values(valuesStatus);
-    const statusLobby = status.join();
+    console.log(valuesStatus)
+
+    const valuesStatusGame = Object.entries(valuesStatus);
+    console.log(valuesStatusGame)
+
+    const statusLobby = valuesStatusGame[0][1]
+    console.log(statusLobby);
+
+    window.application.status = statusLobby;
+    if (window.application.status === "waiting-for-your-move") {
+        clearInterval(refreshGameStatusWait)
+        window.application.renderScreen('renderPlayScreen');
+    }
+    if (window.application.status === "lose") {
+        clearInterval(refreshGameStatusWait)
+        window.application.renderScreen('renderPlayLoserScreen');
+    }
+    if (window.application.status === "win") {
+        clearInterval(refreshGameStatusWait)
+        window.application.renderScreen('renderPlayWinScreen');
+    }
+}
+
+function SetPlay(result) {
+    const valuesResult = Object.values(result);
+    console.log(result)
+    const valuesStatus = valuesResult[1];
+    console.log(valuesStatus)
+    const valuesStatusGame = Object.entries(valuesStatus);
+    console.log(valuesStatusGame)
+    const statusLobby = valuesStatusGame[0][1]
+    console.log(statusLobby);
     window.application.status = statusLobby;
 }

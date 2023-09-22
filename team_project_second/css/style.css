@@ -1,19 +1,26 @@
 .main {
     background-color: honeydew;
     font-family: 'Shrikhand', cursive;
+    margin: 0;
 }
 
 .app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-between; */
     border-radius: 14px;
     border: solid 12px khaki;
-    padding: 12px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 24px;
 }
 
 .wrapper__header {
     text-align: center;
 }
 
-.wrapper__main-image{
+.wrapper__main-image {
     text-align: center;
 }
 
@@ -30,7 +37,7 @@
 }
 
 .wrapper__footer {
-    margin-top: 30px;
+    margin-top: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,11 +119,13 @@
     width: 250px;
 }
 
-.wrapper__choice-move{
+.wrapper__choice-move {
     display: flex;
     justify-content: center;
     gap: 100px;
     align-items: center;
 }
 
-.wrapper-footer-image
+.wrapper__logotip-image {
+    max-width: 100%;
+}
