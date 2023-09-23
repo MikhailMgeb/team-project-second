@@ -3,14 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     blocks: {},
     screens: {},
     renderScreen: function (screenName) {
-      //понять как работает отмена таймера ---
-      if (!window.application.timers === 0) {
-        const timers = window.application.timers
-        
-        for (const timer of timers) {
-          clearInterval(timer);
-        }
-      }
+      
+      window.application.timers.forEach(element => {
+        clearInterval(element);
+      });
 
       window.application.screens[screenName]();
     },
@@ -29,14 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.application.blocks['playPersonageRockButton'] = renderPlayPersonageRockButton;
   window.application.blocks['playPersonageScissorsButton'] = renderPlayPersonageScissorsButton;
   window.application.blocks['playPersonagePaperButton'] = renderPlayPersonagePaperButton;
-  window.application.blocks['playLogotipButton'] = renderPlayLogotipButton;
+  window.application.blocks['playLogoButton'] = renderPlayLogoButton;
   window.application.blocks['mainImage'] = renderMainImage;
   window.application.blocks['loserImage'] = renderLoserImage;
   window.application.blocks['continueButton'] = renderContinueButton;
   window.application.blocks['returnLobbyButton'] = renderReturnLobbyButton;
   window.application.blocks['winImage'] = renderWinImage;
 
-  window.application.screens['autorizationScreen'] = renderAutorizationScreen;
+  window.application.screens['authorizationScreen'] = renderauthorizationScreen;
   window.application.screens['renderLobbyScreen'] = renderLobbyScreen;
   window.application.screens['renderPlayScreen'] = renderPlayScreen;
   window.application.screens['renderPlayLoserScreen'] = renderPlayLoserScreen;
@@ -44,5 +40,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.application.screens['renderWaitingScreen'] = renderWaitingScreen;
   window.application.screens['renderWaitingMoveScreen'] = renderWaitingMoveScreen;
 
-  window.application.renderScreen('autorizationScreen');
+  window.application.renderScreen('authorizationScreen');
 })

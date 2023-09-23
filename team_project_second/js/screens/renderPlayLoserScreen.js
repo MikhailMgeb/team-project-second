@@ -16,5 +16,5 @@ function renderPlayLoserScreen() {
     window.application.renderBlock('continueButton', document.querySelector('.wrapper'));
     window.application.renderBlock('returnLobbyButton', document.querySelector('.wrapper'));
 
-    window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper'));
+    window.application.renderBlock('playLogoButton', document.querySelector('.wrapper'));
 }

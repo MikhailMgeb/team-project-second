@@ -1,6 +1,6 @@
 //--кнопка регистрация логина
 function renderMainButton(container) {
-    const autorizationForm = document.querySelector('.autorization-form')
+    const authorizationForm = document.querySelector('.authorization-form')
     const mainButton = document.createElement('button');
     mainButton.textContent = 'login';
     mainButton.classList.add('wrapper__main-button');
@@ -10,7 +10,7 @@ function renderMainButton(container) {
     labelInputUser.classList.add('wrapper__label-user');
     inputUser.classList.add('wrapper__input-user');
 
-    autorizationForm.addEventListener('submit', (event) => {
+    authorizationForm.addEventListener('submit', (event) => {
         event.preventDefault();
         mainButton.disabled = true;
         const loginUser = inputUser.value;
@@ -112,17 +112,17 @@ function renderPlayPersonagePaperButton(container) {
     container.appendChild(playPersonagePaperButton);
 }
 
-function renderPlayLogotipButton(container) {
-    const playLogotipButton = document.createElement('img');
-    playLogotipButton.classList.add('wrapper__logotip-image');
-    playLogotipButton.src = '/image/logotip.jpeg';
+function renderPlayLogoButton(container) {
+    const playLogoButton = document.createElement('img');
+    playLogoButton.classList.add('wrapper__footer-logo');
+    playLogoButton.src = '/image/logo-footer.jpeg';
 
-    container.appendChild(playLogotipButton);
+    container.appendChild(playLogoButton);
 }
 
 function renderMainImage(container) {
     const mainImage = document.createElement('img');
-    mainImage.classList.add('wrapper__logotip-image');
+    mainImage.classList.add('wrapper__logo-header');
     mainImage.src = '/image/mainPage.jpeg';
 
     container.appendChild(mainImage);
@@ -130,7 +130,7 @@ function renderMainImage(container) {
 
 function renderLoserImage(container) {
     const loserImage = document.createElement('img');
-    loserImage.classList.add('wrapper__logotip-image');
+    loserImage.classList.add('wrapper__logo-header');
     loserImage.src = '/image/looser paper.jpeg';
 
     loserImage.addEventListener('click', () => {
@@ -158,7 +158,7 @@ function renderReturnLobbyButton(container) {
 
 function renderWinImage(container) {
     const winImage = document.createElement('img');
-    winImage.classList.add('wrapper__logotip-image');
+    winImage.classList.add('wrapper__logo-header');
     winImage.src = '/image/win.jpeg';
 
     winImage.addEventListener('click', () => {

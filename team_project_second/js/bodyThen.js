@@ -47,10 +47,10 @@ function setStart(result) {
 }
 
 
-function SetgameStatus(result) {
+function SetGameStatus(result) {
     const valuesResult = Object.values(result);
     console.log(result)
-    
+
     const valuesStatus = valuesResult[1];
     console.log(valuesStatus)
 
