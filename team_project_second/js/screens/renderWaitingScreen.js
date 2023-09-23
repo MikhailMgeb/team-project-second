@@ -8,14 +8,14 @@ function renderWaitingScreen() {
   wrapperMainImage.classList.add('wrapper-main-image');
   const content = document.createElement('div');
   content.classList.add('wrapper');
-  const wraperList = document.createElement('div');
-  wraperList.classList.add('wrapper-list');
+  const wrapperList = document.createElement('div');
+  wrapperList.classList.add('wrapper-list');
   const wrapperFooterImage = document.createElement('div');
   wrapperFooterImage.classList.add('wrapper-footer-image');
   app.appendChild(titleLobby);
   content.appendChild(wrapperMainImage);
   app.appendChild(content);
-  content.appendChild(wraperList);
+  content.appendChild(wrapperList);
   content.appendChild(wrapperFooterImage);
 
   window.application.renderBlock(
@@ -32,7 +32,7 @@ function renderWaitingScreen() {
     request(
       `https://skypro-rock-scissors-paper.herokuapp.com/game-status`,
       params,
-      SetgameStatus
+      SetGameStatus
     );
 
     if (window.application.status !== 'waiting-for-start') {
@@ -46,7 +46,7 @@ function renderWaitingScreen() {
 
   /*loader*/
   window.application.renderBlock(
-    'playLogotipButton',
+    'playLogoButton',
     document.querySelector('.wrapper-footer-image')
   );
 }

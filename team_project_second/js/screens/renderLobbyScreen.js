@@ -21,9 +21,9 @@ function renderLobbyScreen() {
   );
 
 
-  const wraperList = document.createElement('div');
-  wraperList.classList.add('wrapper-list');
-  app.appendChild(wraperList);
+  const wrapperList = document.createElement('div');
+  wrapperList.classList.add('wrapper-list');
+  app.appendChild(wrapperList);
 
   const wrapperFooter = document.createElement('div');
   wrapperFooter.classList.add('wrapper__footer');
@@ -32,7 +32,6 @@ function renderLobbyScreen() {
   const blockListPlayer = document.createElement('div');
   blockListPlayer.classList.add('blockListPlayer');
 
-  ////Разобраться!!!!
   const refreshPlayerList = setInterval(() => {
     const params = {
       token: window.application.token,
@@ -50,8 +49,8 @@ function renderLobbyScreen() {
 
   window.application.renderBlock('playLobbyButton', document.querySelector('.wrapper__footer'));
   window.application.renderBlock(
-    'playLogotipButton',
-    document.querySelector('.wrapper__footer')
+    'playLogoButton',
+    document.querySelector('.app')
   );
 
 }

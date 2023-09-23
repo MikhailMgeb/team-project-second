@@ -1,6 +1,5 @@
-//--кнопка регистрация логина
 function renderMainButton(container) {
-    const autorizationForm = document.querySelector('.autorization-form')
+    const authorizationForm = document.querySelector('.authorization-form')
     const mainButton = document.createElement('button');
     mainButton.textContent = 'login';
     mainButton.classList.add('wrapper__main-button');
@@ -9,7 +8,7 @@ function renderMainButton(container) {
     labelInputUser.textContent = 'Your Login.....';
     inputUser.classList.add('wrapper__input-user');
 
-    autorizationForm.addEventListener('submit', (event) => {
+    authorizationForm.addEventListener('submit', (event) => {
         event.preventDefault();
         mainButton.disabled = true;
         const loginUser = inputUser.value;

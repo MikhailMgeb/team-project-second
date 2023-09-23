@@ -1,4 +1,4 @@
-function renderAutorizationScreen() {
+function renderauthorizationScreen() {
     const app = document.querySelector('.app');
     app.innerHTML = '';
   
@@ -16,17 +16,17 @@ function renderAutorizationScreen() {
       document.querySelector('.wrapper__header')
     );
   
-    const autorizationForm = document.createElement('form');
-    autorizationForm.classList.add('autorization-form');
-    app.appendChild(autorizationForm);
+    const authorizationForm = document.createElement('form');
+    authorizationForm.classList.add('authorization-form');
+    app.appendChild(authorizationForm);
   
     window.application.renderBlock(
       'mainButton',
-      document.querySelector('.autorization-form')
+      document.querySelector('.authorization-form')
     );
   
     const containerFooter = document.createElement('div');
     containerFooter.classList.add('wrapper__footer');
     app.appendChild(containerFooter);
-    window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper__footer'));
+    window.application.renderBlock('playLogoButton', document.querySelector('.wrapper__footer'));
   }

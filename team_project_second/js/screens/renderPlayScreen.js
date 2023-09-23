@@ -30,7 +30,7 @@ function renderPlayScreen() {
     window.application.renderBlock('playPersonagePaperButton', document.querySelector('.wrapper__choice-move'));
 
     const wrapperFooterImage = document.createElement('div');
-    wrapperFooterImage.classList.add('wrapper__footer-image');
+    wrapperFooterImage.classList.add('wrapper__footer');
     app.appendChild(wrapperFooterImage);
-    window.application.renderBlock('playLogotipButton', document.querySelector('.wrapper__footer-image'));
+    window.application.renderBlock('playLogoButton', document.querySelector('.wrapper__footer'));
 }
