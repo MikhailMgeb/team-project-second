@@ -12,5 +12,5 @@ function request(url, parameters, cb) {
 
     fetch(`${url}?` + paramsString)
         .then((response) => response.json())
-        .then(cb);
+        .then(cb,console.log());
 }

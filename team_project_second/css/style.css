@@ -133,6 +133,15 @@
   align-items: center;
 }
 
+.wrapper__rock-button,
+.wrapper__scissors-button,
+.wrapper__pock-button {
+  box-sizing: content-box;
+  height: 180px;
+  background: inherit;
+  border: none;
+}
+
 .wrapper__logo-header {
   max-width: 80%;
 }

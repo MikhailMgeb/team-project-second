@@ -80,10 +80,6 @@ function renderPlayPersonageRockButton(container) {
     playPersonageRockButton.classList.add('personage-button');
     playPersonageRockButton.src = '/image/rocki.jpeg';
 
-    playPersonageRockButton.addEventListener('click', () => {
-        console.log('click');
-    });
-
     container.appendChild(playPersonageRockButton);
 }
 
@@ -92,9 +88,6 @@ function renderPlayPersonageScissorsButton(container) {
 
     playPersonageScissorsButton.classList.add('personage-button');
     playPersonageScissorsButton.src = '/image/scissori.jpeg';
-    playPersonageScissorsButton.addEventListener('click', () => {
-        console.log('click');
-    });
 
     container.appendChild(playPersonageScissorsButton);
 }
@@ -104,10 +97,6 @@ function renderPlayPersonagePaperButton(container) {
 
     playPersonagePaperButton.classList.add('personage-button');
     playPersonagePaperButton.src = '/image/papperi.jpeg';
-
-    playPersonagePaperButton.addEventListener('click', () => {
-        console.log('click');
-    });
 
     container.appendChild(playPersonagePaperButton);
 }
