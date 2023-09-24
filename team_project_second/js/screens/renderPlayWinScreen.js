@@ -3,7 +3,7 @@ function renderPlayWinScreen() {
     app.innerHTML = '';
 
     const titlePlayWin = document.createElement('h1');
-    titlePlayWin.classList.add('app__main-tittle');
+    titlePlayWin.classList.add('wrapper__header-tittle');
     titlePlayWin.textContent = 'YoU WiN:))))))))';
 
     const content = document.createElement('div');

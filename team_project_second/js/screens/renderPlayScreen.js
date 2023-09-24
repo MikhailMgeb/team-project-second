@@ -3,7 +3,7 @@ function renderPlayScreen() {
   app.innerHTML = "";
 
   const titlePlay = document.createElement("h1");
-  titlePlay.classList.add("app__main-tittle");
+  titlePlay.classList.add("wrapper__header-tittle");
   titlePlay.textContent = "LeTs gO PlAy!!!!!!";
 
   const containerHeader = document.createElement("div");
@@ -71,7 +71,7 @@ function renderPlayScreen() {
 
     const target = event.target;
 
-    if (target.closest(".wrapper__choice-move")) {
+    if (target.closest(".wrapper__rock-button")) {
         console.log(target.data)
         params.move = 'rock';
 
@@ -83,6 +83,7 @@ function renderPlayScreen() {
     }
 
     if (target.closest(".wrapper__scissors-button")) {
+      console.log(target.data)
         params.move = 'scissors';
 
       request(
@@ -93,6 +94,7 @@ function renderPlayScreen() {
     }
 
     if (target.closest(".wrapper__pock-button")) {
+      console.log(target.data)
         params.move = 'paper';
 
       request(

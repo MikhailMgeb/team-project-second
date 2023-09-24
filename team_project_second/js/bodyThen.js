@@ -14,8 +14,13 @@ function setToken(result) {
 }
 
 const playerStatus = function (result) {
+  if (result["player-status"].status === "game") {
+    window.application.id = result["player-status"].game.id
+    window.application.renderScreen("renderPlayScreen");
+    return;
+  }
+
   const valuesResult = Object.values(result);
-  // console.log(result)
   const valuesStatus = valuesResult[1];
   const valuesGame = valuesResult[2];
 
@@ -52,16 +57,16 @@ function setStart(result) {
 
 function SetGameStatus(result) {
   const valuesResult = Object.values(result);
-//   console.log(result);
+  //   console.log(result);
 
   const valuesStatus = valuesResult[1];
-//   console.log(valuesStatus);
+  //   console.log(valuesStatus);
 
   const valuesStatusGame = Object.entries(valuesStatus);
-//   console.log(valuesStatusGame);
+  //   console.log(valuesStatusGame);
 
   const statusLobby = valuesStatusGame[0][1];
-//   console.log(statusLobby);
+  //   console.log(statusLobby);
 
   window.application.status = statusLobby;
 
