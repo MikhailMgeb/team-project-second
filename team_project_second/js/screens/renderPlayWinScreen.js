@@ -2,19 +2,28 @@ function renderPlayWinScreen() {
     const app = document.querySelector('.app');
     app.innerHTML = '';
 
-    const titlePlayWin = document.createElement('h1');
-    titlePlayWin.classList.add('wrapper__header-tittle');
-    titlePlayWin.textContent = 'YoU WiN:))))))))';
+    const headerBlock = document.createElement('div');
+    headerBlock.classList.add('wrapper__header');
+    const titlePlayLoser = document.createElement('h1');
+    titlePlayLoser.classList.add('wrapper__header-tittle');
+    titlePlayLoser.textContent = 'YoU WiN:))))))))'; 
+    headerBlock.appendChild(titlePlayLoser);
+    app.appendChild(headerBlock);
 
-    const content = document.createElement('div');
-    content.classList.add('wrapper');
+    const wrapperMainImage = document.createElement("div");
+    wrapperMainImage.classList.add("wrapper__main-image");
+    app.appendChild(wrapperMainImage);
 
-    app.appendChild(titlePlayWin);
-    app.appendChild(content);
+    const wrapperButtons = document.createElement("div");
+    wrapperButtons.classList.add("wrapper-buttons");
+    app.appendChild(wrapperButtons);
 
-    window.application.renderBlock('winImage', document.querySelector('.wrapper'));
-    window.application.renderBlock('continueButton', document.querySelector('.wrapper'));
-    window.application.renderBlock('returnLobbyButton', document.querySelector('.wrapper'));
+    const wrapperFooter = document.createElement("div");
+    wrapperFooter.classList.add("wrapper__footer");
+    app.appendChild(wrapperFooter);
 
-    window.application.renderBlock('playLogoButton', document.querySelector('.wrapper'));
+    window.application.renderBlock('loserImage', document.querySelector('.wrapper__main-image'));
+    window.application.renderBlock('continueButton', document.querySelector('.wrapper-buttons'));
+    window.application.renderBlock('returnLobbyButton', document.querySelector('.wrapper-buttons'));
+    window.application.renderBlock('playLogoButton', document.querySelector('.wrapper__footer'));
 }

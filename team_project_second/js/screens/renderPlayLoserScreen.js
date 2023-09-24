@@ -8,16 +8,22 @@ function renderPlayLoserScreen() {
     titlePlayLoser.classList.add('wrapper__header-tittle');
     titlePlayLoser.textContent = 'YoU LoSe:((((!!!!!!DoNt WoRrY)'; 
     headerBlock.appendChild(titlePlayLoser);
-
-    const content = document.createElement('div');
-    content.classList.add('wrapper');
-
     app.appendChild(headerBlock);
-    app.appendChild(content);
 
-    window.application.renderBlock('loserImage', document.querySelector('.wrapper'));
-    window.application.renderBlock('continueButton', document.querySelector('.wrapper'));
-    window.application.renderBlock('returnLobbyButton', document.querySelector('.wrapper'));
+    const wrapperMainImage = document.createElement("div");
+    wrapperMainImage.classList.add("wrapper__main-image");
+    app.appendChild(wrapperMainImage);
 
-    window.application.renderBlock('playLogoButton', document.querySelector('.wrapper'));
+    const wrapperButtons = document.createElement("div");
+    wrapperButtons.classList.add("wrapper-buttons");
+    app.appendChild(wrapperButtons);
+
+    const wrapperFooter = document.createElement("div");
+    wrapperFooter.classList.add("wrapper__footer");
+    app.appendChild(wrapperFooter);
+
+    window.application.renderBlock('loserImage', document.querySelector('.wrapper__main-image'));
+    window.application.renderBlock('continueButton', document.querySelector('.wrapper-buttons'));
+    window.application.renderBlock('returnLobbyButton', document.querySelector('.wrapper-buttons'));
+    window.application.renderBlock('playLogoButton', document.querySelector('.wrapper__footer'));
 }
