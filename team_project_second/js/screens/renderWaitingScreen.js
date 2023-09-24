@@ -2,7 +2,7 @@ function renderWaitingScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
   const titleLobby = document.createElement('h1');
-  titleLobby.classList.add('app__main-tittle');
+  titleLobby.classList.add('wrapper__header-tittle');
   titleLobby.textContent = 'WaItInG PlAy - Rock Paper Scissors!!!!!!';
   const wrapperMainImage = document.createElement('div');
   wrapperMainImage.classList.add('wrapper-main-image');
@@ -37,7 +37,6 @@ function renderWaitingScreen() {
 
     if (window.application.status !== 'waiting-for-start') {
       window.application.timers.push(refreshGameStatus);
-      clearInterval(refreshGameStatus)// РАЗОБРАТЬСЯ ПОЧЕМУ ТАК?
       window.application.renderScreen('renderPlayScreen');
     }
   }, 500);

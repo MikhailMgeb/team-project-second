@@ -7,11 +7,14 @@ function renderMainButton(container) {
     const labelInputUser = document.createElement('label');
     labelInputUser.textContent = 'Your Login.....';
     inputUser.classList.add('wrapper__input-user');
+    console.log(window.application)
 
     authorizationForm.addEventListener('submit', (event) => {
         event.preventDefault();
+
         mainButton.disabled = true;
         const loginUser = inputUser.value;
+
         const params = {
             login: loginUser
         };

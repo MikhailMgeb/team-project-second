@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     timers: []
   }
-  console.log(window.application.timers)
+  
   window.application.renderBlock = window.application.renderBlock;
   window.application.blocks['mainButton'] = renderMainButton;
   window.application.blocks['playLobbyButton'] = renderPlayLobbyButton;
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.application.blocks['returnLobbyButton'] = renderReturnLobbyButton;
   window.application.blocks['winImage'] = renderWinImage;
 
-  window.application.screens['authorizationScreen'] = renderauthorizationScreen;
+  window.application.screens['authorizationScreen'] = renderAuthorizationScreen;
   window.application.screens['renderLobbyScreen'] = renderLobbyScreen;
   window.application.screens['renderPlayScreen'] = renderPlayScreen;
   window.application.screens['renderPlayLoserScreen'] = renderPlayLoserScreen;

@@ -1,4 +1,4 @@
-function renderauthorizationScreen() {
+function renderAuthorizationScreen() {
     const app = document.querySelector('.app');
     app.innerHTML = '';
   
@@ -7,7 +7,7 @@ function renderauthorizationScreen() {
     app.appendChild(containerHeader);
   
     const title = document.createElement('h1');
-    title.classList.add('app__main-tittle');
+    title.classList.add('wrapper__header-tittle');
     title.textContent = 'Rock Paper Scissors!!!!!!';
     containerHeader.appendChild(title);
   
