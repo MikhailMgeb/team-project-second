@@ -2,18 +2,14 @@ function renderAuthorizationScreen() {
     const app = document.querySelector('.app');
     app.innerHTML = '';
   
-    const containerHeader = document.createElement('div');
-    containerHeader.classList.add('wrapper__header');
-    app.appendChild(containerHeader);
-  
     const title = document.createElement('h1');
     title.classList.add('wrapper__header-tittle');
     title.textContent = 'Rock Paper Scissors!!!!!!';
-    containerHeader.appendChild(title);
+    app.appendChild(title);
   
     window.application.renderBlock(
       'mainImage',
-      document.querySelector('.wrapper__header')
+      document.querySelector('.app')
     );
   
     const authorizationForm = document.createElement('form');
@@ -25,8 +21,8 @@ function renderAuthorizationScreen() {
       document.querySelector('.authorization-form')
     );
   
-    const containerFooter = document.createElement('div');
-    containerFooter.classList.add('wrapper__footer');
-    app.appendChild(containerFooter);
+    const footer = document.createElement('footer');
+    footer.classList.add('wrapper__footer');
+    app.appendChild(footer);
     window.application.renderBlock('playLogoButton', document.querySelector('.wrapper__footer'));
   }

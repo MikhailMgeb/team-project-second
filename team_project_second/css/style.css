@@ -15,14 +15,14 @@
 .app {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-around;
+  align-items: center;
   border-radius: 14px;
-  border: solid 12px khaki;
+  border: solid 12px #f0e68c;
   min-height: 100vh;
   box-sizing: border-box;
-  padding: 24px;
-  gap: 25px;
+  padding: 16px;
+  gap: 32px;
 }
 
 .wrapper__header {
@@ -35,7 +35,6 @@
 
 .wrapper-list {
   display: flex;
-  min-height: 160px;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -52,10 +51,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 100px;
-  margin-top: 10px;
   background: transparent;
   gap: 30px;
+  /* margin: auto; */
 }
 
 .wrapper__label-user {
@@ -72,7 +70,7 @@
 
 .wrapper__header-tittle {
   text-align: center;
-  margin-top: 12px;
+  margin: 0;
   font-family: "Gloria Hallelujah", cursive;
   font-weight: bolder;
   font-size: 40px;
@@ -114,7 +112,7 @@
   border-radius: 1.5rem;
   background-color: #f6e58d;
   color: #000;
-  transition: all .5s ease 0s; 
+  transition: all 0.5s ease 0s;
   box-shadow: 0 10px #f9ca24;
   cursor: pointer;
 }
@@ -130,16 +128,22 @@
 
 .wrapper__choice-move {
   display: flex;
-  justify-content: center;
-  gap: 100px;
+  justify-content: space-between;
+  gap: 20px;
   align-items: center;
+  width: 70%;
+  max-width: 1200px;
+}
+
+.move-button {
+  width: 25%;
+  min-width: 100px;
 }
 
 .wrapper__rock-button,
 .wrapper__scissors-button,
 .wrapper__pock-button {
   box-sizing: content-box;
-  height: 180px;
   background: inherit;
   border: none;
 }
@@ -149,8 +153,9 @@
 }
 
 .personage-button {
-  width: 110px;
-  border-radius: 50px;
+  width: 100%;
+  height: auto;
+  border-radius: 35%;
   transition: all 0.2s;
   cursor: pointer;
 }
@@ -159,3 +164,7 @@
   display: flex;
   gap: 20px;
 }
+
+/* .wrapper__footer{
+  margin-top: auto;
+} */
