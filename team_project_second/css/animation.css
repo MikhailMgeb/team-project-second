@@ -1,5 +1,8 @@
-.wrapper__player-lobby {
-  animation: vibrate-1 0.3s linear infinite both;
+.wrapper__player-lobby:nth-child(n) {
+  animation: vibrate-1 1.5s ease-out infinite both;
+}
+.wrapper__player-lobby:nth-child(2n) {
+  animation: vibrate-1 1.5s ease-in infinite both alternate-reverse;
 }
 
 @-webkit-keyframes vibrate-1 {
@@ -56,8 +59,7 @@
 }
 
 .wrapper__main-button:hover {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  transform: scale(1.1);
 }
 
 .personage-button:hover {

@@ -36,10 +36,10 @@
 .wrapper-list {
   display: flex;
   min-height: 160px;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .wrapper__footer-logo {
@@ -95,11 +95,12 @@
 .wrapper__player-lobby {
   border-radius: 16px;
   border: none;
-  background-color: rgb(100, 186, 75);
+  background-color: #64ba4b;
   padding: 12px;
   padding-left: 20px;
   padding-right: 20px;
   font-family: "Gloria Hallelujah", cursive;
+  box-shadow: 0 10px #549d3e;
 }
 
 .wrapper__main-button {
@@ -115,6 +116,7 @@
   color: #000;
   transition: all .5s ease 0s; 
   box-shadow: 0 10px #f9ca24;
+  cursor: pointer;
 }
 
 .personage-button {
@@ -151,4 +153,9 @@
   border-radius: 50px;
   transition: all 0.2s;
   cursor: pointer;
+}
+
+.wrapper-buttons {
+  display: flex;
+  gap: 20px;
 }

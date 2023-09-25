@@ -117,7 +117,7 @@ function renderPlayLogoButton(container) {
 function renderMainImage(container) {
   const mainImage = document.createElement("img");
   mainImage.classList.add("wrapper__logo-header");
-  mainImage.src = "/image/mainPage.jpeg";
+  mainImage.src = "/image/main-page.png";
 
   container.appendChild(mainImage);
 }
@@ -125,7 +125,7 @@ function renderMainImage(container) {
 function renderLoserImage(container) {
   const loserImage = document.createElement("img");
   loserImage.classList.add("wrapper__logo-header");
-  loserImage.src = "/image/looser paper.jpeg";
+  loserImage.src = "/image/looser-paper.png";
 
   loserImage.addEventListener("click", () => {
     console.log("click");

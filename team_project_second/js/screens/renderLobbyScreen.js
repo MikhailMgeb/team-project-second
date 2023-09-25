@@ -19,6 +19,11 @@ function renderLobbyScreen() {
     "mainImage",
     document.querySelector(".wrapper__main-image")
   );
+  
+  window.application.renderBlock(
+    "playLobbyButton",
+    document.querySelector(".app")
+  );
 
   const wrapperList = document.createElement("div");
   wrapperList.classList.add("wrapper-list");
@@ -44,13 +49,9 @@ function renderLobbyScreen() {
   }, 1000);
 
   window.application.timers.push(refreshPlayerList);
-
-  window.application.renderBlock(
-    "playLobbyButton",
-    document.querySelector(".wrapper__footer")
-  );
+  
   window.application.renderBlock(
     "playLogoButton",
-    document.querySelector(".app")
+    document.querySelector(".wrapper__footer")
   );
 }
