@@ -6,10 +6,15 @@ const setToken = function (result) {
   };
   const getPlayerStatusRequest = getPlayerStatus(params);
   getPlayerStatusRequest.then((status) => playerStatus(status));
-  //request(`/player-status`, params, playerStatus);
 };
 
 const playerStatus = function (result) {
+  if (result['player-status'].status === 'game') {
+    window.application.id = result['player-status'].game.id;
+    window.application.renderScreen('renderPlayScreen');
+    return;
+  }
+
   const valuesResult = Object.values(result);
   const valuesStatus = valuesResult[1];
   const valuesGame = valuesResult[2];
