@@ -9,17 +9,7 @@ function renderPlayScreen() {
   const containerHeader = document.createElement('div');
   containerHeader.classList.add('wrapper_header');
   containerHeader.appendChild(titlePlay);
-
   app.appendChild(containerHeader);
-
-  // const wrapperMainImage = document.createElement("div");
-  // wrapperMainImage.classList.add("wrapper__main-image");
-  // app.appendChild(wrapperMainImage);
-
-  // window.application.renderBlock(
-  //   "mainImage",
-  //   document.querySelector(".wrapper__main-image")
-  // );
 
   const wrapperChoiceMove = document.createElement('div');
 
@@ -65,45 +55,4 @@ function renderPlayScreen() {
     'playLogoButton',
     document.querySelector('.wrapper__footer')
   );
-  wrapperChoiceMove.addEventListener('click', (event) => {
-    const params = {
-      token: window.application.token,
-      id: window.application.id,
-    };
-
-    const target = event.target;
-
-    if (target.closest('.wrapper__rock-button')) {
-      console.log(target.data);
-      params.move = 'rock';
-
-      request(
-        `https://skypro-rock-scissors-paper.herokuapp.com/play`,
-        params,
-        SetGameStatus
-      );
-    }
-
-    if (target.closest('.wrapper__scissors-button')) {
-      console.log(target.data);
-      params.move = 'scissors';
-
-      request(
-        `https://skypro-rock-scissors-paper.herokuapp.com/play`,
-        params,
-        SetGameStatus
-      );
-    }
-
-    if (target.closest('.wrapper__pock-button')) {
-      console.log(target.data);
-      params.move = 'paper';
-
-      request(
-        `https://skypro-rock-scissors-paper.herokuapp.com/play`,
-        params,
-        SetGameStatus
-      );
-    }
-  });
 }

@@ -1,16 +1,53 @@
-function request(url, parameters, cb) {
-    let paramsPair = '';
-    let arrParams = [];
-    const keys = Object.entries(parameters);
-
-    for (let key of keys) {
-        paramsPair = `${key[0]}` + '=' + `${key[1]}`;
-        arrParams.push(paramsPair);
-    }
-
-    const paramsString = arrParams.join('&');
-
-    fetch(`${url}?` + paramsString)
-        .then((response) => response.json())
-        .then(cb,console.log());
+const origin = 'https://skypro-rock-scissors-paper.herokuapp.com';
+function getParamsString(parameters) {
+  let paramsString = '';
+  let arrParams = [];
+  const keys = Object.entries(parameters);
+  for (let key of keys) {
+    paramsString = `${key[0]}` + '=' + `${key[1]}`;
+    arrParams.push(paramsString);
+  }
+  return arrParams.join('&');
+}
+function getLogin(params) {
+  return fetch(`${origin}/login?${getParamsString(params)}`)
+    .then((response) => response.json())
+    .catch((error) => {
+      window.application.renderScreen('renderAuthorizationServerErrorScreen');
+    });
+  }
+function getPlayerStatus(params) {
+  return fetch(`${origin}/player-status?${getParamsString(params)}`)
+    .then((response) => response.json())
+    .catch((error) => {
+      window.application.renderScreen('renderAuthorizationServerErrorScreen');
+    });
+}
+function getPlayerList(params) {
+  return fetch(`${origin}/player-list?${getParamsString(params)}`)
+    .then((response) => response.json())
+    .catch((error) => {
+      window.application.renderScreen('renderAuthorizationServerErrorScreen');
+    });
+}
+function getGame(params) {
+  return fetch(`${origin}/start?${getParamsString(params)}`)
+    .then((response) => response.json())
+    .catch((error) => {
+      window.application.renderScreen('renderAuthorizationServerErrorScreen');
+    });
+}
+function getGameStatus(params) {
+  return fetch(`${origin}/game-status?${getParamsString(params)}`)
+    .then((response) => response.json())
+    .catch((error) => {
+      window.application.renderScreen('renderAuthorizationServerErrorScreen');
+    });
+}
+function getPlay(params) {
+  return fetch(`${origin}/play?${getParamsString(params)}`)
+    .then((response) => response.json())
+    .catch((error) => {
+      window.application.renderScreen('renderAuthorizationServerErrorScreen');
+    });
 }
