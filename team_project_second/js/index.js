@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     blocks: {},
     screens: {},
     renderScreen: function (screenName) {
-      
-      window.application.timers.forEach(element => {
+      window.application.timers.forEach((element) => {
         clearInterval(element);
       });
 
@@ -13,18 +12,20 @@ document.addEventListener('DOMContentLoaded', () => {
     renderBlock: function (blockName, container, textContent) {
       window.application.blocks[blockName](container, textContent);
     },
-    timers: []
-  }
-  
+    timers: [],
+  };
+
   window.application.renderBlock = window.application.renderBlock;
   window.application.blocks['mainButton'] = renderMainButton;
   window.application.blocks['playLobbyButton'] = renderPlayLobbyButton;
-  window.application.blocks['input'] = renderInput;
   window.application.blocks['player-list'] = playerList;
   window.application.blocks['playHallButton'] = renderPlayHallButton;
-  window.application.blocks['playPersonageRockButton'] = renderPlayPersonageRockButton;
-  window.application.blocks['playPersonageScissorsButton'] = renderPlayPersonageScissorsButton;
-  window.application.blocks['playPersonagePaperButton'] = renderPlayPersonagePaperButton;
+  window.application.blocks['playPersonageRockButton'] =
+    renderPlayPersonageRockButton;
+  window.application.blocks['playPersonageScissorsButton'] =
+    renderPlayPersonageScissorsButton;
+  window.application.blocks['playPersonagePaperButton'] =
+    renderPlayPersonagePaperButton;
   window.application.blocks['playLogoButton'] = renderPlayLogoButton;
   window.application.blocks['mainImage'] = renderMainImage;
   window.application.blocks['loserImage'] = renderLoserImage;
@@ -39,6 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.application.screens['renderPlayWinScreen'] = renderPlayWinScreen;
   window.application.screens['renderWaitingScreen'] = renderWaitingScreen;
   window.application.screens['renderWaitingMoveScreen'] = renderWaitingMoveScreen;
+  window.application.screens['renderAuthorizationFinishedScreen'] = renderAuthorizationFinishedScreen;
+  window.application.screens['renderAuthorizationGameNotStartScreen'] = renderAuthorizationGameNotStartScreen;
+  window.application.screens['renderAuthorizationServerErrorScreen'] = renderAuthorizationServerErrorScreen;
 
   window.application.renderScreen('authorizationScreen');
-})
+});

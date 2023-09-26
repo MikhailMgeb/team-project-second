@@ -23,25 +23,21 @@ function renderWaitingScreen() {
     document.querySelector('.wrapper-main-image')
   );
 
-  const refreshGameStatus = setInterval(function () {
+  refreshGameStatus = setInterval(() => {
     const params = {
       token: window.application.token,
       id: window.application.id,
     };
 
-    request(
-      `https://skypro-rock-scissors-paper.herokuapp.com/game-status`,
-      params,
-      SetGameStatus
-    );
+    const getGameStatusRequest = getGameStatus(params);
+    getGameStatusRequest.then((gameStatus) => setGameStatus(gameStatus));
 
     if (window.application.status !== 'waiting-for-start') {
-      window.application.timers.push(refreshGameStatus);
       window.application.renderScreen('renderPlayScreen');
     }
   }, 500);
 
-  // window.application.timers.push(refreshGameStatus);
+  window.application.timers.push(refreshGameStatus);
 
   /*loader*/
   window.application.renderBlock(
