@@ -1,4 +1,5 @@
 const origin = 'https://skypro-rock-scissors-paper.herokuapp.com';
+
 function getParamsString(parameters) {
   let paramsString = '';
   let arrParams = [];
@@ -9,45 +10,49 @@ function getParamsString(parameters) {
   }
   return arrParams.join('&');
 }
+
 function getLogin(params) {
   return fetch(`${origin}/login?${getParamsString(params)}`)
     .then((response) => response.json())
-    .catch((error) => {
+    .catch(() => {
       window.application.renderScreen('renderAuthorizationServerErrorScreen');
     });
-  }
+}
+
 function getPlayerStatus(params) {
   return fetch(`${origin}/player-status?${getParamsString(params)}`)
     .then((response) => response.json())
-    .catch((error) => {
+    .catch(() => {
       window.application.renderScreen('renderAuthorizationServerErrorScreen');
     });
 }
+
 function getPlayerList(params) {
   return fetch(`${origin}/player-list?${getParamsString(params)}`)
     .then((response) => response.json())
-    .catch((error) => {
+    .catch(() => {
       window.application.renderScreen('renderAuthorizationServerErrorScreen');
     });
 }
+
 function getGame(params) {
   return fetch(`${origin}/start?${getParamsString(params)}`)
     .then((response) => response.json())
-    .catch((error) => {
+    .catch(() => {
       window.application.renderScreen('renderAuthorizationServerErrorScreen');
     });
 }
 function getGameStatus(params) {
   return fetch(`${origin}/game-status?${getParamsString(params)}`)
     .then((response) => response.json())
-    .catch((error) => {
+    .catch(() => {
       window.application.renderScreen('renderAuthorizationServerErrorScreen');
     });
 }
 function getPlay(params) {
   return fetch(`${origin}/play?${getParamsString(params)}`)
     .then((response) => response.json())
-    .catch((error) => {
+    .catch(() => {
       window.application.renderScreen('renderAuthorizationServerErrorScreen');
     });
 }

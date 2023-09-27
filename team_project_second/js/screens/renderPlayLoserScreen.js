@@ -2,11 +2,13 @@ function renderPlayLoserScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  const headerBlock = document.createElement('div');
+  const headerBlock = document.createElement('header');
   headerBlock.classList.add('wrapper__header');
+
   const titlePlayLoser = document.createElement('h1');
-  titlePlayLoser.classList.add('wrapper__header-tittle');
+  titlePlayLoser.classList.add('header-tittle');
   titlePlayLoser.textContent = 'YoU LoSe:((((!!!!!!DoNt WoRrY)';
+
   headerBlock.appendChild(titlePlayLoser);
   app.appendChild(headerBlock);
 
@@ -18,7 +20,7 @@ function renderPlayLoserScreen() {
   wrapperButtons.classList.add('wrapper-buttons');
   app.appendChild(wrapperButtons);
 
-  const wrapperFooter = document.createElement('div');
+  const wrapperFooter = document.createElement('footer');
   wrapperFooter.classList.add('wrapper__footer');
   app.appendChild(wrapperFooter);
 

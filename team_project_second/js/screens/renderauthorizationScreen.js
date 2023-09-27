@@ -3,8 +3,9 @@ function renderAuthorizationScreen() {
   app.innerHTML = '';
 
   const title = document.createElement('h1');
-  title.classList.add('wrapper__header-tittle');
+  title.classList.add('header-tittle');
   title.textContent = 'Rock Paper Scissors!!!!!!';
+
   app.appendChild(title);
 
   window.application.renderBlock('mainImage', document.querySelector('.app'));
@@ -21,6 +22,7 @@ function renderAuthorizationScreen() {
   const footer = document.createElement('footer');
   footer.classList.add('wrapper__footer');
   app.appendChild(footer);
+
   window.application.renderBlock(
     'playLogoButton',
     document.querySelector('.wrapper__footer')

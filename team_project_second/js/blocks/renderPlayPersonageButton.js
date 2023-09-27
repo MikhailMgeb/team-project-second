@@ -14,7 +14,7 @@ function renderPlayPersonageRockButton(container) {
     };
     const getPlayRequest = getPlay(params);
     getPlayRequest.then((play) => setPlay(play));
-    //request(`/play`, params, setPlay);
+
     setTimeout(() => {
       if (window.application.status === 'waiting-for-enemy-move') {
         window.application.renderScreen('renderWaitingMoveScreen');
@@ -45,7 +45,7 @@ function renderPlayPersonageScissorsButton(container) {
     };
     const getPlayRequest = getPlay(params);
     getPlayRequest.then((play) => setPlay(play));
-    //request(`/play`, params, setPlay);
+
     setTimeout(() => {
       if (window.application.status === 'waiting-for-enemy-move') {
         window.application.renderScreen('renderWaitingMoveScreen');

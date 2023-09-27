@@ -22,7 +22,15 @@
   min-height: 100vh;
   box-sizing: border-box;
   padding: 16px;
-  gap: 32px;
+  gap: 16px;
+}
+
+.header-tittle {
+  text-align: center;
+  margin: 0;
+  font-family: "Gloria Hallelujah", cursive;
+  font-weight: bolder;
+  font-size: 40px;
 }
 
 .wrapper__header {
@@ -33,17 +41,12 @@
   text-align: center;
 }
 
-.wrapper-list {
+.wrapper__list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 20px;
-}
-
-.wrapper__footer-logo {
-  width: 100%;
-  text-align: center;
 }
 
 .authorization-form {
@@ -56,6 +59,11 @@
   /* margin: auto; */
 }
 
+.wrapper__footer-logo {
+  width: 100%;
+  text-align: center;
+}
+
 .wrapper__label-user {
   display: block;
   text-align: center;
@@ -66,14 +74,6 @@
 .wrapper__input-user:focus {
   outline: 0;
   outline-offset: 0;
-}
-
-.wrapper__header-tittle {
-  text-align: center;
-  margin: 0;
-  font-family: "Gloria Hallelujah", cursive;
-  font-weight: bolder;
-  font-size: 40px;
 }
 
 .wrapper__button-user,
@@ -101,10 +101,8 @@
   box-shadow: 0 10px #549d3e;
 }
 
-.wrapper__main-button {
+.button {
   border: none;
-  padding-left: 36px;
-  padding-right: 36px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 700;
@@ -117,13 +115,13 @@
   cursor: pointer;
 }
 
+.button:hover {
+  transform: scale(1.1);
+}
+
 .personage-button {
   width: 110px;
   border-radius: 50px;
-}
-
-.Logo-button {
-  width: 250px;
 }
 
 .wrapper__choice-move {

@@ -1,9 +1,11 @@
 const setToken = function (result) {
   let tokenUser = result.token;
   window.application.token = tokenUser;
+
   const params = {
     token: window.application.token,
   };
+
   const getPlayerStatusRequest = getPlayerStatus(params);
   getPlayerStatusRequest.then((status) => playerStatus(status));
 };
@@ -27,23 +29,29 @@ const playerStatus = function (result) {
   const statusLobby = status.join();
   window.application.status = statusLobby;
 };
+
 const setPlayerList = function (data) {
-  document.querySelector('.wrapper-list').innerHTML = '';
+  const wrapperList = document.querySelector('.wrapper__list')
+  wrapperList.innerHTML = '';
+
   for (let i = 0; i < data.list.length; i++) {
     window.application.renderBlock(
       'player-list',
-      document.querySelector('.wrapper-list'),
+      document.querySelector('.wrapper__list'),
       data.list[i].login
     );
   }
 };
+
 function setStart(result) {
   const valuesResult = Object.values(result);
   const valuesGame = valuesResult[1];
   const valuesId = valuesGame.game;
   const gameId = valuesId.id;
+
   window.application.id = gameId;
 }
+
 function setGameStatus(result) {
   const valuesResult = Object.values(result);
   const valuesStatus = valuesResult[1];

@@ -1,20 +1,28 @@
 function renderMainButton(container) {
   const authorizationForm = document.querySelector('.authorization-form');
-  const mainButton = document.createElement('button');
-  mainButton.textContent = 'login';
-  mainButton.classList.add('wrapper__main-button');
-  const inputUser = document.createElement('input');
+
   const labelInputUser = document.createElement('label');
   labelInputUser.textContent = 'Your Login.....';
+  container.appendChild(labelInputUser);
+
+  const inputUser = document.createElement('input');
   inputUser.classList.add('wrapper__input-user');
+  container.appendChild(inputUser);
+
+  const mainButton = document.createElement('button');
+  mainButton.textContent = 'login';
+  mainButton.classList.add('wrapper__authorization-button', 'button');
+  container.appendChild(mainButton);
 
   const loader = document.createElement('span');
   loader.classList.add('hidden');
   loader.classList.add('loaders');
+  mainButton.appendChild(loader);
 
   const modalWindow = document.createElement('p');
   modalWindow.textContent = 'You did not enter your login!';
   modalWindow.classList.add('hidden');
+  container.appendChild(modalWindow);
 
   authorizationForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -43,17 +51,12 @@ function renderMainButton(container) {
       }
     }, 1000);
   });
-  container.appendChild(labelInputUser);
-  container.appendChild(inputUser);
-  container.appendChild(mainButton);
-  container.appendChild(modalWindow);
-  mainButton.appendChild(loader);
 }
 
 function renderPlayHallButton(container) {
   const playHallButton = document.createElement('button');
   playHallButton.textContent = 'Go Play!!!';
-  playHallButton.classList.add('wrapper__main-button');
+  playHallButton.classList.add('wrapper__main-button', 'button');
 
   container.appendChild(playHallButton);
 }
@@ -69,7 +72,7 @@ function renderPlayLogoButton(container) {
 function renderContinueButton(container) {
   const continueButton = document.createElement('button');
   continueButton.textContent = 'ContinuE PlaY';
-  continueButton.classList.add('wrapper__main-button');
+  continueButton.classList.add('wrapper__continue-button', 'button');
 
   container.appendChild(continueButton);
 
@@ -77,8 +80,11 @@ function renderContinueButton(container) {
     const params = {
       token: window.application.token,
     };
+
     const getGameRequest = getGame(params);
+
     getGameRequest.then((game) => setStart(game));
+
     window.application.renderScreen('renderWaitingScreen');
   });
 }
@@ -86,7 +92,7 @@ function renderContinueButton(container) {
 function renderReturnLobbyButton(container) {
   const returnLobbyButton = document.createElement('button');
   returnLobbyButton.textContent = 'ReturN tO LobbY';
-  returnLobbyButton.classList.add('wrapper__main-button');
+  returnLobbyButton.classList.add('wrapper__return-button', 'button');
 
   container.appendChild(returnLobbyButton);
 

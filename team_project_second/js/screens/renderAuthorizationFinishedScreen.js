@@ -3,7 +3,7 @@ function renderAuthorizationGameNotStartScreen() {
   app.innerHTML = '';
 
   const title = document.createElement('h1');
-  title.classList.add('wrapper__header-tittle');
+  title.classList.add('header-tittle');
   title.textContent = 'GaMe Not Start, TrY AgaIN LaTeR';
   app.appendChild(title);
 
@@ -32,7 +32,7 @@ function renderAuthorizationFinishedScreen() {
   app.innerHTML = '';
 
   const title = document.createElement('h1');
-  title.classList.add('wrapper__header-tittle');
+  title.classList.add('header-tittle');
   title.textContent = 'GaMe FiNiShEd, TrY AgaIN';
   app.appendChild(title);
 
@@ -61,7 +61,7 @@ function renderAuthorizationServerErrorScreen() {
   app.innerHTML = '';
 
   const title = document.createElement('h1');
-  title.classList.add('wrapper__header-tittle');
+  title.classList.add('header-tittle');
   title.textContent = 'SoRRy!!!ErrOr SeRvEr!!, TrY AgaIN';
   app.appendChild(title);
 

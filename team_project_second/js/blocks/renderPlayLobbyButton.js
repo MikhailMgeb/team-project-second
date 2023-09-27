@@ -5,7 +5,7 @@ loader.classList.add('loaders');
 function renderPlayLobbyButton(container) {
   const playLobbyButton = document.createElement('button');
   playLobbyButton.textContent = 'Go Play!!!';
-  playLobbyButton.classList.add('wrapper__main-button');
+  playLobbyButton.classList.add('wrapper__main-button', 'button');
 
   playLobbyButton.addEventListener('click', () => {
     playLobbyButton.disabled = true;
@@ -22,8 +22,6 @@ function renderPlayLobbyButton(container) {
         playLobbyButton.disabled = false;
         loader.classList.add('hidden');
       });
-
-    clearInterval(refreshPlayerList);
 
     window.application.renderScreen('renderWaitingScreen');
   });

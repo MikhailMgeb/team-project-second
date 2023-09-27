@@ -3,13 +3,10 @@ function renderPlayScreen() {
   app.innerHTML = '';
 
   const titlePlay = document.createElement('h1');
-  titlePlay.classList.add('wrapper__header-tittle');
+  titlePlay.classList.add('header-tittle');
   titlePlay.textContent = 'LeTs gO PlAy!!!!!!';
 
-  const containerHeader = document.createElement('div');
-  containerHeader.classList.add('wrapper_header');
-  containerHeader.appendChild(titlePlay);
-  app.appendChild(containerHeader);
+  app.appendChild(titlePlay);
 
   const wrapperChoiceMove = document.createElement('div');
 

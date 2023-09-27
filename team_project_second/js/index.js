@@ -14,8 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     timers: [],
   };
-
-  window.application.renderBlock = window.application.renderBlock;
   window.application.blocks['mainButton'] = renderMainButton;
   window.application.blocks['playLobbyButton'] = renderPlayLobbyButton;
   window.application.blocks['player-list'] = playerList;
