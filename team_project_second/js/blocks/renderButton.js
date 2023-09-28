@@ -2,6 +2,7 @@ function renderMainButton(container) {
   const authorizationForm = document.querySelector('.authorization-form');
 
   const labelInputUser = document.createElement('label');
+  labelInputUser.classList.add('label');
   labelInputUser.textContent = 'Your Login.....';
   container.appendChild(labelInputUser);
 

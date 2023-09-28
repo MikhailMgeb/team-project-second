@@ -85,9 +85,11 @@ function setPlay(result) {
   if (window.application.status === 'waiting-for-enemy-move') {
     window.application.renderScreen('renderWaitingMoveScreen');
   }
+  
   if (window.application.status === 'lose') {
     window.application.renderScreen('renderPlayLoserScreen');
   }
+
   if (window.application.status === 'win') {
     window.application.renderScreen('renderPlayWinScreen');
   }
