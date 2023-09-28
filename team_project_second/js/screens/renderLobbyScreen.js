@@ -48,7 +48,7 @@ function renderLobbyScreen() {
   window.application.timers.push(refreshPlayerList);
 
   window.application.renderBlock(
-    'playLogoButton',
+    'renderFooterLogo',
     document.querySelector('.wrapper__footer')
   );
 }

@@ -21,7 +21,7 @@ function renderPlayWinScreen() {
   wrapperButtons.classList.add('wrapper-buttons');
   app.appendChild(wrapperButtons);
 
-  const wrapperFooter = document.createElement('div');
+  const wrapperFooter = document.createElement('footer');
   wrapperFooter.classList.add('wrapper__footer');
 
   app.appendChild(wrapperFooter);
@@ -42,7 +42,7 @@ function renderPlayWinScreen() {
   );
 
   window.application.renderBlock(
-    'playLogoButton',
+    'renderFooterLogo',
     document.querySelector('.wrapper__footer')
   );
 }

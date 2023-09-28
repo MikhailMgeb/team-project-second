@@ -15,8 +15,8 @@ function renderWaitingScreen() {
   const wrapperList = document.createElement('div');
   wrapperList.classList.add('wrapper__list');
 
-  const wrapperFooterImage = document.createElement('div');
-  wrapperFooterImage.classList.add('wrapper-footer-image');
+  const wrapperFooterImage = document.createElement('footer');
+  wrapperFooterImage.classList.add('wrapper__footer');
 
   app.appendChild(titleLobby);
   content.appendChild(wrapperMainImage);
@@ -45,9 +45,8 @@ function renderWaitingScreen() {
 
   window.application.timers.push(refreshGameStatus);
 
-  /*loader*/
   window.application.renderBlock(
-    'playLogoButton',
-    document.querySelector('.wrapper-footer-image')
+    'renderFooterLogo',
+    document.querySelector('.wrapper__footer')
   );
 }

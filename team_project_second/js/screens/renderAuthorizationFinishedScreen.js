@@ -80,7 +80,7 @@ function renderAuthorizationServerErrorScreen() {
   footer.classList.add('wrapper__footer');
   app.appendChild(footer);
   window.application.renderBlock(
-    'playLogoButton',
+    'renderFooterLogo',
     document.querySelector('.wrapper__footer')
   );
 }

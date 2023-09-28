@@ -61,12 +61,21 @@ function renderPlayHallButton(container) {
   container.appendChild(playHallButton);
 }
 
-function renderPlayLogoButton(container) {
-  const playLogoButton = document.createElement('img');
-  playLogoButton.classList.add('wrapper__footer-logo');
-  playLogoButton.src = '/image/logo-footer.jpeg';
+function renderFooterLogo(container) {
+  const firstWordLogo = document.createElement('span');
+  firstWordLogo.classList.add('wrapper__footer-title', 'title__pink');
+  firstWordLogo.textContent = 'RoCk';
 
-  container.appendChild(playLogoButton);
+  const secondWordLogo = document.createElement('span');
+  secondWordLogo.classList.add('wrapper__footer-title', 'title__yellow');
+  secondWordLogo.textContent = 'PaPer';
+
+  const thirdWordLogo = document.createElement('span');
+  thirdWordLogo.classList.add('wrapper__footer-title', 'title__blue');
+  thirdWordLogo.textContent = 'ScIssoRs';
+  container.appendChild(firstWordLogo);
+  container.appendChild(secondWordLogo);
+  container.appendChild(thirdWordLogo);
 }
 
 function renderContinueButton(container) {

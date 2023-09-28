@@ -49,7 +49,7 @@ function renderPlayScreen() {
   app.appendChild(footer);
 
   window.application.renderBlock(
-    'playLogoButton',
+    'renderFooterLogo',
     document.querySelector('.wrapper__footer')
   );
 }

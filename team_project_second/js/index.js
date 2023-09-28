@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPlayPersonageScissorsButton;
   window.application.blocks['playPersonagePaperButton'] =
     renderPlayPersonagePaperButton;
-  window.application.blocks['playLogoButton'] = renderPlayLogoButton;
+  window.application.blocks['renderFooterLogo'] = renderFooterLogo;
   window.application.blocks['mainImage'] = renderMainImage;
   window.application.blocks['loserImage'] = renderLoserImage;
   window.application.blocks['continueButton'] = renderContinueButton;

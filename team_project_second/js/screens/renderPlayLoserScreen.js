@@ -37,7 +37,7 @@ function renderPlayLoserScreen() {
     document.querySelector('.wrapper-buttons')
   );
   window.application.renderBlock(
-    'playLogoButton',
+    'renderFooterLogo',
     document.querySelector('.wrapper__footer')
   );
 }
