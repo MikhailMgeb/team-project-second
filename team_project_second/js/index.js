@@ -1,19 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
   window.application = {
     blocks: {},
+
     screens: {},
+
+    timers: [],
+
     renderScreen: function (screenName) {
+      if (!this.screens[screenName]) {
+        console.log(`There is no screen "${screenName}"`);
+        return;
+      }
+
       window.application.timers.forEach((element) => {
         clearInterval(element);
       });
 
       window.application.screens[screenName]();
     },
+
     renderBlock: function (blockName, container, textContent) {
+      if (!this.blocks[blockName]) {
+        console.log(`There is no block "${blockName}"`);
+        return;
+      }
+
       window.application.blocks[blockName](container, textContent);
     },
-    timers: [],
   };
+
   window.application.blocks['mainButton'] = renderMainButton;
   window.application.blocks['playLobbyButton'] = renderPlayLobbyButton;
   window.application.blocks['player-list'] = playerList;
@@ -37,10 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.application.screens['renderPlayLoserScreen'] = renderPlayLoserScreen;
   window.application.screens['renderPlayWinScreen'] = renderPlayWinScreen;
   window.application.screens['renderWaitingScreen'] = renderWaitingScreen;
-  window.application.screens['renderWaitingMoveScreen'] = renderWaitingMoveScreen;
-  window.application.screens['renderAuthorizationFinishedScreen'] = renderAuthorizationFinishedScreen;
-  window.application.screens['renderAuthorizationGameNotStartScreen'] = renderAuthorizationGameNotStartScreen;
-  window.application.screens['renderAuthorizationServerErrorScreen'] = renderAuthorizationServerErrorScreen;
+  window.application.screens['renderWaitingMoveScreen'] =
+    renderWaitingMoveScreen;
+  window.application.screens['renderAuthorizationFinishedScreen'] =
+    renderAuthorizationFinishedScreen;
+  window.application.screens['renderAuthorizationGameNotStartScreen'] =
+    renderAuthorizationGameNotStartScreen;
+  window.application.screens['renderAuthorizationServerErrorScreen'] =
+    renderAuthorizationServerErrorScreen;
 
   window.application.renderScreen('authorizationScreen');
 });

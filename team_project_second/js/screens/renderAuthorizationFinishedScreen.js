@@ -21,8 +21,9 @@ function renderAuthorizationGameNotStartScreen() {
   const footer = document.createElement('footer');
   footer.classList.add('wrapper__footer');
   app.appendChild(footer);
+
   window.application.renderBlock(
-    'playLogoButton',
+    'renderFooterLogo',
     document.querySelector('.wrapper__footer')
   );
 }
@@ -51,7 +52,7 @@ function renderAuthorizationFinishedScreen() {
   footer.classList.add('wrapper__footer');
   app.appendChild(footer);
   window.application.renderBlock(
-    'playLogoButton',
+    'renderFooterLogo',
     document.querySelector('.wrapper__footer')
   );
 }

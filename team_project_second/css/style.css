@@ -64,8 +64,9 @@
 
 .wrapper__footer {
   display: flex;
-  gap: 45px;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5px 45px;
+  justify-content: center;
 }
 
 .wrapper__footer-title {
@@ -130,6 +131,10 @@
 }
 
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
   border: none;
   padding: 1rem;
   font-size: 20px;
@@ -143,15 +148,18 @@
   cursor: pointer;
 }
 
+.button_disabled {
+  cursor: not-allowed;
+  color: #a5a5a5;
+}
+
 .button:hover {
   transform: scale(1.1);
 }
 
 .personage-button {
-  width: 100%;
-  border-radius: 50px;
-  height: auto;
-  border-radius: 35%;
+  width: auto;
+  max-height: 84%;
   transition: all 0.2s;
   cursor: pointer;
 }
@@ -166,17 +174,32 @@
 }
 
 .move-button {
+  padding: 0;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border: none;
+  overflow: hidden;
   width: 25%;
   min-width: 100px;
 }
 
-.wrapper__rock-button,
-.wrapper__scissors-button,
-.wrapper__pock-button {
-  box-sizing: content-box;
-  background: inherit;
-  border: none;
+.move-button:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
+
+/* .wrapper__rock-button,
+.wrapper__scissors-button,
+.wrapper__pock-button { */
+/* aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border: none;
+  overflow: hidden; */
+/* } */
 
 .wrapper-buttons {
   display: flex;
@@ -185,20 +208,61 @@
 
 .wrapper__logo-header {
   max-width: 80%;
+  height: 35vh;
+}
+
+.hidden {
+  display: none;
+}
+
+.warning {
+  margin: 0;
+  color: #dc143c;
+}
+
+@media (min-width: 375px) {
+  .header-tittle {
+    line-height: 1.1;
+  }
+
+  .authorization-form {
+    gap: 20px;
+  }
+
+  .wrapper__list {
+    margin-top: 10px;
+  }
+
+  .wrapper__choice-move {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .wrapper__footer-title {
+    font-size: 36px;
+  }
+
+  .wrapper__footer {
+    gap: 5px 25px;
+  }
+
+  .wrapper__logo-header {
+    height: 20vh;
+  }
 }
 
 @media (min-width: 1050px) {
   .wrapper__logo-header {
     max-width: 50%;
+    height: 24vh;
   }
 }
 
 @media (min-width: 1250px) {
   .wrapper__logo-header {
     max-width: 70%;
+    height: 41vh;
     text-align: center;
   }
-}
-.hidden {
-  display: none !important;
 }

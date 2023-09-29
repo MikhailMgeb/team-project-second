@@ -17,33 +17,40 @@ function renderMainButton(container) {
 
   const loader = document.createElement('span');
   loader.classList.add('hidden');
-  loader.classList.add('loaders');
+  loader.classList.remove('loaders');
   mainButton.appendChild(loader);
 
   const modalWindow = document.createElement('p');
   modalWindow.textContent = 'You did not enter your login!';
-  modalWindow.classList.add('hidden');
+  modalWindow.classList.add('hidden', 'warning');
   container.appendChild(modalWindow);
 
   authorizationForm.addEventListener('submit', (event) => {
     event.preventDefault();
     mainButton.disabled = true;
     loader.classList.remove('hidden');
+    loader.classList.add('loaders');
+    mainButton.classList.add('button_disabled');
+    
     const loginUser = inputUser.value;
-
+    
     if (loginUser.length === 0) {
       modalWindow.classList.remove('hidden');
     }
+
     const params = {
       login: loginUser,
     };
-    const getLoginRequest = getLogin(params);
 
+    const getLoginRequest = getLogin(params);
+    
     getLoginRequest
-      .then((token) => setToken(token))
-      .finally(() => {
-        mainButton.disabled = false;
-        loader.classList.add('hidden');
+    .then((token) => setToken(token))
+    .finally(() => {
+      mainButton.disabled = false;
+      loader.classList.add('hidden');
+      loader.classList.remove('loaders');
+      mainButton.classList.remove('button_disabled');
       });
 
     setTimeout(() => {
@@ -73,7 +80,7 @@ function renderFooterLogo(container) {
 
   const thirdWordLogo = document.createElement('span');
   thirdWordLogo.classList.add('wrapper__footer-title', 'title__blue');
-  thirdWordLogo.textContent = 'ScIssoRs';
+  thirdWordLogo.textContent = 'ScissoRs';
   container.appendChild(firstWordLogo);
   container.appendChild(secondWordLogo);
   container.appendChild(thirdWordLogo);

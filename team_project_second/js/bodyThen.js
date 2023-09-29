@@ -31,7 +31,7 @@ const playerStatus = function (result) {
 };
 
 const setPlayerList = function (data) {
-  const wrapperList = document.querySelector('.wrapper__list')
+  const wrapperList = document.querySelector('.wrapper__list');
   wrapperList.innerHTML = '';
 
   for (let i = 0; i < data.list.length; i++) {
@@ -44,19 +44,20 @@ const setPlayerList = function (data) {
 };
 
 function setStart(result) {
-  const valuesResult = Object.values(result);
-  const valuesGame = valuesResult[1];
-  const valuesId = valuesGame.game;
-  const gameId = valuesId.id;
+  const gameId = result['player-status'].game.id;
 
   window.application.id = gameId;
 }
 
 function setGameStatus(result) {
-  const valuesResult = Object.values(result);
-  const valuesStatus = valuesResult[1];
-  const valuesStatusGame = Object.entries(valuesStatus);
-  const statusLobby = valuesStatusGame[0][1];
+
+  if (result === undefined) {
+    return;
+  }
+
+  const statusLobby = result['game-status'].status;
+  // console.log('setGameStatus result', result);
+
   window.application.status = statusLobby;
 
   if (window.application.status === 'waiting-for-your-move') {
@@ -71,21 +72,20 @@ function setGameStatus(result) {
 }
 
 function setPlay(result) {
-  const valuesResult = Object.values(result);
-  const valuesStatus = valuesResult[1];
+  const status = result.message;
 
-  if (valuesStatus === 'game not started') {
+  if (status === 'game not started') {
     window.application.renderScreen('renderAuthorizationGameNotStartScreen');
   }
 
-  if (valuesStatus === 'game finished') {
+  if (status === 'game finished') {
     window.application.renderScreen('renderAuthorizationFinishedScreen');
   }
 
   if (window.application.status === 'waiting-for-enemy-move') {
     window.application.renderScreen('renderWaitingMoveScreen');
   }
-  
+
   if (window.application.status === 'lose') {
     window.application.renderScreen('renderPlayLoserScreen');
   }
@@ -94,7 +94,8 @@ function setPlay(result) {
     window.application.renderScreen('renderPlayWinScreen');
   }
 
-  const valuesStatusGame = Object.entries(valuesStatus);
+  console.log('status', status)
+  const valuesStatusGame = Object.entries(status);
   const statusLobby = valuesStatusGame[0][1];
   window.application.status = statusLobby;
 }
