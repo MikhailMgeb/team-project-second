@@ -1,101 +1,82 @@
 const setToken = function (result) {
+  console.log(result);
   let tokenUser = result.token;
   window.application.token = tokenUser;
-
+  console.log(tokenUser);
   const params = {
     token: window.application.token,
   };
-
   const getPlayerStatusRequest = getPlayerStatus(params);
   getPlayerStatusRequest.then((status) => playerStatus(status));
 };
 
 const playerStatus = function (result) {
+  console.log(result['player-status'].status);
+  const status = result['player-status'].status;
   if (result['player-status'].status === 'game') {
     window.application.id = result['player-status'].game.id;
     window.application.renderScreen('renderPlayScreen');
     return;
   }
+  console.log(result);
 
-  const valuesResult = Object.values(result);
-  const valuesStatus = valuesResult[1];
-  const valuesGame = valuesResult[2];
-  if (valuesResult[2]) {
-    const game = Object.values(valuesGame);
-    const gameId = game.join();
-    window.application.id = gameId;
-  }
-  const status = Object.values(valuesStatus);
-  const statusLobby = status.join();
-  window.application.status = statusLobby;
+  window.application.status = status;
 };
 
 const setPlayerList = function (data) {
-  const wrapperList = document.querySelector('.wrapper__list');
-  wrapperList.innerHTML = '';
+  document.querySelector('.wrapper-list').innerHTML = '';
 
   for (let i = 0; i < data.list.length; i++) {
     window.application.renderBlock(
       'player-list',
-      document.querySelector('.wrapper__list'),
+      document.querySelector('.wrapper-list'),
       data.list[i].login
     );
   }
 };
 
 function setStart(result) {
+  console.log(result);
+
   const gameId = result['player-status'].game.id;
 
   window.application.id = gameId;
 }
 
 function setGameStatus(result) {
-
-  if (result === undefined) {
-    return;
-  }
+  console.log(result['game-status'].status);
 
   const statusLobby = result['game-status'].status;
-  // console.log('setGameStatus result', result);
 
+  console.log(statusLobby);
   window.application.status = statusLobby;
-
   if (window.application.status === 'waiting-for-your-move') {
+    clearInterval(refreshGameStatusWait);
     window.application.renderScreen('renderPlayScreen');
   }
   if (window.application.status === 'lose') {
+    clearInterval(refreshGameStatusWait);
     window.application.renderScreen('renderPlayLoserScreen');
   }
   if (window.application.status === 'win') {
+    clearInterval(refreshGameStatusWait);
     window.application.renderScreen('renderPlayWinScreen');
   }
 }
 
 function setPlay(result) {
-  const status = result.message;
+  console.log(result);
 
-  if (status === 'game not started') {
-    window.application.renderScreen('renderAuthorizationGameNotStartScreen');
+  const valuesStatus = result.message;
+
+  if (valuesStatus === 'game not started') {
+    window.application.renderScreen('renderAutorizationGameNotStartScreen');
   }
-
-  if (status === 'game finished') {
-    window.application.renderScreen('renderAuthorizationFinishedScreen');
+  if (valuesStatus === 'game finished') {
+    window.application.renderScreen('renderAutorizationFinishedScreen');
   }
-
-  if (window.application.status === 'waiting-for-enemy-move') {
-    window.application.renderScreen('renderWaitingMoveScreen');
-  }
-
-  if (window.application.status === 'lose') {
-    window.application.renderScreen('renderPlayLoserScreen');
-  }
-
-  if (window.application.status === 'win') {
-    window.application.renderScreen('renderPlayWinScreen');
-  }
-
-  console.log('status', status)
-  const valuesStatusGame = Object.entries(status);
-  const statusLobby = valuesStatusGame[0][1];
+  const statusLobby = result['game-status'].status;
   window.application.status = statusLobby;
+
+  console.log(statusLobby);
 }
