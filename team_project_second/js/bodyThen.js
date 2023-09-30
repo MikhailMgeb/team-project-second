@@ -65,8 +65,6 @@ function setGameStatus(result) {
 }
 
 function setPlay(result) {
-  console.log(result);
-
   const valuesStatus = result.message;
 
   if (valuesStatus === 'game not started') {
