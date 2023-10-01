@@ -8,26 +8,44 @@ function renderWaitingScreen() {
 
   const wrapperMainImage = document.createElement('div');
   wrapperMainImage.classList.add('wrapper-main-image');
+  
+  app.appendChild(titleLobby);
+ 
+  window.application.renderBlock(
+    'mainImage',
+    document.querySelector('.app')
+  );
+ 
 
-  const content = document.createElement('div');
-  content.classList.add('wrapper');
 
-  const wrapperList = document.createElement('div');
-  wrapperList.classList.add('wrapper__list');
+  const loader = document.createElement('div');
+  loader.classList.add('loader');
+  app.appendChild(loader);
+
+  const face = document.createElement('div');
+  face.classList.add('face');
+  loader.appendChild(face);
+
+  const circle = document.createElement('div');
+  circle.classList.add('circle');
+  face.appendChild(circle);
+
+  const faceTwo = document.createElement('div');
+  faceTwo.classList.add('face');
+  loader.appendChild(faceTwo);
+
+  const circleTwo = document.createElement('div');
+  circleTwo.classList.add('circle');
+  faceTwo.appendChild(circleTwo);
 
   const wrapperFooterImage = document.createElement('footer');
   wrapperFooterImage.classList.add('wrapper__footer');
 
-  app.appendChild(titleLobby);
-  content.appendChild(wrapperMainImage);
-  app.appendChild(content);
-  content.appendChild(wrapperList);
-  content.appendChild(wrapperFooterImage);
+  
+  
+  app.appendChild(wrapperFooterImage);
 
-  window.application.renderBlock(
-    'mainImage',
-    document.querySelector('.wrapper-main-image')
-  );
+
 
   refreshGameStatus = setInterval(() => {
     const params = {
@@ -41,7 +59,7 @@ function renderWaitingScreen() {
     if (window.application.status !== 'waiting-for-start') {
       window.application.renderScreen('renderPlayScreen');
     }
-  }, 500);
+  }, 3000);
 
   window.application.timers.push(refreshGameStatus);
 

@@ -15,7 +15,11 @@ function getLogin(params) {
   return fetch(`${origin}/login?${getParamsString(params)}`)
     .then((response) => response.json())
     .catch(() => {
-      window.application.renderScreen('renderAuthorizationServerErrorScreen');
+      //window.application.renderScreen('renderAuthorizationServerErrorScreen');
+      window.application.renderBlock(
+        'modalServer',
+        document.querySelector('.app')
+      )
     });
 }
 
@@ -23,9 +27,13 @@ function getPlayerStatus(params) {
   return fetch(`${origin}/player-status?${getParamsString(params)}`)
     .then((response) => response.json())
     .catch(() => {
-      window.application.renderScreen('renderAuthorizationServerErrorScreen');
+      //window.application.renderScreen('renderAuthorizationServerErrorScreen');
+      window.application.renderBlock(
+        'modalServer',
+        document.querySelector('.app')
+      )
     });
-}
+} 
 
 function getPlayerList(params) {
   return fetch(`${origin}/player-list?${getParamsString(params)}`)
@@ -39,20 +47,32 @@ function getGame(params) {
   return fetch(`${origin}/start?${getParamsString(params)}`)
     .then((response) => response.json())
     .catch(() => {
-      window.application.renderScreen('renderAuthorizationServerErrorScreen');
+      //window.application.renderScreen('renderAuthorizationServerErrorScreen');
+      window.application.renderBlock(
+        'modalServer',
+        document.querySelector('.app')
+      )
     });
 }
 function getGameStatus(params) {
   return fetch(`${origin}/game-status?${getParamsString(params)}`)
     .then((response) => response.json())
     .catch(() => {
-      window.application.renderScreen('renderAuthorizationServerErrorScreen');
+      //window.application.renderScreen('renderAuthorizationServerErrorScreen');
+      window.application.renderBlock(
+        'modalServer',
+        document.querySelector('.app')
+      )
     });
 }
 function getPlay(params) {
   return fetch(`${origin}/play?${getParamsString(params)}`)
     .then((response) => response.json())
     .catch(() => {
-      window.application.renderScreen('renderAuthorizationServerErrorScreen');
+      //window.application.renderScreen('renderAuthorizationServerErrorScreen');
+      window.application.renderBlock(
+        'modalServer',
+        document.querySelector('.app')
+      )
     });
 }

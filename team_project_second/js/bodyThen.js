@@ -30,17 +30,24 @@ const setPlayerList = function (data) {
     window.application.renderBlock(
       'player-list',
       document.querySelector('.wrapper__list'),
-      data.list[i].login
+      'login: '+ data.list[i].login + '; wins: '+ data.list[i].wins +'; loses: '+ data.list[i].loses
     );
   }
 };
 
 function setStart(result) {
   console.log(result);
-
+  if (result.message) {
+    const messageError = result.message;
+    if (messageError === 'player is already in game') {
+      window.application.renderBlock(
+        'renderModalGameAlready',
+        document.querySelector('.app'))
+    } }
   const gameId = result['player-status'].game.id;
 
   window.application.id = gameId;
+    
 }
 
 function setGameStatus(result) {
@@ -67,14 +74,22 @@ function setGameStatus(result) {
 
 function setPlay(result) {
   console.log(result);
+  if (!result) {
+    return;
+  }
   if (result.message) {
     const messageError = result.message;
 
     if (messageError === 'game not started') {
-      window.application.renderScreen('renderAuthorizationGameNotStartScreen');
+      //window.application.renderScreen('renderAuthorizationGameNotStartScreen');
+      window.application.renderBlock(
+        'renderModalGameNotStart',
+        document.querySelector('.app'))
     }
     if (messageError === 'game finished') {
-      window.application.renderScreen('renderAuthorizationFinishedScreen');
+      window.application.renderBlock(
+        'renderModalGameNotFinished',
+        document.querySelector('.app'));
     }
   } else {
     
