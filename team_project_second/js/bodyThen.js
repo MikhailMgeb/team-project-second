@@ -24,12 +24,12 @@ const playerStatus = function (result) {
 };
 
 const setPlayerList = function (data) {
-  document.querySelector('.wrapper-list').innerHTML = '';
+  document.querySelector('.wrapper__list').innerHTML = '';
 
   for (let i = 0; i < data.list.length; i++) {
     window.application.renderBlock(
       'player-list',
-      document.querySelector('.wrapper-list'),
+      document.querySelector('.wrapper__list'),
       data.list[i].login
     );
   }
@@ -44,6 +44,10 @@ function setStart(result) {
 }
 
 function setGameStatus(result) {
+  console.log(result);
+  if (!result) {
+    return;
+  }
   console.log(result['game-status'].status);
 
   const statusLobby = result['game-status'].status;
@@ -51,30 +55,33 @@ function setGameStatus(result) {
   console.log(statusLobby);
   window.application.status = statusLobby;
   if (window.application.status === 'waiting-for-your-move') {
-    clearInterval(refreshGameStatusWait);
     window.application.renderScreen('renderPlayScreen');
   }
   if (window.application.status === 'lose') {
-    clearInterval(refreshGameStatusWait);
     window.application.renderScreen('renderPlayLoserScreen');
   }
   if (window.application.status === 'win') {
-    clearInterval(refreshGameStatusWait);
     window.application.renderScreen('renderPlayWinScreen');
   }
 }
 
 function setPlay(result) {
-  const valuesStatus = result.message;
+  console.log(result);
+  if (result.message) {
+    const messageError = result.message;
 
-  if (valuesStatus === 'game not started') {
-    window.application.renderScreen('renderAutorizationGameNotStartScreen');
-  }
-  if (valuesStatus === 'game finished') {
-    window.application.renderScreen('renderAutorizationFinishedScreen');
-  }
-  const statusLobby = result['game-status'].status;
-  window.application.status = statusLobby;
+    if (messageError === 'game not started') {
+      window.application.renderScreen('renderAuthorizationGameNotStartScreen');
+    }
+    if (messageError === 'game finished') {
+      window.application.renderScreen('renderAuthorizationFinishedScreen');
+    }
+  } else {
+    
+    const statusLobby = result['game-status'].status;
 
-  console.log(statusLobby);
+    window.application.status = statusLobby;
+
+    console.log(statusLobby);
+  }
 }
