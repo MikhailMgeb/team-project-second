@@ -1,4 +1,5 @@
 const setToken = function (result) {
+  console.log(result);
   let tokenUser = result.token;
   window.application.token = tokenUser;
   const params = { token: window.application.token };
@@ -20,32 +21,40 @@ const playerStatus = function (result) {
 };
 
 const setPlayerList = function (data) {
-  const wrapperList = document.querySelector('.wrapper__list');
-  wrapperList.innerHTML = '';
+  document.querySelector('.wrapper__list').innerHTML = '';
 
   for (let i = 0; i < data.list.length; i++) {
     window.application.renderBlock(
       'player-list',
       document.querySelector('.wrapper__list'),
-      data.list[i].login
+      'login: '+ data.list[i].login + '; wins: '+ data.list[i].wins +'; loses: '+ data.list[i].loses
     );
   }
 };
 
 function setStart(result) {
+  console.log(result);
+  if (result.message) {
+    const messageError = result.message;
+    if (messageError === 'player is already in game') {
+      window.application.renderBlock(
+        'renderModalGameAlready',
+        document.querySelector('.app'))
+    } }
   const gameId = result['player-status'].game.id;
 
   window.application.id = gameId;
+    
 }
 
 function setGameStatus(result) {
-  if (result === undefined) {
+  console.log(result);  if (!result) {
     return;
   }
+  console.log(result['game-status'].status);
 
   const statusLobby = result['game-status'].status;
   window.application.status = statusLobby;
-
   if (window.application.status === 'waiting-for-your-move') {
     window.application.renderScreen('renderPlayScreen');
   }
@@ -58,36 +67,30 @@ function setGameStatus(result) {
 }
 
 function setPlay(result) {
-  const status = result.message;
-
-  if (status === 'game not started') {
-    window.application.renderScreen('renderAuthorizationGameNotStartScreen');
-    return;
-  }
-
-  if (status === 'game finished') {
-    window.application.renderScreen('renderAuthorizationFinishedScreen');
-    return;
-  }
-
-  if (window.application.status === 'waiting-for-enemy-move') {
-    window.application.renderScreen('renderWaitingMoveScreen');
-    return;
-  }
-
-  if (window.application.status === 'lose') {
-    window.application.renderScreen('renderPlayLoserScreen');
-    return;
-  }
-
-  if (window.application.status === 'win') {
-    window.application.renderScreen('renderPlayWinScreen');
-    return;
-  }
-
   console.log(result);
-  console.log(result['game-status'].status);
+  if (!result) {
+    return;
+  }
+  if (result.message) {
+    const messageError = result.message;
 
-  const statusLobby = result['game-status'].status;
-  window.application.status = statusLobby;
+    if (messageError === 'game not started') {
+      //window.application.renderScreen('renderAuthorizationGameNotStartScreen');
+      window.application.renderBlock(
+        'renderModalGameNotStart',
+        document.querySelector('.app'))
+    }
+    if (messageError === 'game finished') {
+      window.application.renderBlock(
+        'renderModalGameNotFinished',
+        document.querySelector('.app'));
+    }
+  } else {
+    
+    const statusLobby = result['game-status'].status;
+
+    window.application.status = statusLobby;
+
+    console.log(statusLobby);
+  }
 }

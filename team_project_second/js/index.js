@@ -45,6 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.application.blocks['continueButton'] = renderContinueButton;
   window.application.blocks['returnLobbyButton'] = renderReturnLobbyButton;
   window.application.blocks['winImage'] = renderWinImage;
+  window.application.blocks['modalServer'] = renderModal;
+  window.application.blocks['renderModalGameNotStart'] = renderModalGameNotStart;
+  window.application.blocks['renderModalGameNotFinished'] = renderModalGameNotFinished;
+  window.application.blocks['renderModalGameAlready'] = renderModalGameAlready;
 
   window.application.screens['authorizationScreen'] = renderAuthorizationScreen;
   window.application.screens['renderLobbyScreen'] = renderLobbyScreen;
