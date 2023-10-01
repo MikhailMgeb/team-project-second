@@ -3,7 +3,7 @@ function renderWaitingMoveScreen() {
   app.innerHTML = '';
 
   const titleLobby = document.createElement('h1');
-  titleLobby.classList.add('app__main-tittle');
+  titleLobby.classList.add('header-tittle');
   titleLobby.textContent = 'WaItInG MoVe YoUr EnEmY - Rock Paper Scissors!!!!!!';
   app.appendChild(titleLobby);
 
