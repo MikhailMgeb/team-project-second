@@ -42,7 +42,7 @@ function renderLobbyScreen() {
     };
 
     const getPlayerListRequest = getPlayerList(params);
-    getPlayerListRequest.then((playerList) => setPlayerList(playerList));
+    getPlayerListRequest.then((playerList) => {setPlayerList(playerList); console.log('wrapper__list', wrapperList)});
   }, 1000);
 
   window.application.timers.push(refreshPlayerList);

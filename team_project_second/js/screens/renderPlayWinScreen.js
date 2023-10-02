@@ -7,7 +7,7 @@ function renderPlayWinScreen() {
 
   const titlePlayLoser = document.createElement('h1');
   titlePlayLoser.classList.add('header-tittle');
-  titlePlayLoser.textContent = 'YoU WiN:))))))))';
+  titlePlayLoser.textContent = 'YoU WiN :))))))))';
 
   headerBlock.appendChild(titlePlayLoser);
   app.appendChild(headerBlock);

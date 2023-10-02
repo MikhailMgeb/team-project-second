@@ -21,7 +21,8 @@ const playerStatus = function (result) {
 };
 
 const setPlayerList = function (data) {
-  document.querySelector('.wrapper__list').innerHTML = '';
+  const wrapperList = document.querySelector('.wrapper__list');
+  wrapperList.innerHTML = '';
 
   for (let i = 0; i < data.list.length; i++) {
     window.application.renderBlock(
@@ -61,7 +62,7 @@ function setGameStatus(result) {
 
   const statusLobby = result['game-status'].status;
   window.application.status = statusLobby;
-  
+
 
   console.log('statusLobby', statusLobby);
 
