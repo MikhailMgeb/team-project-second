@@ -8,15 +8,10 @@ function renderWaitingScreen() {
 
   const wrapperMainImage = document.createElement('div');
   wrapperMainImage.classList.add('wrapper-main-image');
-  
-  app.appendChild(titleLobby);
- 
-  window.application.renderBlock(
-    'mainImage',
-    document.querySelector('.app')
-  );
- 
 
+  app.appendChild(titleLobby);
+
+  window.application.renderBlock('mainImage', document.querySelector('.app'));
 
   const loader = document.createElement('div');
   loader.classList.add('loader');
@@ -41,11 +36,7 @@ function renderWaitingScreen() {
   const wrapperFooterImage = document.createElement('footer');
   wrapperFooterImage.classList.add('wrapper__footer');
 
-  
-  
   app.appendChild(wrapperFooterImage);
-
-
 
   refreshGameStatus = setInterval(() => {
     const params = {
@@ -54,12 +45,15 @@ function renderWaitingScreen() {
     };
 
     const getGameStatusRequest = getGameStatus(params);
-    getGameStatusRequest.then((gameStatus) => setGameStatus(gameStatus));
-    console.log(window.application.status);
-    if (window.application.status !== 'waiting-for-start') {
-      window.application.renderScreen('renderPlayScreen');
-    }
-  }, 3000);
+    getGameStatusRequest.then((gameStatus) => {
+      setGameStatus(gameStatus);
+      console.log('status', window.application.status);
+      
+      if (window.application.status !== 'waiting-for-start') {
+        window.application.renderScreen('renderPlayScreen');
+      }
+    });
+  }, 500);
 
   window.application.timers.push(refreshGameStatus);
 
