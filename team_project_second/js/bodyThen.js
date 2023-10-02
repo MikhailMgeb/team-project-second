@@ -1,5 +1,5 @@
 const setToken = function (result) {
-  console.log(result);
+  // console.log(result);
   let tokenUser = result.token;
   window.application.token = tokenUser;
   const params = { token: window.application.token };

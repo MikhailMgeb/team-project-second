@@ -13,7 +13,7 @@ function renderModal(container) {
 
   container.appendChild(modalOver);
   modalOver.appendChild(modalContent);
-  modalOver.appendChild(modalButton);
+  modalContent.appendChild(modalButton);
 }
 
 function renderModalGameNotStart(container) {
@@ -31,7 +31,7 @@ function renderModalGameNotStart(container) {
 
   container.appendChild(modalOver);
   modalOver.appendChild(modalContent);
-  modalOver.appendChild(modalButton);
+  modalContent.appendChild(modalButton);
 }
 
 function renderModalGameNotFinished(container) {
