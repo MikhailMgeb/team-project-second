@@ -33,7 +33,6 @@ const setPlayerList = function (data) {
 };
 
 function setStart(result) {
-  console.log(result);
   if (result.message) {
     const messageError = result.message;
     if (messageError === 'player is already in game') {
@@ -44,53 +43,51 @@ function setStart(result) {
   const gameId = result['player-status'].game.id;
 
   window.application.id = gameId;
-    
 }
 
 function setGameStatus(result) {
   console.log(result);  if (!result) {
     return;
   }
-  console.log(result['game-status'].status);
 
   const statusLobby = result['game-status'].status;
   window.application.status = statusLobby;
+
   if (window.application.status === 'waiting-for-your-move') {
     window.application.renderScreen('renderPlayScreen');
   }
+
   if (window.application.status === 'lose') {
     window.application.renderScreen('renderPlayLoserScreen');
   }
+
   if (window.application.status === 'win') {
     window.application.renderScreen('renderPlayWinScreen');
   }
 }
 
 function setPlay(result) {
-  console.log(result);
   if (!result) {
     return;
   }
+
   if (result.message) {
     const messageError = result.message;
 
     if (messageError === 'game not started') {
-      //window.application.renderScreen('renderAuthorizationGameNotStartScreen');
       window.application.renderBlock(
         'renderModalGameNotStart',
         document.querySelector('.app'))
     }
+
     if (messageError === 'game finished') {
       window.application.renderBlock(
         'renderModalGameNotFinished',
         document.querySelector('.app'));
     }
+
   } else {
-    
     const statusLobby = result['game-status'].status;
-
     window.application.status = statusLobby;
-
-    console.log(statusLobby);
   }
 }
