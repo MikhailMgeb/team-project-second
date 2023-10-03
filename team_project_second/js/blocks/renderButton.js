@@ -71,7 +71,7 @@ function renderPlayHallButton(container) {
 
 function renderFooterLogo(container) {
   const firstWordLogo = document.createElement('span');
-  firstWordLogo.classList.add('wrapper__footer-title', 'title__pink');
+  firstWordLogo.classList.add('wrapper__footer-title', 'title__gray');
   firstWordLogo.textContent = 'RoCk';
 
   const secondWordLogo = document.createElement('span');
