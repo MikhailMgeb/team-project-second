@@ -41,11 +41,13 @@ const setPlayerList = function (data) {
 function setStart(result) {
   if (result.message) {
     const messageError = result.message;
+
     if (messageError === 'player is already in game') {
-      window.application.renderBlock(
-        'renderModalGameAlready',
-        document.querySelector('.app')
-      );
+      const renderTypeScreen = 'authorizationScreen';
+      const errorText = 'SoRRy, PlaYer iS aLrEaDy iN gAmE!!';
+      const container = document.querySelector('.app');
+
+      renderModal(renderTypeScreen, errorText, container);
     }
   }
   const gameId = result['player-status'].game.id;
@@ -62,7 +64,6 @@ function setGameStatus(result) {
 
   const statusLobby = result['game-status'].status;
   window.application.status = statusLobby;
-
 
   console.log('statusLobby', statusLobby);
 
@@ -89,19 +90,20 @@ function setPlay(result) {
 
   if (result.message) {
     const messageError = result.message;
+    const container = document.querySelector('.app');
 
     if (messageError === 'game not started') {
-      window.application.renderBlock(
-        'renderModalGameNotStart',
-        document.querySelector('.app')
-      );
+      const renderTypeScreen = 'renderAuthorizationGameNotStartScreen';
+      const errorText = 'SoRRy SeRveR ErroR!!!, tRy AgAiN!!';
+
+      renderModal(renderTypeScreen, errorText,container);
     }
 
     if (messageError === 'game finished') {
-      window.application.renderBlock(
-        'renderModalGameNotFinished',
-        document.querySelector('.app')
-      );
+      const renderTypeScreen = 'renderAuthorizationFinishedScreen'
+      const errorText = 'SoRRy, GaMe  FiNiSheD!!!, tRy AgAiN!!';
+
+      renderModal(renderTypeScreen, errorText, container);
     }
   } else {
     const statusLobby = result['game-status'].status;
