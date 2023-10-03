@@ -2,14 +2,11 @@ function renderLobbyScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  const titleLobby = document.createElement('h1');
-  titleLobby.classList.add('header-tittle');
-  titleLobby.textContent = 'LOBBY - Rock Paper Scissors!!!!!!';
+  const title = document.createElement('h1');
+  title.classList.add('header-tittle');
+  title.textContent = 'LOBBY - Rock Paper Scissors!!!!!!';
 
-  const containerHeader = document.createElement('header');
-  containerHeader.classList.add('wrapper__logo-header');
-  containerHeader.appendChild(titleLobby);
-  app.appendChild(containerHeader);
+  app.appendChild(title);
 
   const wrapperMainImage = document.createElement('div');
   wrapperMainImage.classList.add('wrapper__main-image');
@@ -42,7 +39,11 @@ function renderLobbyScreen() {
     };
 
     const getPlayerListRequest = getPlayerList(params);
-    getPlayerListRequest.then((playerList) => {setPlayerList(playerList); console.log('wrapper__list', wrapperList)});
+
+    getPlayerListRequest.then((playerList) => {
+      // console.log('playerList', playerList);
+      setPlayerList(playerList);
+    });
   }, 1000);
 
   window.application.timers.push(refreshPlayerList);

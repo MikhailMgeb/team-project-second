@@ -4,10 +4,12 @@ function getParamsString(parameters) {
   let paramsString = '';
   let arrParams = [];
   const keys = Object.entries(parameters);
+
   for (let key of keys) {
     paramsString = `${key[0]}` + '=' + `${key[1]}`;
     arrParams.push(paramsString);
   }
+  
   return arrParams.join('&');
 }
 

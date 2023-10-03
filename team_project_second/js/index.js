@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
       window.application.timers.forEach((element) => {
         clearInterval(element);
       });
-
+      
+      window.application.timers.length = 0;
       window.application.screens[screenName]();
     },
 
