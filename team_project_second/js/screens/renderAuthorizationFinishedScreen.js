@@ -3,7 +3,7 @@ function renderAuthorizationGameNotStartScreen() {
   app.innerHTML = '';
 
   const title = document.createElement('h1');
-  title.classList.add('header-tittle');
+  title.classList.add('header');
   title.textContent = 'GaMe Not Start, TrY AgaIN LaTeR';
   app.appendChild(title);
 
@@ -19,12 +19,12 @@ function renderAuthorizationGameNotStartScreen() {
   );
 
   const footer = document.createElement('footer');
-  footer.classList.add('wrapper__footer');
+  footer.classList.add('footer');
   app.appendChild(footer);
 
   window.application.renderBlock(
     'renderFooterLogo',
-    document.querySelector('.wrapper__footer')
+    document.querySelector('.footer')
   );
 }
 
@@ -33,7 +33,7 @@ function renderAuthorizationFinishedScreen() {
   app.innerHTML = '';
 
   const title = document.createElement('h1');
-  title.classList.add('header-tittle');
+  title.classList.add('header');
   title.textContent = 'GaMe FiNiShEd, TrY AgaIN';
   app.appendChild(title);
 
@@ -49,11 +49,11 @@ function renderAuthorizationFinishedScreen() {
   );
 
   const footer = document.createElement('footer');
-  footer.classList.add('wrapper__footer');
+  footer.classList.add('footer');
   app.appendChild(footer);
   window.application.renderBlock(
     'renderFooterLogo',
-    document.querySelector('.wrapper__footer')
+    document.querySelector('.footer')
   );
 }
 
@@ -62,7 +62,7 @@ function renderAuthorizationServerErrorScreen() {
   app.innerHTML = '';
 
   const title = document.createElement('h1');
-  title.classList.add('header-tittle');
+  title.classList.add('header');
   title.textContent = 'SoRRy!!!ErrOr SeRvEr!!, TrY AgaIN';
   app.appendChild(title);
 
@@ -78,10 +78,10 @@ function renderAuthorizationServerErrorScreen() {
   );
 
   const footer = document.createElement('footer');
-  footer.classList.add('wrapper__footer');
+  footer.classList.add('footer');
   app.appendChild(footer);
   window.application.renderBlock(
     'renderFooterLogo',
-    document.querySelector('.wrapper__footer')
+    document.querySelector('.footer')
   );
 }

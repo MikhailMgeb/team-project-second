@@ -3,7 +3,7 @@ function renderAuthorizationScreen() {
   app.innerHTML = '';
 
   const title = document.createElement('h1');
-  title.classList.add('header-tittle');
+  title.classList.add('header');
   title.textContent = 'Rock Paper Scissors!!!!!!';
 
   app.appendChild(title);
@@ -20,11 +20,11 @@ function renderAuthorizationScreen() {
   );
 
   const footer = document.createElement('footer');
-  footer.classList.add('wrapper__footer');
+  footer.classList.add('footer');
   app.appendChild(footer);
 
   window.application.renderBlock(
     'renderFooterLogo',
-    document.querySelector('.wrapper__footer')
+    document.querySelector('.footer')
   );
 }

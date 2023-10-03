@@ -1,18 +1,18 @@
 function renderMainButton(container) {
   const authorizationForm = document.querySelector('.authorization-form');
 
-  const labelInputUser = document.createElement('label');
-  labelInputUser.classList.add('label');
-  labelInputUser.textContent = 'Your Login.....';
-  container.appendChild(labelInputUser);
+  const authorizationFormLabel = document.createElement('label');
+  authorizationFormLabel.classList.add('authorization-form__label');
+  authorizationFormLabel.textContent = 'Your Login...';
+  container.appendChild(authorizationFormLabel);
 
   const inputUser = document.createElement('input');
-  inputUser.classList.add('wrapper__input-user');
+  inputUser.classList.add('authorization-form__input-user');
   container.appendChild(inputUser);
 
   const mainButton = document.createElement('button');
   mainButton.textContent = 'login';
-  mainButton.classList.add('wrapper__authorization-button', 'button');
+  mainButton.classList.add('authorization-form__button', 'button');
   container.appendChild(mainButton);
 
   const loader = document.createElement('span');
@@ -22,7 +22,7 @@ function renderMainButton(container) {
 
   const modalWindow = document.createElement('p');
   modalWindow.textContent = 'You did not enter your login!';
-  modalWindow.classList.add('hidden', 'warning');
+  modalWindow.classList.add('warning_hidden', 'warning');
   container.appendChild(modalWindow);
 
   authorizationForm.addEventListener('submit', (event) => {
@@ -35,7 +35,7 @@ function renderMainButton(container) {
     const loginUser = inputUser.value;
     
     if (loginUser.length === 0) {
-      modalWindow.classList.remove('hidden');
+      modalWindow.classList.remove('warning_hidden');
     }
 
     const params = {
@@ -71,15 +71,15 @@ function renderPlayHallButton(container) {
 
 function renderFooterLogo(container) {
   const firstWordLogo = document.createElement('span');
-  firstWordLogo.classList.add('wrapper__footer-title', 'title__pink');
+  firstWordLogo.classList.add('footer-title', 'footer-title__gray');
   firstWordLogo.textContent = 'RoCk';
 
   const secondWordLogo = document.createElement('span');
-  secondWordLogo.classList.add('wrapper__footer-title', 'title__yellow');
+  secondWordLogo.classList.add('footer-title', 'footer-title__yellow');
   secondWordLogo.textContent = 'PaPer';
 
   const thirdWordLogo = document.createElement('span');
-  thirdWordLogo.classList.add('wrapper__footer-title', 'title__blue');
+  thirdWordLogo.classList.add('footer-title', 'footer-title__blue');
   thirdWordLogo.textContent = 'ScissoRs';
   container.appendChild(firstWordLogo);
   container.appendChild(secondWordLogo);

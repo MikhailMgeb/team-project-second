@@ -6,7 +6,7 @@ function renderPlayLoserScreen() {
   headerBlock.classList.add('wrapper__header');
 
   const titlePlayLoser = document.createElement('h1');
-  titlePlayLoser.classList.add('header-tittle');
+  titlePlayLoser.classList.add('header');
   titlePlayLoser.textContent = 'YoU LoSe:((((!!!!!!DoNt WoRrY)';
 
   headerBlock.appendChild(titlePlayLoser);
@@ -21,7 +21,7 @@ function renderPlayLoserScreen() {
   app.appendChild(wrapperButtons);
 
   const wrapperFooter = document.createElement('footer');
-  wrapperFooter.classList.add('wrapper__footer');
+  wrapperFooter.classList.add('footer');
   app.appendChild(wrapperFooter);
 
   window.application.renderBlock(
@@ -38,6 +38,6 @@ function renderPlayLoserScreen() {
   );
   window.application.renderBlock(
     'renderFooterLogo',
-    document.querySelector('.wrapper__footer')
+    document.querySelector('.footer')
   );
 }

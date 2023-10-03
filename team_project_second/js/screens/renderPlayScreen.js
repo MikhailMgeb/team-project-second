@@ -3,7 +3,7 @@ function renderPlayScreen() {
   app.innerHTML = '';
 
   const titlePlay = document.createElement('h1');
-  titlePlay.classList.add('header-tittle');
+  titlePlay.classList.add('header');
   titlePlay.textContent = 'LeTs gO PlAy!!!!!!';
 
   app.appendChild(titlePlay);
@@ -45,11 +45,11 @@ function renderPlayScreen() {
   );
 
   const footer = document.createElement('footer');
-  footer.classList.add('wrapper__footer');
+  footer.classList.add('footer');
   app.appendChild(footer);
 
   window.application.renderBlock(
     'renderFooterLogo',
-    document.querySelector('.wrapper__footer')
+    document.querySelector('.footer')
   );
 }

@@ -3,11 +3,11 @@ function renderLobbyScreen() {
   app.innerHTML = '';
 
   const titleLobby = document.createElement('h1');
-  titleLobby.classList.add('header-tittle');
+  titleLobby.classList.add('header');
   titleLobby.textContent = 'LOBBY - Rock Paper Scissors!!!!!!';
 
   const containerHeader = document.createElement('header');
-  containerHeader.classList.add('wrapper__logo-header');
+  containerHeader.classList.add('logo');
   containerHeader.appendChild(titleLobby);
   app.appendChild(containerHeader);
 
@@ -30,7 +30,7 @@ function renderLobbyScreen() {
   app.appendChild(wrapperList);
 
   const wrapperFooter = document.createElement('footer');
-  wrapperFooter.classList.add('wrapper__footer');
+  wrapperFooter.classList.add('footer');
   app.appendChild(wrapperFooter);
 
   const blockListPlayer = document.createElement('div');
@@ -49,6 +49,6 @@ function renderLobbyScreen() {
 
   window.application.renderBlock(
     'renderFooterLogo',
-    document.querySelector('.wrapper__footer')
+    document.querySelector('.footer')
   );
 }

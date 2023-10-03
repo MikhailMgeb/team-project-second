@@ -3,7 +3,7 @@ function renderWaitingScreen() {
   app.innerHTML = '';
 
   const titleLobby = document.createElement('h1');
-  titleLobby.classList.add('header-tittle');
+  titleLobby.classList.add('header');
   titleLobby.textContent = 'WaItInG PlAy - Rock Paper Scissors!!!!!!';
 
   const wrapperMainImage = document.createElement('div');
@@ -34,7 +34,7 @@ function renderWaitingScreen() {
   faceTwo.appendChild(circleTwo);
 
   const wrapperFooterImage = document.createElement('footer');
-  wrapperFooterImage.classList.add('wrapper__footer');
+  wrapperFooterImage.classList.add('footer');
 
   app.appendChild(wrapperFooterImage);
 
@@ -59,6 +59,6 @@ function renderWaitingScreen() {
 
   window.application.renderBlock(
     'renderFooterLogo',
-    document.querySelector('.wrapper__footer')
+    document.querySelector('.footer')
   );
 }
