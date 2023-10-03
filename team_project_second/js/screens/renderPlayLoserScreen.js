@@ -2,15 +2,10 @@ function renderPlayLoserScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  const headerBlock = document.createElement('header');
-  headerBlock.classList.add('wrapper__header');
-
-  const titlePlayLoser = document.createElement('h1');
-  titlePlayLoser.classList.add('header-tittle');
-  titlePlayLoser.textContent = 'YoU LoSe:((((!!!!!!DoNt WoRrY)';
-
-  headerBlock.appendChild(titlePlayLoser);
-  app.appendChild(headerBlock);
+  const title = document.createElement('h1');
+  title.classList.add('header-tittle');
+  title.textContent = 'YoU LoSe:((((!!!!!!DoNt WoRrY)';
+  app.appendChild(title);
 
   const wrapperMainImage = document.createElement('div');
   wrapperMainImage.classList.add('wrapper__main-image');

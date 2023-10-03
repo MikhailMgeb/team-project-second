@@ -2,11 +2,11 @@ function renderPlayScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  const titlePlay = document.createElement('h1');
-  titlePlay.classList.add('header-tittle');
-  titlePlay.textContent = 'LeTs gO PlAy!!!!!!';
+  const title = document.createElement('h1');
+  title.classList.add('header-tittle');
+  title.textContent = 'LeTs gO PlAy!!!!!!';
 
-  app.appendChild(titlePlay);
+  app.appendChild(title);
 
   const wrapperChoiceMove = document.createElement('div');
 

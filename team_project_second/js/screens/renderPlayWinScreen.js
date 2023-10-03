@@ -2,15 +2,11 @@ function renderPlayWinScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  const headerBlock = document.createElement('div');
-  headerBlock.classList.add('wrapper__header');
+  const title = document.createElement('h1');
+  title.classList.add('header-tittle');
+  title.textContent = 'YoU WiN :))))))))';
 
-  const titlePlayLoser = document.createElement('h1');
-  titlePlayLoser.classList.add('header-tittle');
-  titlePlayLoser.textContent = 'YoU WiN :))))))))';
-
-  headerBlock.appendChild(titlePlayLoser);
-  app.appendChild(headerBlock);
+  app.appendChild(title);
 
   const wrapperMainImage = document.createElement('div');
   wrapperMainImage.classList.add('wrapper__main-image');

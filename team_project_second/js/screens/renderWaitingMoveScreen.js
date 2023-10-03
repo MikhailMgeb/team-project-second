@@ -2,15 +2,12 @@ function renderWaitingMoveScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  const titleLobby = document.createElement('h1');
-  titleLobby.classList.add('header-tittle');
-  titleLobby.textContent = 'WaItInG MoVe YoUr EnEmY - Rock Paper Scissors!!!!!!';
-  app.appendChild(titleLobby);
+  const title = document.createElement('h1');
+  title.classList.add('header-tittle');
+  title.textContent = 'WaItInG MoVe YoUr EnEmY - Rock Paper Scissors!!!!!!';
+  app.appendChild(title);
 
-  window.application.renderBlock(
-    'mainImage',
-    document.querySelector('.app')
-  );
+  window.application.renderBlock('mainImage', document.querySelector('.app'));
 
   const loader = document.createElement('div');
   loader.classList.add('loader');
@@ -40,7 +37,6 @@ function renderWaitingMoveScreen() {
     'renderFooterLogo',
     document.querySelector('.wrapper__footer')
   );
-
 
   refreshGameStatusWait = setInterval(() => {
     const params = {

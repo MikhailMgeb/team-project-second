@@ -2,14 +2,13 @@ function renderWaitingScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  const titleLobby = document.createElement('h1');
-  titleLobby.classList.add('header-tittle');
-  titleLobby.textContent = 'WaItInG PlAy - Rock Paper Scissors!!!!!!';
+  const title = document.createElement('h1');
+  title.classList.add('header-tittle');
+  title.textContent = 'WaItInG PlAy - Rock Paper Scissors!!!!!!';
+  app.appendChild(title);
 
   const wrapperMainImage = document.createElement('div');
   wrapperMainImage.classList.add('wrapper-main-image');
-
-  app.appendChild(titleLobby);
 
   window.application.renderBlock('mainImage', document.querySelector('.app'));
 
@@ -48,7 +47,7 @@ function renderWaitingScreen() {
     getGameStatusRequest.then((gameStatus) => {
       setGameStatus(gameStatus);
       console.log('status', window.application.status);
-      
+
       if (window.application.status !== 'waiting-for-start') {
         window.application.renderScreen('renderPlayScreen');
       }

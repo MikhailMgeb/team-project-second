@@ -20,7 +20,7 @@ const playerStatus = function (result) {
   window.application.status = status;
 };
 
-const setPlayerList = function (data) {
+function setPlayerList(data) {
   const wrapperList = document.querySelector('.wrapper__list');
   wrapperList.innerHTML = '';
 
@@ -36,7 +36,7 @@ const setPlayerList = function (data) {
         data.list[i].loses
     );
   }
-};
+}
 
 function setStart(result) {
   if (result.message) {
@@ -63,7 +63,6 @@ function setGameStatus(result) {
   const statusLobby = result['game-status'].status;
   window.application.status = statusLobby;
 
-
   console.log('statusLobby', statusLobby);
 
   if (window.application.status === 'waiting-for-your-move') {
@@ -73,12 +72,12 @@ function setGameStatus(result) {
 
   if (window.application.status === 'lose') {
     window.application.renderScreen('renderPlayLoserScreen');
-    console.log('window.application.status', window.application.status)
+    console.log('window.application.status', window.application.status);
   }
 
   if (window.application.status === 'win') {
     window.application.renderScreen('renderPlayWinScreen');
-    console.log('window.application.status', window.application.status)
+    console.log('window.application.status', window.application.status);
   }
 }
 
