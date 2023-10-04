@@ -4,7 +4,7 @@ function renderWaitingMoveScreen() {
 
   const title = document.createElement('h1');
   title.classList.add('header-tittle');
-  title.textContent = 'WaItInG MoVe YoUr EnEmY - Rock Paper Scissors!!!!!!';
+  title.textContent = 'WaItInG for EnEmY MoVe  - Rock Paper Scissors!!!!!!';
   app.appendChild(title);
 
   window.application.renderBlock('mainImage', document.querySelector('.app'));

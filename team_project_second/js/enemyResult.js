@@ -7,11 +7,10 @@ function enemyResult(container) {
 
   titleBarChart = document.createElement('p');
   titleBarChart.classList.add('title_bar-chart');
-  titleBarChart.textContent = 'Login: ' + window.application.enemyLogin;
+  titleBarChart.textContent = window.application.enemyLogin;
 
   function width(move, summa) {
-    const widthResult = (move / summa) * 100 + 70;
-    return widthResult;
+    return (move / summa) * 100 + 80;
   }
 
   const widthRocks = width(window.application.enemyRocks, summaMove);
