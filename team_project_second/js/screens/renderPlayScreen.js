@@ -4,7 +4,7 @@ function renderPlayScreen() {
 
   const title = document.createElement('h1');
   title.classList.add('header-tittle');
-  title.textContent = 'LeTs gO PlAy!!!!!!';
+  title.textContent = "LeT's gO PlAy!!!!!!";
 
   app.appendChild(title);
 
@@ -28,8 +28,10 @@ function renderPlayScreen() {
   wrapperChoiceMove.classList.add('wrapper__choice-move');
 
   const wrapperResult = document.createElement('div')
-  wrapperResult.classList.add('wrapper_result')
-  wrapperResult.textContent = 'Dates of my Enemy:'
+  wrapperResult.classList.add('wrapper_enemy-data')
+  wrapperResult.textContent = "You are playing against" 
+
+
 
   app.appendChild(wrapperChoiceMove);
 

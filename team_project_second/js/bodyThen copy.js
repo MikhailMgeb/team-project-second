@@ -13,7 +13,35 @@ const playerStatus = function (result) {
 
   if (result['player-status'].status === 'game') {
     window.application.id = result['player-status'].game.id;
-    window.application.renderScreen('renderPlayScreen');
+    const params = {
+      token: window.application.token,
+      id: window.application.id,
+    };
+    // window.application.renderScreen('renderPlayScreen');
+    const getGameStatusRequest = getGameStatus(params);
+    getGameStatusRequest.then((gameStatus) => {
+      setGameStatus(gameStatus);
+      console.log('status', window.application.status);
+
+      if (window.application.status === 'waiting-for-your-move') {
+        console.log('window.application.status', window.application.status);
+        const enemyLogin = result['game-status'].enemy.login;
+        window.application.enemyLogin = enemyLogin;
+        const enemyRocks = result['game-status'].enemy.rocks;
+        window.application.enemyRocks = enemyRocks;
+        const enemyPapers = result['game-status'].enemy.papers;
+        window.application.enemyPapers = enemyPapers;
+        const enemyScissors = result['game-status'].enemy.scissors;
+        window.application.enemyScissors = enemyScissors;
+
+        window.application.renderScreen('renderPlayScreen');
+        window.application.renderBlock(
+          'enemyResult',
+          document.querySelector('.wrapper_enemy-data')
+        );
+        console.log('window.application.status', window.application.status);
+      }
+    });
     return;
   }
 
@@ -22,12 +50,16 @@ const playerStatus = function (result) {
 
 function setPlayerList(data) {
   const wrapperList = document.querySelector('.wrapper__list');
-  wrapperList.innerHTML = '';
+  if (wrapperList) {
+    wrapperList.innerHTML = '';
+  }
 
   for (let i = 0; i < data.list.length; i++) {
     window.application.renderBlock(
       'player-list',
+
       document.querySelector('.wrapper__list'),
+      
       'login: ' +
         data.list[i].login +
         '; wins: ' +
@@ -41,6 +73,7 @@ function setPlayerList(data) {
 function setStart(result) {
   if (result.message) {
     const messageError = result.message;
+    console.log('messageSetStar', messageError);
 
     if (messageError === 'player is already in game') {
       const renderTypeScreen = 'authorizationScreen';
@@ -67,22 +100,27 @@ function setGameStatus(result) {
 
   console.log('statusLobby', statusLobby);
 
-  if (window.application.status === 'waiting-for-your-move') {
+  if (
+    (window.application.status === 'waiting-for-your-move' ||
+      'waiting-for-start') &&
+    result['game-status'].enemy
+  ) {
     console.log('window.application.status', window.application.status);
+
     const enemyLogin = result['game-status'].enemy.login;
-    window.application.enemyLogin = enemyLogin
+    window.application.enemyLogin = enemyLogin;
     const enemyRocks = result['game-status'].enemy.rocks;
-    window.application.enemyRocks = enemyRocks
+    window.application.enemyRocks = enemyRocks;
     const enemyPapers = result['game-status'].enemy.papers;
-    window.application.enemyPapers = enemyPapers
+    window.application.enemyPapers = enemyPapers;
     const enemyScissors = result['game-status'].enemy.scissors;
-    window.application.enemyScissors = enemyScissors
-    
+    window.application.enemyScissors = enemyScissors;
+
     window.application.renderScreen('renderPlayScreen');
-        window.application.renderBlock(
-          'enemyResult',
-          document.querySelector('.wrapper_enemy-data')
-        );
+    window.application.renderBlock(
+      'enemyResult',
+      document.querySelector('.wrapper_enemy-data')
+    );
     console.log('window.application.status', window.application.status);
   }
 
@@ -103,21 +141,19 @@ function setPlay(result) {
   }
 
   if (result.message) {
-
     const messageError = result.message;
-    
-    console.log('message setPlay',messageError)
+    console.log('message setPlay', messageError);
     const container = document.querySelector('.app');
 
     if (messageError === 'game not started') {
       const renderTypeScreen = 'renderAuthorizationGameNotStartScreen';
       const errorText = 'Game not start!!!';
 
-      renderModal(renderTypeScreen, errorText,container);
+      renderModal(renderTypeScreen, errorText, container);
     }
 
     if (messageError === 'game finished') {
-      const renderTypeScreen = 'renderAuthorizationFinishedScreen'
+      const renderTypeScreen = 'renderAuthorizationFinishedScreen';
       const errorText = 'SoRRy, GaMe  FiNiSheD!!!, tRy AgAiN!!';
 
       renderModal(renderTypeScreen, errorText, container);

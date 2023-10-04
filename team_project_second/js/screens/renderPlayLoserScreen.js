@@ -4,7 +4,7 @@ function renderPlayLoserScreen() {
 
   const title = document.createElement('h1');
   title.classList.add('header-tittle');
-  title.textContent = 'YoU LoSe:((((!!!!!!DoNt WoRrY)';
+  title.textContent = "YoU LoSe :((((!!!!!! DoN't WoRrY)";
   app.appendChild(title);
 
   const wrapperMainImage = document.createElement('div');

@@ -52,7 +52,7 @@ function renderWaitingScreen() {
         window.application.renderScreen('renderPlayScreen');
         window.application.renderBlock(
           'enemyResult',
-          document.querySelector('.wrapper_result')
+          document.querySelector('.wrapper_enemy-data')
         );
       }
     });
