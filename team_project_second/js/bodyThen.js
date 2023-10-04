@@ -10,19 +10,27 @@ const setToken = function (result) {
 
 const playerStatus = function (result) {
   const status = result['player-status'].status;
-
+  
   if (result['player-status'].status === 'game') {
     window.application.id = result['player-status'].game.id;
-    window.application.renderScreen('renderPlayScreen');
-    return;
-  }
-
+    const params = {
+      token: window.application.token,
+      id: window.application.id,
+    };
+    const getGameStatusRequest = getGameStatus(params);
+    getGameStatusRequest.then((gameStatus) => {
+      setGameStatus(gameStatus);
+   // return;
+  })
+}
   window.application.status = status;
 };
 
 function setPlayerList(data) {
   const wrapperList = document.querySelector('.wrapper__list');
-  wrapperList.innerHTML = '';
+  if (wrapperList) {
+    wrapperList.innerHTML = '';
+  }
 
   for (let i = 0; i < data.list.length; i++) {
     window.application.renderBlock(
@@ -61,12 +69,12 @@ function setGameStatus(result) {
   if (!result) {
     return;
   }
-
+  if (result['game-status'].status) {
   const statusLobby = result['game-status'].status;
   window.application.status = statusLobby;
 
   console.log('statusLobby', statusLobby);
-
+  }
   if (window.application.status === 'waiting-for-your-move') {
     console.log('window.application.status', window.application.status);
     const enemyLogin = result['game-status'].enemy.login;

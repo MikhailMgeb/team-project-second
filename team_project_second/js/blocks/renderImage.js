@@ -17,6 +17,7 @@ function renderLoserImage(container) {
 function renderWinImage(container) {
   const winImage = document.createElement('img');
   winImage.classList.add('wrapper__logo-header');
+  winImage.classList.add('wrapper__win-image');
   winImage.src = '/image/win.jpeg';
 
   container.appendChild(winImage);
