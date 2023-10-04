@@ -258,6 +258,9 @@
   .wrapper__logo-header {
     height: 20vh;
   }
+  .wrapper__win-image {
+    height: 47vh;
+  }
 }
 
 @media (min-width: 1050px) {
