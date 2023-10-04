@@ -27,6 +27,10 @@ function renderPlayScreen() {
 
   wrapperChoiceMove.classList.add('wrapper__choice-move');
 
+  const wrapperResult = document.createElement('div')
+  wrapperResult.classList.add('wrapper_result')
+  wrapperResult.textContent = 'Dates of my Enemy:'
+
   app.appendChild(wrapperChoiceMove);
 
   window.application.renderBlock(
@@ -43,6 +47,8 @@ function renderPlayScreen() {
     'playPersonageScissorsButton',
     document.querySelector('.wrapper__scissors-button')
   );
+
+  app.appendChild(wrapperResult)
 
   const footer = document.createElement('footer');
   footer.classList.add('wrapper__footer');

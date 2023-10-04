@@ -68,7 +68,21 @@ function setGameStatus(result) {
   console.log('statusLobby', statusLobby);
 
   if (window.application.status === 'waiting-for-your-move') {
+    console.log('window.application.status', window.application.status);
+    const enemyLogin = result['game-status'].enemy.login;
+    window.application.enemyLogin = enemyLogin
+    const enemyRocks = result['game-status'].enemy.rocks;
+    window.application.enemyRocks = enemyRocks
+    const enemyPapers = result['game-status'].enemy.papers;
+    window.application.enemyPapers = enemyPapers
+    const enemyScissors = result['game-status'].enemy.scissors;
+    window.application.enemyScissors = enemyScissors
+    
     window.application.renderScreen('renderPlayScreen');
+        window.application.renderBlock(
+          'enemyResult',
+          document.querySelector('.wrapper_result')
+        );
     console.log('window.application.status', window.application.status);
   }
 

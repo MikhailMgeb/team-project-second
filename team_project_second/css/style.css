@@ -321,3 +321,31 @@
   justify-content: center;
   align-items: center;
 }
+
+.rock_hyst {
+  background-color: #d3d3d3c4;
+  padding: 5px;
+  border-radius: 16px;
+  width: 80px;
+  font-size: 16px;
+}
+.paper_hyst {
+  background-color: #ffff0094;
+    width: 80px;
+    padding: 5px;
+    border-radius: 16px;
+    font-size: 16px;
+
+}
+.scissors_hyst {
+  background-color: #40e0d066;
+  width: 80px;
+  padding: 5px;
+  border-radius: 16px;
+  font-size: 16px;
+}
+.title_hyst {
+  color: rebeccapurple;
+  text-decoration: underline;
+  font-size: 22px;
+}

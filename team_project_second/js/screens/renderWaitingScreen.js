@@ -50,6 +50,10 @@ function renderWaitingScreen() {
 
       if (window.application.status !== 'waiting-for-start') {
         window.application.renderScreen('renderPlayScreen');
+        window.application.renderBlock(
+          'enemyResult',
+          document.querySelector('.wrapper_result')
+        );
       }
     });
   }, 500);

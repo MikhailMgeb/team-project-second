@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     timers: [],
 
+    enemyLogin: '',
+
+    enemyRocks: '',
+
+    enemyPapers: '',
+
+    enemyScissors: '',
+
     renderScreen: function (screenName) {
       if (!this.screens[screenName]) {
         console.log(`There is no screen "${screenName}"`);
@@ -47,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.application.blocks['returnLobbyButton'] = renderReturnLobbyButton;
   window.application.blocks['winImage'] = renderWinImage;
   window.application.blocks['modalServer'] = renderModal;
+  window.application.blocks['enemyResult'] = enemyResult;
 
   window.application.screens['authorizationScreen'] = renderAuthorizationScreen;
   window.application.screens['renderLobbyScreen'] = renderLobbyScreen;
