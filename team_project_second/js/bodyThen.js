@@ -51,11 +51,12 @@ function setStart(result) {
     const messageError = result.message;
 
     if (messageError === 'player is already in game') {
-      const renderTypeScreen = 'authorizationScreen';
-      const errorText = 'SoRRy, PlaYer iS aLrEaDy iN gAmE!!';
-      const container = document.querySelector('.app');
+      //const renderTypeScreen = 'authorizationScreen';
+     // const errorText = 'SoRRy, PlaYer iS aLrEaDy iN gAmE!!';
+      //const container = document.querySelector('.app');
 
-      renderModal(renderTypeScreen, errorText, container);
+      //renderModal(renderTypeScreen, errorText, container);
+      window.application.renderScreen('renderAuthorizationFinishedScreen');
     }
   }
   const gameId = result['player-status'].game.id;
@@ -103,6 +104,9 @@ function setGameStatus(result) {
     window.application.renderScreen('renderPlayWinScreen');
     console.log('window.application.status', window.application.status);
   }
+  if(window.application.status === 'waiting-for-enemy-move'){
+    window.application.renderScreen('renderWaitingMoveScreen')
+  }
 }
 
 function setPlay(result) {
@@ -118,17 +122,19 @@ function setPlay(result) {
     const container = document.querySelector('.app');
 
     if (messageError === 'game not started') {
-      const renderTypeScreen = 'renderAuthorizationGameNotStartScreen';
-      const errorText = 'Game not start!!!';
+     // const renderTypeScreen = 'renderAuthorizationGameNotStartScreen';
+      //const errorText = 'Game not start!!!';
 
-      renderModal(renderTypeScreen, errorText,container);
+      //renderModal(renderTypeScreen, errorText,container);
+      window.application.renderScreen('renderAuthorizationGameNotStartScreen');
     }
 
     if (messageError === 'game finished') {
-      const renderTypeScreen = 'renderAuthorizationFinishedScreen'
-      const errorText = 'SoRRy, GaMe  FiNiSheD!!!, tRy AgAiN!!';
+      //const renderTypeScreen = 'renderAuthorizationFinishedScreen'
+      //const errorText = 'SoRRy, GaMe  FiNiSheD!!!, tRy AgAiN!!';
 
-      renderModal(renderTypeScreen, errorText, container);
+     // renderModal(renderTypeScreen, errorText, container);
+     window.application.renderScreen('renderAuthorizationFinishedScreen');
     }
   } else {
     const statusLobby = result['game-status'].status;
