@@ -57,6 +57,10 @@ function renderMainButton(container) {
       if (window.application.status === 'lobby') {
         window.application.renderScreen('renderLobbyScreen');
       }
+      if (window.application.status === 'waiting-for-start') {
+        window.application.renderScreen('renderWaitingScreen');
+      }
+
     }, 1000);
   });
 }
