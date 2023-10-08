@@ -2,11 +2,7 @@ function renderPlayScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  const title = document.createElement('h1');
-  title.classList.add('header-tittle');
-  title.textContent = "LeT's gO PlAy!!!!!!";
-
-  app.appendChild(title);
+  app.appendChild(renderHeader("LeT's gO PlAy!!!!!!"));
 
   const wrapperChoiceMove = document.createElement('div');
 
@@ -31,8 +27,6 @@ function renderPlayScreen() {
   wrapperResult.classList.add('wrapper_enemy-data')
   wrapperResult.textContent = "You are playing against" 
 
-
-
   app.appendChild(wrapperChoiceMove);
 
   window.application.renderBlock(
@@ -53,11 +47,11 @@ function renderPlayScreen() {
   app.appendChild(wrapperResult)
 
   const footer = document.createElement('footer');
-  footer.classList.add('wrapper__footer');
+  footer.classList.add('footer');
   app.appendChild(footer);
 
   window.application.renderBlock(
     'renderFooterLogo',
-    document.querySelector('.wrapper__footer')
+    document.querySelector('.footer')
   );
 }
