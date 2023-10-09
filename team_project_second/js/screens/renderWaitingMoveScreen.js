@@ -2,10 +2,7 @@ function renderWaitingMoveScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  const title = document.createElement('h1');
-  title.classList.add('header-tittle');
-  title.textContent = 'WaItInG for EnEmY MoVe  - Rock Paper Scissors!!!!!!';
-  app.appendChild(title);
+  app.appendChild(renderHeader('WaItInG for EnEmY MoVe  - Rock Paper Scissors!!!!!!'));
 
   window.application.renderBlock('mainImage', document.querySelector('.app'));
 
@@ -30,12 +27,12 @@ function renderWaitingMoveScreen() {
   faceTwo.appendChild(circleTwo);
 
   const wrapperFooterImage = document.createElement('footer');
-  wrapperFooterImage.classList.add('wrapper__footer');
+  wrapperFooterImage.classList.add('footer');
   app.appendChild(wrapperFooterImage);
 
   window.application.renderBlock(
     'renderFooterLogo',
-    document.querySelector('.wrapper__footer')
+    document.querySelector('.footer')
   );
 
   refreshGameStatusWait = setInterval(() => {

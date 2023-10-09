@@ -3,7 +3,7 @@ function renderMainButton(container) {
 
   const labelInputUser = document.createElement('label');
   labelInputUser.classList.add('label');
-  labelInputUser.textContent = 'Your Login.....';
+  labelInputUser.textContent = 'Your Login...';
   container.appendChild(labelInputUser);
 
   const inputUser = document.createElement('input');
@@ -75,15 +75,15 @@ function renderPlayHallButton(container) {
 
 function renderFooterLogo(container) {
   const firstWordLogo = document.createElement('span');
-  firstWordLogo.classList.add('wrapper__footer-title', 'title__gray');
+  firstWordLogo.classList.add('footer-title', 'title__gray');
   firstWordLogo.textContent = 'RoCk';
 
   const secondWordLogo = document.createElement('span');
-  secondWordLogo.classList.add('wrapper__footer-title', 'title__yellow');
+  secondWordLogo.classList.add('footer-title', 'title__yellow');
   secondWordLogo.textContent = 'PaPer';
 
   const thirdWordLogo = document.createElement('span');
-  thirdWordLogo.classList.add('wrapper__footer-title', 'title__blue');
+  thirdWordLogo.classList.add('footer-title', 'title__blue');
   thirdWordLogo.textContent = 'ScissoRs';
   container.appendChild(firstWordLogo);
   container.appendChild(secondWordLogo);

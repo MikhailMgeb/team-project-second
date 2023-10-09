@@ -2,15 +2,15 @@ function renderWaitingScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  const title = document.createElement('h1');
-  title.classList.add('header-tittle');
-  title.textContent = 'WaItInG PlAy - Rock Paper Scissors!!!!!!';
-  app.appendChild(title);
+  app.appendChild(renderHeader('WaItInG PlAy - Rock Paper Scissors!!!!!!'));
 
   const wrapperMainImage = document.createElement('div');
   wrapperMainImage.classList.add('wrapper-main-image');
 
-  window.application.renderBlock('mainImage', document.querySelector('.app'));
+  window.application.renderBlock(
+    'mainImage', 
+    document.querySelector('.app')
+  );
 
   const loader = document.createElement('div');
   loader.classList.add('loader');
@@ -33,7 +33,7 @@ function renderWaitingScreen() {
   faceTwo.appendChild(circleTwo);
 
   const wrapperFooterImage = document.createElement('footer');
-  wrapperFooterImage.classList.add('wrapper__footer');
+  wrapperFooterImage.classList.add('footer');
 
   app.appendChild(wrapperFooterImage);
 
@@ -62,6 +62,6 @@ function renderWaitingScreen() {
 
   window.application.renderBlock(
     'renderFooterLogo',
-    document.querySelector('.wrapper__footer')
+    document.querySelector('.footer')
   );
 }

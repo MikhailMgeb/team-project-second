@@ -2,12 +2,12 @@ function renderAuthorizationGameNotStartScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  const title = document.createElement('h1');
-  title.classList.add('header-tittle');
-  title.textContent = 'GaMe Not Start, TrY AgaIN LaTeR';
-  app.appendChild(title);
+  app.appendChild(renderHeader('GaMe Not Start, TrY AgaIN LaTeR'));
 
-  window.application.renderBlock('mainImage', document.querySelector('.app'));
+  window.application.renderBlock(
+    'mainImage', 
+    document.querySelector('.app')
+  );
 
   const authorizationForm = document.createElement('form');
   authorizationForm.classList.add('authorization-form');
@@ -19,12 +19,12 @@ function renderAuthorizationGameNotStartScreen() {
   );
 
   const footer = document.createElement('footer');
-  footer.classList.add('wrapper__footer');
+  footer.classList.add('footer');
   app.appendChild(footer);
 
   window.application.renderBlock(
     'renderFooterLogo',
-    document.querySelector('.wrapper__footer')
+    document.querySelector('.footer')
   );
 }
 
@@ -32,12 +32,12 @@ function renderAuthorizationFinishedScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  const title = document.createElement('h1');
-  title.classList.add('header-tittle');
-  title.textContent = 'GaMe FiNiShEd, TrY AgaIN';
-  app.appendChild(title);
+  app.appendChild(renderHeader('GaMe FiNiShEd, TrY AgaIN'));
 
-  window.application.renderBlock('mainImage', document.querySelector('.app'));
+  window.application.renderBlock(
+    'mainImage', 
+    document.querySelector('.app')
+  );
 
   const authorizationForm = document.createElement('form');
   authorizationForm.classList.add('authorization-form');
@@ -49,11 +49,12 @@ function renderAuthorizationFinishedScreen() {
   );
 
   const footer = document.createElement('footer');
-  footer.classList.add('wrapper__footer');
+  footer.classList.add('footer');
   app.appendChild(footer);
+
   window.application.renderBlock(
     'renderFooterLogo',
-    document.querySelector('.wrapper__footer')
+    document.querySelector('.footer')
   );
 }
 
@@ -61,12 +62,12 @@ function renderAuthorizationServerErrorScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  const title = document.createElement('h1');
-  title.classList.add('header-tittle');
-  title.textContent = 'SoRRy!!!ErrOr SeRvEr!!, TrY AgaIN';
-  app.appendChild(title);
+  app.appendChild(renderHeader('SoRRy!!!ErrOr SeRvEr!!, TrY AgaIN'));
 
-  window.application.renderBlock('mainImage', document.querySelector('.app'));
+  window.application.renderBlock(
+    'mainImage', 
+    document.querySelector('.app')
+  );
 
   const authorizationForm = document.createElement('form');
   authorizationForm.classList.add('authorization-form');
@@ -78,10 +79,11 @@ function renderAuthorizationServerErrorScreen() {
   );
 
   const footer = document.createElement('footer');
-  footer.classList.add('wrapper__footer');
+  footer.classList.add('footer');
   app.appendChild(footer);
+  
   window.application.renderBlock(
     'renderFooterLogo',
-    document.querySelector('.wrapper__footer')
+    document.querySelector('.footer')
   );
 }
