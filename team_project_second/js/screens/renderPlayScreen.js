@@ -4,54 +4,42 @@ function renderPlayScreen() {
 
   app.appendChild(renderHeader("LeT's gO PlAy!!!!!!"));
 
-  const wrapperChoiceMove = document.createElement('div');
+  const wrapperChoosingAMove = document.createElement('div');
+  wrapperChoosingAMove.classList.add('wrapper-choosing-a-move');
 
-  const rockButton = document.createElement('button');
-  rockButton.classList.add('wrapper__rock-button', 'move-button');
-  rockButton.value = 'rock';
-  wrapperChoiceMove.appendChild(rockButton);
+  wrapperChoosingAMove.appendChild(renderRockButton());
 
-  const pockButton = document.createElement('button');
-  pockButton.classList.add('wrapper__pock-button', 'move-button');
-  pockButton.value = 'paper';
-  wrapperChoiceMove.appendChild(pockButton);
+  wrapperChoosingAMove.appendChild(renderPaperButton());
 
-  const scissorsButton = document.createElement('button');
-  scissorsButton.classList.add('wrapper__scissors-button', 'move-button');
-  scissorsButton.value = 'scissors';
-  wrapperChoiceMove.appendChild(scissorsButton);
+  wrapperChoosingAMove.appendChild(renderScissorsButton());
 
-  wrapperChoiceMove.classList.add('wrapper__choice-move');
+  const opponentsMoves = document.createElement('div');
+  opponentsMoves.classList.add('wrapper-opponents-moves', 'opponent-moves');
+  opponentsMoves.textContent = "You are playing against";
 
-  const wrapperResult = document.createElement('div')
-  wrapperResult.classList.add('wrapper_enemy-data')
-  wrapperResult.textContent = "You are playing against" 
-
-  app.appendChild(wrapperChoiceMove);
+  app.appendChild(wrapperChoosingAMove);
 
   window.application.renderBlock(
     'playPersonageRockButton',
-    document.querySelector('.wrapper__rock-button')
+    document.querySelector('.wrapper-choosing-a-move__rock-button')
   );
 
   window.application.renderBlock(
     'playPersonagePaperButton',
-    document.querySelector('.wrapper__pock-button')
+    document.querySelector('.wrapper-choosing-a-move__paper-button')
   );
 
   window.application.renderBlock(
     'playPersonageScissorsButton',
-    document.querySelector('.wrapper__scissors-button')
+    document.querySelector('.wrapper-choosing-a-move__scissors-button')
   );
 
-  app.appendChild(wrapperResult)
+  app.appendChild(opponentsMoves)
 
-  const footer = document.createElement('footer');
-  footer.classList.add('footer');
-  app.appendChild(footer);
+  window.application.renderBlock('footer', app);
 
   window.application.renderBlock(
-    'renderFooterLogo',
+    'footerLogo',
     document.querySelector('.footer')
   );
 }
