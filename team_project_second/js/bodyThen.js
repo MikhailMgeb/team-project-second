@@ -70,12 +70,14 @@ function setGameStatus(result) {
   if (!result) {
     return;
   }
+  
   if (result['game-status'].status) {
   const statusLobby = result['game-status'].status;
   window.application.status = statusLobby;
 
   console.log('statusLobby', statusLobby);
   }
+
   if (window.application.status === 'waiting-for-your-move') {
     console.log('window.application.status', window.application.status);
     const enemyLogin = result['game-status'].enemy.login;
@@ -103,9 +105,6 @@ function setGameStatus(result) {
   if (window.application.status === 'win') {
     window.application.renderScreen('playWinScreen');
     console.log('window.application.status', window.application.status);
-  }
-  if(window.application.status === 'waiting-for-enemy-move'){
-    window.application.renderScreen('waitingMoveScreen')
   }
 }
 

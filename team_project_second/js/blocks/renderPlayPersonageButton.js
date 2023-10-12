@@ -25,9 +25,6 @@ function renderPlayPersonageRockButton(container) {
       if (window.application.status === 'win') {
         window.application.renderScreen('playWinScreen');
       }
-      if(window.application.status === 'waiting-for-enemy-move'){
-        window.application.renderScreen('waitingMoveScreen')
-      }
     }, 1000);
   });
 }
@@ -59,9 +56,6 @@ function renderPlayPersonageScissorsButton(container) {
       if (window.application.status === 'win') {
         window.application.renderScreen('playWinScreen');
       }
-      if(window.application.status === 'waiting-for-enemy-move'){
-        window.application.renderScreen('waitingMoveScreen')
-      }
     }, 1000);
   });
 }
@@ -91,9 +85,6 @@ function renderPlayPersonagePaperButton(container) {
       }
       if (window.application.status === 'win') {
         window.application.renderScreen('playWinScreen');
-      }
-      if(window.application.status === 'waiting-for-enemy-move'){
-        window.application.renderScreen('waitingMoveScreen')
       }
     }, 1000);
   });
