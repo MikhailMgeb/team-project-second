@@ -1,7 +1,7 @@
-function playerList(container, textContent) {
-  const isPlayerLobby = document.createElement('div');
-  isPlayerLobby.classList.add('wrapper__player-lobby');
-  isPlayerLobby.textContent = textContent;
+function renderPlayerList(container, textContent) {
+  const isPlayersLobby = document.createElement('div');
+  isPlayersLobby.classList.add('list-wrapper__lobby-players');
+  isPlayersLobby.textContent = textContent;
 
-  container.appendChild(isPlayerLobby);
+  container.appendChild(isPlayersLobby);
 }

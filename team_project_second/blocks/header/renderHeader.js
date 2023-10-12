@@ -1,7 +1,7 @@
 function renderHeader(text) {
-    const heder = document.createElement('h1');
-    heder.classList.add('header');
-    heder.textContent = text;
+    const header = document.createElement('h1');
+    header.classList.add('header');
+    header.textContent = text;
 
-    return heder;
+    return header;
 }

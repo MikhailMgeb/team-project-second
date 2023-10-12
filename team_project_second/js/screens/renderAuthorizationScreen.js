@@ -5,25 +5,21 @@ function renderAuthorizationScreen() {
   app.appendChild(renderHeader('Rock Paper Scissors!!!!!!'));
 
   window.application.renderBlock(
-    'mainImage', 
+    'headerLogoImage', 
     document.querySelector('.app')
   );
 
-  const authorizationForm = document.createElement('form');
-  authorizationForm.classList.add('authorization-form');
-  app.appendChild(authorizationForm);
+  window.application.renderBlock('authorization-form', app);
 
   window.application.renderBlock(
-    'mainButton', 
+    'authorizationPage', 
     document.querySelector('.authorization-form')
   );
 
-  const footer = document.createElement('footer');
-  footer.classList.add('footer');
-  app.appendChild(footer);
+  window.application.renderBlock('footer', app);
 
   window.application.renderBlock(
-    'renderFooterLogo',
+    'footerLogo',
     document.querySelector('.footer')
   );
 }

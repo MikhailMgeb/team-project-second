@@ -1,7 +1,7 @@
-.wrapper__player-lobby:nth-child(n) {
+.list-wrapper__lobby-players:nth-child(n) {
   animation: vibrate-1 1.5s ease-out infinite both;
 }
-.wrapper__player-lobby:nth-child(2n) {
+.list-wrapper__lobby-players:nth-child(2n) {
   animation: vibrate-1 1.5s ease-in infinite both alternate-reverse;
 }
 
@@ -58,7 +58,7 @@
   }
 }
 
-.personage-button:hover {
+.move-button__personage:hover {
   animation: rotate-scale-up 0.65s linear both;
 }
 @keyframes rotate-scale-up {
@@ -76,7 +76,7 @@
   }
 }
 
-.loaders {
+.button__mini-loader {
   margin-left: 10px;
   width: 20px;
   height: 20px;
@@ -88,7 +88,7 @@
   animation: pulse 1s linear infinite;
 }
 
-.loaders:after {
+.button__mini-loader:after {
   content: '';
   position: absolute;
   width: 20px;

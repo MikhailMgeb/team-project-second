@@ -1,8 +1,8 @@
 const origin = 'https://skypro-rock-scissors-paper.herokuapp.com';
 
 function catchError() {
-  renderModal(
-    'renderAuthorizationServerErrorScreen',
+  renderModalWindow(
+    'authorizationServerErrorScreen',
     'Sorry, Server ErroR',
     document.querySelector('.app')
   );

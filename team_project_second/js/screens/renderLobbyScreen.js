@@ -4,13 +4,11 @@ function renderLobbyScreen() {
 
   app.appendChild(renderHeader('LOBBY - Rock Paper Scissors!!!!!!'));
 
-  const wrapperMainImage = document.createElement('div');
-  wrapperMainImage.classList.add('wrapper__main-image');
-  app.appendChild(wrapperMainImage);
+  app.appendChild(renderHeaderLogo());
 
   window.application.renderBlock(
-    'mainImage',
-    document.querySelector('.wrapper__main-image')
+    'headerLogoImage',
+    document.querySelector('.header-logo')
   );
 
   window.application.renderBlock(
@@ -18,16 +16,14 @@ function renderLobbyScreen() {
     document.querySelector('.app')
   );
 
-  const wrapperList = document.createElement('div');
-  wrapperList.classList.add('wrapper__list');
-  app.appendChild(wrapperList);
+  const ListWrapper = document.createElement('div');
+  ListWrapper.classList.add('list-wrapper');
+  app.appendChild(ListWrapper);
 
-  const wrapperFooter = document.createElement('footer');
-  wrapperFooter.classList.add('footer');
-  app.appendChild(wrapperFooter);
+  window.application.renderBlock('footer', app);
 
   const blockListPlayer = document.createElement('div');
-  blockListPlayer.classList.add('blockListPlayer');
+  blockListPlayer.classList.add('block-list-player');
 
   refreshPlayerList = setInterval(() => {
     const params = {
@@ -36,16 +32,16 @@ function renderLobbyScreen() {
 
     const getPlayerListRequest = getPlayerList(params);
 
-    getPlayerListRequest.then((playerList) => {
-      // console.log('playerList', playerList);
-      setPlayerList(playerList);
+    getPlayerListRequest.then((renderPlayerList) => {
+      // console.log('renderPlayerList', renderPlayerList);
+      setPlayerList(renderPlayerList);
     });
   }, 1000);
 
   window.application.timers.push(refreshPlayerList);
 
   window.application.renderBlock(
-    'renderFooterLogo',
+    'footerLogo',
     document.querySelector('.footer')
   );
 }

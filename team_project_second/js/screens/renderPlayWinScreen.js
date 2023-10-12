@@ -2,25 +2,17 @@ function renderPlayWinScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  app.appendChild(renderHeader('YoU WiN :))))))'));
+  app.appendChild(renderHeader('YoU WiN! :))))))'));
 
-  const wrapperMainImage = document.createElement('div');
-  wrapperMainImage.classList.add('wrapper__main-image');
+  app.appendChild(renderHeaderLogo());
 
-  app.appendChild(wrapperMainImage);
+  app.appendChild(renderWrapperButtons());
 
-  const wrapperButtons = document.createElement('div');
-  wrapperButtons.classList.add('wrapper-buttons');
-  app.appendChild(wrapperButtons);
-
-  const wrapperFooter = document.createElement('footer');
-  wrapperFooter.classList.add('footer');
-
-  app.appendChild(wrapperFooter);
+  window.application.renderBlock('footer', app);
 
   window.application.renderBlock(
     'winImage',
-    document.querySelector('.wrapper__main-image')
+    document.querySelector('.header-logo')
   );
 
   window.application.renderBlock(
@@ -34,7 +26,7 @@ function renderPlayWinScreen() {
   );
 
   window.application.renderBlock(
-    'renderFooterLogo',
+    'footerLogo',
     document.querySelector('.footer')
   );
 }

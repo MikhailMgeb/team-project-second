@@ -2,9 +2,9 @@ function renderWaitingMoveScreen() {
   const app = document.querySelector('.app');
   app.innerHTML = '';
 
-  app.appendChild(renderHeader('WaItInG for EnEmY MoVe  - Rock Paper Scissors!!!!!!'));
+  app.appendChild(renderHeader('WaItInG for EnEmY MoVe - Rock Paper Scissors!!!!!!'));
 
-  window.application.renderBlock('mainImage', document.querySelector('.app'));
+  window.application.renderBlock('headerLogoImage', document.querySelector('.app'));
 
   const loader = document.createElement('div');
   loader.classList.add('loader');
@@ -26,12 +26,10 @@ function renderWaitingMoveScreen() {
   circleTwo.classList.add('circle');
   faceTwo.appendChild(circleTwo);
 
-  const wrapperFooterImage = document.createElement('footer');
-  wrapperFooterImage.classList.add('footer');
-  app.appendChild(wrapperFooterImage);
+  window.application.renderBlock('footer', app);
 
   window.application.renderBlock(
-    'renderFooterLogo',
+    'footerLogo',
     document.querySelector('.footer')
   );
 

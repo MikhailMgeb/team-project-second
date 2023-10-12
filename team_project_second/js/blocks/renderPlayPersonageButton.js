@@ -1,12 +1,12 @@
 function renderPlayPersonageRockButton(container) {
-  const playPersonageRockButton = document.createElement('img');
+  const personageRock = document.createElement('img');
 
-  playPersonageRockButton.classList.add('personage-button');
-  playPersonageRockButton.src = '/image/rock.jpeg';
+  personageRock.classList.add('move-button__personage');
+  personageRock.src = '/image/rock.jpeg';
 
-  container.appendChild(playPersonageRockButton);
+  container.appendChild(personageRock);
 
-  playPersonageRockButton.addEventListener('click', () => {
+  personageRock.addEventListener('click', () => {
     const params = {
       token: window.application.token,
       id: window.application.id,
@@ -17,30 +17,30 @@ function renderPlayPersonageRockButton(container) {
 
     setTimeout(() => {
       if (window.application.status === 'waiting-for-enemy-move') {
-        window.application.renderScreen('renderWaitingMoveScreen');
+        window.application.renderScreen('waitingMoveScreen');
       }
       if (window.application.status === 'lose') {
-        window.application.renderScreen('renderPlayLoserScreen');
+        window.application.renderScreen('playLoserScreen');
       }
       if (window.application.status === 'win') {
-        window.application.renderScreen('renderPlayWinScreen');
+        window.application.renderScreen('playWinScreen');
       }
       if(window.application.status === 'waiting-for-enemy-move'){
-        window.application.renderScreen('renderWaitingMoveScreen')
+        window.application.renderScreen('waitingMoveScreen')
       }
     }, 1000);
   });
 }
 
 function renderPlayPersonageScissorsButton(container) {
-  const playPersonageScissorsButton = document.createElement('img');
+  const personageScissors = document.createElement('img');
 
-  playPersonageScissorsButton.classList.add('personage-button');
-  playPersonageScissorsButton.src = '/image/scissors.jpeg';
+  personageScissors.classList.add('move-button__personage');
+  personageScissors.src = '/image/scissors.jpeg';
 
-  container.appendChild(playPersonageScissorsButton);
+  container.appendChild(personageScissors);
 
-  playPersonageScissorsButton.addEventListener('click', () => {
+  personageScissors.addEventListener('click', () => {
     const params = {
       token: window.application.token,
       id: window.application.id,
@@ -51,30 +51,30 @@ function renderPlayPersonageScissorsButton(container) {
 
     setTimeout(() => {
       if (window.application.status === 'waiting-for-enemy-move') {
-        window.application.renderScreen('renderWaitingMoveScreen');
+        window.application.renderScreen('waitingMoveScreen');
       }
       if (window.application.status === 'lose') {
-        window.application.renderScreen('renderPlayLoserScreen');
+        window.application.renderScreen('playLoserScreen');
       }
       if (window.application.status === 'win') {
-        window.application.renderScreen('renderPlayWinScreen');
+        window.application.renderScreen('playWinScreen');
       }
       if(window.application.status === 'waiting-for-enemy-move'){
-        window.application.renderScreen('renderWaitingMoveScreen')
+        window.application.renderScreen('waitingMoveScreen')
       }
     }, 1000);
   });
 }
 
 function renderPlayPersonagePaperButton(container) {
-  const playPersonagePaperButton = document.createElement('img');
+  const personagePaper = document.createElement('img');
 
-  playPersonagePaperButton.classList.add('personage-button');
-  playPersonagePaperButton.src = '/image/paper.jpeg';
+  personagePaper.classList.add('move-button__personage');
+  personagePaper.src = '/image/paper.jpeg';
 
-  container.appendChild(playPersonagePaperButton);
+  container.appendChild(personagePaper);
 
-  playPersonagePaperButton.addEventListener('click', () => {
+  personagePaper.addEventListener('click', () => {
     const params = {
       token: window.application.token,
       id: window.application.id,
@@ -84,16 +84,16 @@ function renderPlayPersonagePaperButton(container) {
     getPlayRequest.then((play) => setPlay(play));
     setTimeout(() => {
       if (window.application.status === 'waiting-for-enemy-move') {
-        window.application.renderScreen('renderWaitingMoveScreen');
+        window.application.renderScreen('waitingMoveScreen');
       }
       if (window.application.status === 'lose') {
-        window.application.renderScreen('renderPlayLoserScreen');
+        window.application.renderScreen('playLoserScreen');
       }
       if (window.application.status === 'win') {
-        window.application.renderScreen('renderPlayWinScreen');
+        window.application.renderScreen('playWinScreen');
       }
       if(window.application.status === 'waiting-for-enemy-move'){
-        window.application.renderScreen('renderWaitingMoveScreen')
+        window.application.renderScreen('waitingMoveScreen')
       }
     }, 1000);
   });

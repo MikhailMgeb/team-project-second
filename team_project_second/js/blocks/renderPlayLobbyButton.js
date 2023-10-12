@@ -1,15 +1,15 @@
-const loader = document.createElement('span');
-loader.classList.add('hidden');
-loader.classList.add('loaders');
+const buttonMiniLoader = document.createElement('span');
+buttonMiniLoader.classList.add('button__mini-loader_hidden');
+buttonMiniLoader.classList.add('button__mini-loader');
 
 function renderPlayLobbyButton(container) {
   const playLobbyButton = document.createElement('button');
   playLobbyButton.textContent = 'Go Play!!!';
-  playLobbyButton.classList.add('wrapper__main-button', 'button');
+  playLobbyButton.classList.add('play-hall-button', 'button');
 
   playLobbyButton.addEventListener('click', () => {
     playLobbyButton.disabled = true;
-    loader.classList.remove('hidden');
+    buttonMiniLoader.classList.remove('button__mini-loader_hidden');
 
     const params = {
       token: window.application.token,
@@ -20,10 +20,10 @@ function renderPlayLobbyButton(container) {
       .then((game) => setStart(game))
       .finally(() => {
         playLobbyButton.disabled = false;
-        loader.classList.add('hidden');
+        buttonMiniLoader.classList.add('button__mini-loader_hidden');
       });
 
-    window.application.renderScreen('renderWaitingScreen');
+    window.application.renderScreen('waitingScreen');
   });
   container.appendChild(playLobbyButton);
 }

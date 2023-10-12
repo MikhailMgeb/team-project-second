@@ -27,15 +27,15 @@ const playerStatus = function (result) {
 };
 
 function setPlayerList(data) {
-  const wrapperList = document.querySelector('.wrapper__list');
-  if (wrapperList) {
-    wrapperList.innerHTML = '';
+  const ListWrapper = document.querySelector('.list-wrapper');
+  if (ListWrapper) {
+    ListWrapper.innerHTML = '';
   }
 
   for (let i = 0; i < data.list.length; i++) {
     window.application.renderBlock(
-      'player-list',
-      document.querySelector('.wrapper__list'),
+      'playerList',
+      document.querySelector('.list-wrapper'),
       'login: ' +
         data.list[i].login +
         '; wins: ' +
@@ -51,12 +51,12 @@ function setStart(result) {
     const messageError = result.message;
 
     if (messageError === 'player is already in game') {
-      //const renderTypeScreen = 'authorizationScreen';
-     // const errorText = 'SoRRy, PlaYer iS aLrEaDy iN gAmE!!';
-      //const container = document.querySelector('.app');
+    //   const renderTypeScreen = 'authorizationScreen';
+    //  const errorText = 'SoRRy, PlaYer iS aLrEaDy iN gAmE!!!';
+    //   const container = document.querySelector('.app');
 
-      //renderModal(renderTypeScreen, errorText, container);
-      window.application.renderScreen('renderAuthorizationFinishedScreen');
+    //   renderModalWindow(renderTypeScreen, errorText, container);
+      window.application.renderScreen('authorizationFinishedScreen');
     }
   }
   const gameId = result['player-status'].game.id;
@@ -87,25 +87,25 @@ function setGameStatus(result) {
     const enemyScissors = result['game-status'].enemy.scissors;
     window.application.enemyScissors = enemyScissors
     
-    window.application.renderScreen('renderPlayScreen');
+    window.application.renderScreen('playScreen');
         window.application.renderBlock(
-          'enemyResult',
-          document.querySelector('.wrapper_enemy-data')
+          'enemyMoves',
+          document.querySelector('.wrapper-opponents-moves')
         );
     console.log('window.application.status', window.application.status);
   }
 
   if (window.application.status === 'lose') {
-    window.application.renderScreen('renderPlayLoserScreen');
+    window.application.renderScreen('playLoserScreen');
     console.log('window.application.status', window.application.status);
   }
 
   if (window.application.status === 'win') {
-    window.application.renderScreen('renderPlayWinScreen');
+    window.application.renderScreen('playWinScreen');
     console.log('window.application.status', window.application.status);
   }
   if(window.application.status === 'waiting-for-enemy-move'){
-    window.application.renderScreen('renderWaitingMoveScreen')
+    window.application.renderScreen('waitingMoveScreen')
   }
 }
 
@@ -122,19 +122,19 @@ function setPlay(result) {
     const container = document.querySelector('.app');
 
     if (messageError === 'game not started') {
-     // const renderTypeScreen = 'renderAuthorizationGameNotStartScreen';
+     // const renderTypeScreen = 'authorizationGameNotStartScreen';
       //const errorText = 'Game not start!!!';
 
-      //renderModal(renderTypeScreen, errorText,container);
-      window.application.renderScreen('renderAuthorizationGameNotStartScreen');
+      //renderModalWindow(renderTypeScreen, errorText,container);
+      window.application.renderScreen('authorizationGameNotStartScreen');
     }
 
     if (messageError === 'game finished') {
-      //const renderTypeScreen = 'renderAuthorizationFinishedScreen'
-      //const errorText = 'SoRRy, GaMe  FiNiSheD!!!, tRy AgAiN!!';
+      //const renderTypeScreen = 'authorizationFinishedScreen'
+      //const errorText = 'SoRRy, GaMe  FiNiSheD!!!, tRy AgAiN!!!';
 
-     // renderModal(renderTypeScreen, errorText, container);
-     window.application.renderScreen('renderAuthorizationFinishedScreen');
+     // renderModalWindow(renderTypeScreen, errorText, container);
+     window.application.renderScreen('authorizationFinishedScreen');
     }
   } else {
     const statusLobby = result['game-status'].status;

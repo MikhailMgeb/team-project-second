@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   };
 
-  window.application.blocks['mainButton'] = renderMainButton;
+  window.application.blocks['authorizationPage'] = renderAuthorizationPage;
   window.application.blocks['playLobbyButton'] = renderPlayLobbyButton;
-  window.application.blocks['player-list'] = playerList;
+  window.application.blocks['playerList'] = renderPlayerList;
   window.application.blocks['playHallButton'] = renderPlayHallButton;
   window.application.blocks['playPersonageRockButton'] =
     renderPlayPersonageRockButton;
@@ -48,30 +48,31 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPlayPersonageScissorsButton;
   window.application.blocks['playPersonagePaperButton'] =
     renderPlayPersonagePaperButton;
-  window.application.blocks['renderFooterLogo'] = renderFooterLogo;
-  window.application.blocks['mainImage'] = renderMainImage;
+  window.application.blocks['footerLogo'] = renderFooterLogo;
+  window.application.blocks['headerLogoImage'] = renderHeaderLogoImage;
   window.application.blocks['loserImage'] = renderLoserImage;
   window.application.blocks['continueButton'] = renderContinueButton;
   window.application.blocks['returnLobbyButton'] = renderReturnLobbyButton;
   window.application.blocks['winImage'] = renderWinImage;
-  window.application.blocks['modalServer'] = renderModal;
-  window.application.blocks['enemyResult'] = enemyResult;
+  window.application.blocks['modalWindow'] = renderModalWindow;
+  window.application.blocks['enemyMoves'] = renderEnemyMoves;
 
   window.application.screens['authorizationScreen'] = renderAuthorizationScreen;
-  window.application.screens['renderLobbyScreen'] = renderLobbyScreen;
-  window.application.screens['renderPlayScreen'] = renderPlayScreen;
-  window.application.screens['renderPlayLoserScreen'] = renderPlayLoserScreen;
-  window.application.screens['renderPlayWinScreen'] = renderPlayWinScreen;
-  window.application.screens['renderWaitingScreen'] = renderWaitingScreen;
-  window.application.screens['renderWaitingMoveScreen'] =
+  window.application.screens['lobbyScreen'] = renderLobbyScreen;
+  window.application.screens['playScreen'] = renderPlayScreen;
+  window.application.screens['playLoserScreen'] = renderPlayLoserScreen;
+  window.application.screens['playWinScreen'] = renderPlayWinScreen;
+  window.application.screens['waitingScreen'] = renderWaitingScreen;
+  window.application.screens['waitingMoveScreen'] =
     renderWaitingMoveScreen;
-  window.application.screens['renderAuthorizationFinishedScreen'] =
+  window.application.screens['authorizationFinishedScreen'] =
     renderAuthorizationFinishedScreen;
-  window.application.screens['renderAuthorizationGameNotStartScreen'] =
+  window.application.screens['authorizationGameNotStartScreen'] =
     renderAuthorizationGameNotStartScreen;
-  window.application.screens['renderAuthorizationServerErrorScreen'] =
-    renderAuthorizationServerErrorScreen;
-
-  window.application.renderScreen('authorizationScreen');
+  window.application.screens['authorizationServerErrorScreen'] =
+  renderAuthorizationServerErrorScreen;
   
+  setTimeout(() => {
+    window.application.renderScreen('authorizationScreen');
+  }, 0);
 });

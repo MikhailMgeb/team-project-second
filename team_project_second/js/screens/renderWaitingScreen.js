@@ -4,11 +4,10 @@ function renderWaitingScreen() {
 
   app.appendChild(renderHeader('WaItInG PlAy - Rock Paper Scissors!!!!!!'));
 
-  const wrapperMainImage = document.createElement('div');
-  wrapperMainImage.classList.add('wrapper-main-image');
+  renderHeaderLogo()
 
   window.application.renderBlock(
-    'mainImage', 
+    'headerLogoImage', 
     document.querySelector('.app')
   );
 
@@ -32,10 +31,7 @@ function renderWaitingScreen() {
   circleTwo.classList.add('circle');
   faceTwo.appendChild(circleTwo);
 
-  const wrapperFooterImage = document.createElement('footer');
-  wrapperFooterImage.classList.add('footer');
-
-  app.appendChild(wrapperFooterImage);
+  window.application.renderBlock('footer', app);
 
   refreshGameStatus = setInterval(() => {
     const params = {
@@ -49,10 +45,10 @@ function renderWaitingScreen() {
       console.log('status', window.application.status);
 
       if (window.application.status !== 'waiting-for-start') {
-        window.application.renderScreen('renderPlayScreen');
+        window.application.renderScreen('playScreen');
         window.application.renderBlock(
-          'enemyResult',
-          document.querySelector('.wrapper_enemy-data')
+          'enemyMoves',
+          document.querySelector('.wrapper-opponents-moves')
         );
       }
     });
@@ -61,7 +57,7 @@ function renderWaitingScreen() {
   window.application.timers.push(refreshGameStatus);
 
   window.application.renderBlock(
-    'renderFooterLogo',
+    'footerLogo',
     document.querySelector('.footer')
   );
 }
