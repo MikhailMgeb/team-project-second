@@ -3,7 +3,6 @@ function renderEnemyMoves(container) {
     window.application.enemyRocks +
     window.application.enemyPapers +
     window.application.enemyScissors;
-  console.log(summaMove);
 
   opponentName = document.createElement('p');
   opponentName.classList.add('opponent-moves__opponent-name', 'opponent-name');

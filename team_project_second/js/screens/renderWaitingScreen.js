@@ -42,7 +42,6 @@ function renderWaitingScreen() {
     const getGameStatusRequest = getGameStatus(params);
     getGameStatusRequest.then((gameStatus) => {
       setGameStatus(gameStatus);
-      console.log('status', window.application.status);
 
       if (window.application.status !== 'waiting-for-start') {
         window.application.renderScreen('playScreen');

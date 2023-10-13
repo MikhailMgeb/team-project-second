@@ -1,5 +1,4 @@
 const setToken = function (result) {
-  // console.log(result);
   let tokenUser = result.token;
   window.application.token = tokenUser;
   const params = { token: window.application.token };
@@ -65,7 +64,6 @@ function setStart(result) {
 }
 
 function setGameStatus(result) {
-  console.log('setGameStatus', result);
 
   if (!result) {
     return;
@@ -74,12 +72,9 @@ function setGameStatus(result) {
   if (result['game-status'].status) {
   const statusLobby = result['game-status'].status;
   window.application.status = statusLobby;
-
-  console.log('statusLobby', statusLobby);
   }
 
   if (window.application.status === 'waiting-for-your-move') {
-    console.log('window.application.status', window.application.status);
     const enemyLogin = result['game-status'].enemy.login;
     window.application.enemyLogin = enemyLogin
     const enemyRocks = result['game-status'].enemy.rocks;
@@ -94,17 +89,14 @@ function setGameStatus(result) {
           'enemyMoves',
           document.querySelector('.wrapper-opponents-moves')
         );
-    console.log('window.application.status', window.application.status);
   }
 
   if (window.application.status === 'lose') {
     window.application.renderScreen('playLoserScreen');
-    console.log('window.application.status', window.application.status);
   }
 
   if (window.application.status === 'win') {
     window.application.renderScreen('playWinScreen');
-    console.log('window.application.status', window.application.status);
   }
 }
 
@@ -117,22 +109,13 @@ function setPlay(result) {
 
     const messageError = result.message;
     
-    console.log('message setPlay',messageError)
     const container = document.querySelector('.app');
 
     if (messageError === 'game not started') {
-     // const renderTypeScreen = 'authorizationGameNotStartScreen';
-      //const errorText = 'Game not start!!!';
-
-      //renderModalWindow(renderTypeScreen, errorText,container);
       window.application.renderScreen('authorizationGameNotStartScreen');
     }
 
     if (messageError === 'game finished') {
-      //const renderTypeScreen = 'authorizationFinishedScreen'
-      //const errorText = 'SoRRy, GaMe  FiNiSheD!!!, tRy AgAiN!!!';
-
-     // renderModalWindow(renderTypeScreen, errorText, container);
      window.application.renderScreen('authorizationFinishedScreen');
     }
   } else {

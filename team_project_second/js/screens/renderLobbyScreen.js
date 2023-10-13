@@ -33,7 +33,6 @@ function renderLobbyScreen() {
     const getPlayerListRequest = getPlayerList(params);
 
     getPlayerListRequest.then((renderPlayerList) => {
-      console.log('renderPlayerList', renderPlayerList);
       setPlayerList(renderPlayerList);
     });
   }, 1000);

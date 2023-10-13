@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderScreen: function (screenName) {
       if (!this.screens[screenName]) {
-        console.log(`There is no screen "${screenName}"`);
         return;
       }
 
@@ -30,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderBlock: function (blockName, container, textContent) {
       if (!this.blocks[blockName]) {
-        console.log(`There is no block "${blockName}"`);
         return;
       }
 
